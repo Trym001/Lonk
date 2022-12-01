@@ -34,18 +34,14 @@ class TCPServer:
         data = self.conn.recv(msgSize).decode("utf-8")
         return data
 
-
-
-
-
 def main():
     N1 = TCPServer(ip_adress='localhost', port=9090)
     while True:
         try:
             N1.listen()
             while True:
-                client_msg = json.loads(N1.get_message())
-                print(client_msg["speed"])
+                #client_msg = json.loads(N1.get_message())
+                #print(client_msg["speed"])
                 N1.send_message(server_msg=server_messag)
 
         except Exception as e:
