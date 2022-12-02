@@ -1,0 +1,21 @@
+# ninja log v5
+1	2783	6917079504985656	tcp/CMakeFiles/tcp_client.dir/tcp_client.cpp.obj	83f1183d107f5c2e
+3280	3647	6917136168188023	bin/tcp_client.exe	4b2dc636a876b24c
+12	3076	6917077565479436	tcp/CMakeFiles/tcp_client.dir/test.cpp.obj	e60b0c3ad43ad915
+11	705	6916968997184942	tcp/CMakeFiles/tcp_client.dir/__/src/tcp_client.cpp.obj	da779ab0d44940dd
+7	3279	6917136164658015	tcp/CMakeFiles/tcp_client.dir/main.cpp.obj	e840d76ce28d2054
+2	3820	6917140713414261	build.ninja	b84f2c04020c7f0c
+1	3137	6917143186768469	tcp/CMakeFiles/tcp_client.dir/main.cpp.obj	e840d76ce28d2054
+3142	3513	6917143190378474	bin/tcp_client.exe	4b2dc636a876b24c
+6	2872	6917143628024776	tcp/CMakeFiles/tcp_client.dir/main.cpp.obj	e840d76ce28d2054
+2873	3238	6917143631544784	bin/tcp_client.exe	4b2dc636a876b24c
+7	3111	6917145264580824	tcp/CMakeFiles/tcp_client.dir/main.cpp.obj	e840d76ce28d2054
+3111	3531	6917145268630823	bin/tcp_client.exe	4b2dc636a876b24c
+7	2866	6917145444148050	tcp/CMakeFiles/tcp_client.dir/main.cpp.obj	e840d76ce28d2054
+2866	3260	6917145447938085	bin/tcp_client.exe	4b2dc636a876b24c
+7	2926	6917148157509182	tcp/CMakeFiles/tcp_client.dir/main.cpp.obj	e840d76ce28d2054
+2926	3309	6917148161199181	bin/tcp_client.exe	4b2dc636a876b24c
+6	2838	6917148343575637	tcp/CMakeFiles/tcp_client.dir/main.cpp.obj	e840d76ce28d2054
+2839	3221	6917148347265646	bin/tcp_client.exe	4b2dc636a876b24c
+16	7374	6917220927223284	tcp/CMakeFiles/tcp_client.dir/main.cpp.obj	e840d76ce28d2054
+7375	8483	6917220937905589	bin/tcp_client.exe	4b2dc636a876b24c
