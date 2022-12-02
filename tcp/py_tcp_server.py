@@ -44,8 +44,8 @@ def main():
         try:
             Send.listen()
             while True:
-                client_msg = json.loads(Send.get_message())
-                print(client_msg)
+                #client_msg = json.loads(Send.get_message())
+                #print(client_msg)
                 Send.send_message(server_msg=server_messag)
 
         except Exception as e:
