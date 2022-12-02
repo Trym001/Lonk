@@ -39,7 +39,12 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/Users/zaime/CLionProjects/Lonk/cmake-build-debug/tcp/cmake_install.cmake")
+  include("C:/Users/zaime/CLionProjects/Lonk/cmake-build-debug/main_files/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("C:/Users/zaime/CLionProjects/Lonk/cmake-build-debug/src/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)

@@ -32,7 +32,11 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(nlohmann_json)
 
-add_subdirectory(tcp)
+
+add_subdirectory(main_files)
+
+add_subdirectory(src)
+
 
 
 

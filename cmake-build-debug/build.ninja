@@ -97,72 +97,179 @@ build _deps\nlohmann_json-build\rebuild_cache: phony _deps\nlohmann_json-build\C
 # =============================================================================
 
 # =============================================================================
-# Object build statements for EXECUTABLE target tcp_client
+# Object build statements for EXECUTABLE target main
 
 
 #############################################
-# Order-only phony target for tcp_client
+# Order-only phony target for main
 
-build cmake_object_order_depends_target_tcp_client: phony || tcp\CMakeFiles\tcp_client.dir
+build cmake_object_order_depends_target_main: phony || main_files\CMakeFiles\main.dir
 
-build tcp\CMakeFiles\tcp_client.dir\main.cpp.obj: CXX_COMPILER__tcp_client_Debug C$:\Users\zaime\CLionProjects\Lonk\tcp\main.cpp || cmake_object_order_depends_target_tcp_client
+build main_files\CMakeFiles\main.dir\main.cpp.obj: CXX_COMPILER__main_Debug C$:\Users\zaime\CLionProjects\Lonk\main_files\main.cpp || cmake_object_order_depends_target_main
   DEFINES = -DBOOST_ALL_NO_LIB -DBOOST_STACKTRACE_USE_NOOP -DBOOST_STACKTRACE_USE_WINDBG -DBOOST_STACKTRACE_USE_WINDBG_CACHED -D_WIN32_WINNT=0x0601
   FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc  /Zi /Ob0 /Od /RTC1 -MDd -std:c++17
-  INCLUDES = -IC:\Users\zaime\CLionProjects\Lonk\include -IC:\Users\zaime\CLionProjects\Lonk\cmake-build-debug\_deps\nlohmann_json-src\include -external:IC:\.conan\30029c\1\include -external:IC:\Users\zaime\.conan\data\zlib\1.2.12\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include -external:IC:\Users\zaime\.conan\data\bzip2\1.0.8\_\_\package\589a23dff5fdb23a7fb851223eb766480ead0a9a\include -external:W0
-  OBJECT_DIR = tcp\CMakeFiles\tcp_client.dir
-  OBJECT_FILE_DIR = tcp\CMakeFiles\tcp_client.dir
-  TARGET_COMPILE_PDB = tcp\CMakeFiles\tcp_client.dir\
-  TARGET_PDB = bin\tcp_client.pdb
+  INCLUDES = -IC:\Users\zaime\CLionProjects\Lonk\cmake-build-debug\_deps\nlohmann_json-src\include -external:IC:\.conan\30029c\1\include -external:IC:\Users\zaime\.conan\data\zlib\1.2.12\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include -external:IC:\Users\zaime\.conan\data\bzip2\1.0.8\_\_\package\589a23dff5fdb23a7fb851223eb766480ead0a9a\include -external:W0
+  OBJECT_DIR = main_files\CMakeFiles\main.dir
+  OBJECT_FILE_DIR = main_files\CMakeFiles\main.dir
+  TARGET_COMPILE_PDB = main_files\CMakeFiles\main.dir\
+  TARGET_PDB = bin\main.pdb
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target tcp_client
+# Link build statements for EXECUTABLE target main
 
 
 #############################################
-# Link the executable bin\tcp_client.exe
+# Link the executable bin\main.exe
 
-build bin\tcp_client.exe: CXX_EXECUTABLE_LINKER__tcp_client_Debug tcp\CMakeFiles\tcp_client.dir\main.cpp.obj | C$:\.conan\30029c\1\lib\libboost_contract.lib C$:\.conan\30029c\1\lib\libboost_coroutine.lib C$:\.conan\30029c\1\lib\libboost_fiber_numa.lib C$:\.conan\30029c\1\lib\libboost_fiber.lib C$:\.conan\30029c\1\lib\libboost_context.lib C$:\.conan\30029c\1\lib\libboost_graph.lib C$:\.conan\30029c\1\lib\libboost_iostreams.lib C$:\.conan\30029c\1\lib\libboost_log_setup.lib C$:\.conan\30029c\1\lib\libboost_log.lib C$:\.conan\30029c\1\lib\libboost_locale.lib C$:\.conan\30029c\1\lib\libboost_math_c99.lib C$:\.conan\30029c\1\lib\libboost_math_c99f.lib C$:\.conan\30029c\1\lib\libboost_math_c99l.lib C$:\.conan\30029c\1\lib\libboost_math_tr1.lib C$:\.conan\30029c\1\lib\libboost_math_tr1f.lib C$:\.conan\30029c\1\lib\libboost_math_tr1l.lib C$:\.conan\30029c\1\lib\libboost_program_options.lib C$:\.conan\30029c\1\lib\libboost_random.lib C$:\.conan\30029c\1\lib\libboost_regex.lib C$:\.conan\30029c\1\lib\libboost_stacktrace_noop.lib C$:\.conan\30029c\1\lib\libboost_stacktrace_windbg.lib C$:\.conan\30029c\1\lib\libboost_stacktrace_windbg_cached.lib C$:\.conan\30029c\1\lib\libboost_timer.lib C$:\.conan\30029c\1\lib\libboost_type_erasure.lib C$:\.conan\30029c\1\lib\libboost_thread.lib C$:\.conan\30029c\1\lib\libboost_atomic.lib C$:\.conan\30029c\1\lib\libboost_chrono.lib C$:\.conan\30029c\1\lib\libboost_container.lib C$:\.conan\30029c\1\lib\libboost_date_time.lib C$:\.conan\30029c\1\lib\libboost_unit_test_framework.lib C$:\.conan\30029c\1\lib\libboost_prg_exec_monitor.lib C$:\.conan\30029c\1\lib\libboost_test_exec_monitor.lib C$:\.conan\30029c\1\lib\libboost_exception.lib C$:\.conan\30029c\1\lib\libboost_wave.lib C$:\.conan\30029c\1\lib\libboost_filesystem.lib C$:\.conan\30029c\1\lib\libboost_wserialization.lib C$:\.conan\30029c\1\lib\libboost_serialization.lib C$:\Users\zaime\.conan\data\zlib\1.2.12\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\lib\zlib.lib C$:\Users\zaime\.conan\data\bzip2\1.0.8\_\_\package\589a23dff5fdb23a7fb851223eb766480ead0a9a\lib\bz2.lib
+build bin\main.exe: CXX_EXECUTABLE_LINKER__main_Debug main_files\CMakeFiles\main.dir\main.cpp.obj | C$:\.conan\30029c\1\lib\libboost_contract.lib C$:\.conan\30029c\1\lib\libboost_coroutine.lib C$:\.conan\30029c\1\lib\libboost_fiber_numa.lib C$:\.conan\30029c\1\lib\libboost_fiber.lib C$:\.conan\30029c\1\lib\libboost_context.lib C$:\.conan\30029c\1\lib\libboost_graph.lib C$:\.conan\30029c\1\lib\libboost_iostreams.lib C$:\.conan\30029c\1\lib\libboost_log_setup.lib C$:\.conan\30029c\1\lib\libboost_log.lib C$:\.conan\30029c\1\lib\libboost_locale.lib C$:\.conan\30029c\1\lib\libboost_math_c99.lib C$:\.conan\30029c\1\lib\libboost_math_c99f.lib C$:\.conan\30029c\1\lib\libboost_math_c99l.lib C$:\.conan\30029c\1\lib\libboost_math_tr1.lib C$:\.conan\30029c\1\lib\libboost_math_tr1f.lib C$:\.conan\30029c\1\lib\libboost_math_tr1l.lib C$:\.conan\30029c\1\lib\libboost_program_options.lib C$:\.conan\30029c\1\lib\libboost_random.lib C$:\.conan\30029c\1\lib\libboost_regex.lib C$:\.conan\30029c\1\lib\libboost_stacktrace_noop.lib C$:\.conan\30029c\1\lib\libboost_stacktrace_windbg.lib C$:\.conan\30029c\1\lib\libboost_stacktrace_windbg_cached.lib C$:\.conan\30029c\1\lib\libboost_timer.lib C$:\.conan\30029c\1\lib\libboost_type_erasure.lib C$:\.conan\30029c\1\lib\libboost_thread.lib C$:\.conan\30029c\1\lib\libboost_atomic.lib C$:\.conan\30029c\1\lib\libboost_chrono.lib C$:\.conan\30029c\1\lib\libboost_container.lib C$:\.conan\30029c\1\lib\libboost_date_time.lib C$:\.conan\30029c\1\lib\libboost_unit_test_framework.lib C$:\.conan\30029c\1\lib\libboost_prg_exec_monitor.lib C$:\.conan\30029c\1\lib\libboost_test_exec_monitor.lib C$:\.conan\30029c\1\lib\libboost_exception.lib C$:\.conan\30029c\1\lib\libboost_wave.lib C$:\.conan\30029c\1\lib\libboost_filesystem.lib C$:\.conan\30029c\1\lib\libboost_wserialization.lib C$:\.conan\30029c\1\lib\libboost_serialization.lib C$:\Users\zaime\.conan\data\zlib\1.2.12\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\lib\zlib.lib C$:\Users\zaime\.conan\data\bzip2\1.0.8\_\_\package\589a23dff5fdb23a7fb851223eb766480ead0a9a\lib\bz2.lib
   FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc  /Zi /Ob0 /Od /RTC1 -MDd
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = C:\.conan\30029c\1\lib\libboost_contract.lib  C:\.conan\30029c\1\lib\libboost_coroutine.lib  C:\.conan\30029c\1\lib\libboost_fiber_numa.lib  C:\.conan\30029c\1\lib\libboost_fiber.lib  C:\.conan\30029c\1\lib\libboost_context.lib  C:\.conan\30029c\1\lib\libboost_graph.lib  C:\.conan\30029c\1\lib\libboost_iostreams.lib  C:\.conan\30029c\1\lib\libboost_log_setup.lib  C:\.conan\30029c\1\lib\libboost_log.lib  C:\.conan\30029c\1\lib\libboost_locale.lib  C:\.conan\30029c\1\lib\libboost_math_c99.lib  C:\.conan\30029c\1\lib\libboost_math_c99f.lib  C:\.conan\30029c\1\lib\libboost_math_c99l.lib  C:\.conan\30029c\1\lib\libboost_math_tr1.lib  C:\.conan\30029c\1\lib\libboost_math_tr1f.lib  C:\.conan\30029c\1\lib\libboost_math_tr1l.lib  C:\.conan\30029c\1\lib\libboost_program_options.lib  C:\.conan\30029c\1\lib\libboost_random.lib  C:\.conan\30029c\1\lib\libboost_regex.lib  C:\.conan\30029c\1\lib\libboost_stacktrace_noop.lib  C:\.conan\30029c\1\lib\libboost_stacktrace_windbg.lib  C:\.conan\30029c\1\lib\libboost_stacktrace_windbg_cached.lib  C:\.conan\30029c\1\lib\libboost_timer.lib  C:\.conan\30029c\1\lib\libboost_type_erasure.lib  C:\.conan\30029c\1\lib\libboost_thread.lib  C:\.conan\30029c\1\lib\libboost_atomic.lib  C:\.conan\30029c\1\lib\libboost_chrono.lib  C:\.conan\30029c\1\lib\libboost_container.lib  C:\.conan\30029c\1\lib\libboost_date_time.lib  C:\.conan\30029c\1\lib\libboost_unit_test_framework.lib  C:\.conan\30029c\1\lib\libboost_prg_exec_monitor.lib  C:\.conan\30029c\1\lib\libboost_test_exec_monitor.lib  C:\.conan\30029c\1\lib\libboost_exception.lib  C:\.conan\30029c\1\lib\libboost_wave.lib  C:\.conan\30029c\1\lib\libboost_filesystem.lib  C:\.conan\30029c\1\lib\libboost_wserialization.lib  C:\.conan\30029c\1\lib\libboost_serialization.lib  ole32.lib  dbgeng.lib  bcrypt.lib  C:\Users\zaime\.conan\data\zlib\1.2.12\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\lib\zlib.lib  C:\Users\zaime\.conan\data\bzip2\1.0.8\_\_\package\589a23dff5fdb23a7fb851223eb766480ead0a9a\lib\bz2.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
-  OBJECT_DIR = tcp\CMakeFiles\tcp_client.dir
+  OBJECT_DIR = main_files\CMakeFiles\main.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = tcp\CMakeFiles\tcp_client.dir\
-  TARGET_FILE = bin\tcp_client.exe
-  TARGET_IMPLIB = lib\tcp_client.lib
-  TARGET_PDB = bin\tcp_client.pdb
+  TARGET_COMPILE_PDB = main_files\CMakeFiles\main.dir\
+  TARGET_FILE = bin\main.exe
+  TARGET_IMPLIB = lib\main.lib
+  TARGET_PDB = bin\main.pdb
 
 
 #############################################
 # Utility command for edit_cache
 
-build tcp\CMakeFiles\edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\zaime\CLionProjects\Lonk\cmake-build-debug\tcp && "C:\Program Files\JetBrains\CLion 2022.2.4\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+build main_files\CMakeFiles\edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\zaime\CLionProjects\Lonk\cmake-build-debug\main_files && "C:\Program Files\JetBrains\CLion 2022.2.4\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
-build tcp\edit_cache: phony tcp\CMakeFiles\edit_cache.util
+build main_files\edit_cache: phony main_files\CMakeFiles\edit_cache.util
 
 
 #############################################
 # Utility command for rebuild_cache
 
-build tcp\CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\zaime\CLionProjects\Lonk\cmake-build-debug\tcp && "C:\Program Files\JetBrains\CLion 2022.2.4\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -SC:\Users\zaime\CLionProjects\Lonk -BC:\Users\zaime\CLionProjects\Lonk\cmake-build-debug"
+build main_files\CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\zaime\CLionProjects\Lonk\cmake-build-debug\main_files && "C:\Program Files\JetBrains\CLion 2022.2.4\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -SC:\Users\zaime\CLionProjects\Lonk -BC:\Users\zaime\CLionProjects\Lonk\cmake-build-debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
 
-build tcp\rebuild_cache: phony tcp\CMakeFiles\rebuild_cache.util
+build main_files\rebuild_cache: phony main_files\CMakeFiles\rebuild_cache.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Users/zaime/CLionProjects/Lonk/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target controller
+
+
+#############################################
+# Order-only phony target for controller
+
+build cmake_object_order_depends_target_controller: phony || src\CMakeFiles\controller.dir
+
+build src\CMakeFiles\controller.dir\controller.cpp.obj: CXX_COMPILER__controller_Debug C$:\Users\zaime\CLionProjects\Lonk\src\controller.cpp || cmake_object_order_depends_target_controller
+  DEFINES = -D_WIN32_WINNT=0x0601
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc  /Zi /Ob0 /Od /RTC1 -MDd -std:c++17
+  INCLUDES = -IC:\Users\zaime\CLionProjects\Lonk\include
+  OBJECT_DIR = src\CMakeFiles\controller.dir
+  OBJECT_FILE_DIR = src\CMakeFiles\controller.dir
+  TARGET_COMPILE_PDB = src\CMakeFiles\controller.dir\controller.pdb
+  TARGET_PDB = lib\controller.pdb
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target controller
+
+
+#############################################
+# Link the static library lib\controller.lib
+
+build lib\controller.lib: CXX_STATIC_LIBRARY_LINKER__controller_Debug src\CMakeFiles\controller.dir\controller.cpp.obj
+  LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc  /Zi /Ob0 /Od /RTC1 -MDd
+  LINK_FLAGS = /machine:x64
+  OBJECT_DIR = src\CMakeFiles\controller.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = src\CMakeFiles\controller.dir\controller.pdb
+  TARGET_FILE = lib\controller.lib
+  TARGET_PDB = lib\controller.pdb
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target system
+
+
+#############################################
+# Order-only phony target for system
+
+build cmake_object_order_depends_target_system: phony || src\CMakeFiles\system.dir
+
+build src\CMakeFiles\system.dir\system_timer.cpp.obj: CXX_COMPILER__system_Debug C$:\Users\zaime\CLionProjects\Lonk\src\system_timer.cpp || cmake_object_order_depends_target_system
+  DEFINES = -D_WIN32_WINNT=0x0601
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc  /Zi /Ob0 /Od /RTC1 -MDd -std:c++17
+  OBJECT_DIR = src\CMakeFiles\system.dir
+  OBJECT_FILE_DIR = src\CMakeFiles\system.dir
+  TARGET_COMPILE_PDB = src\CMakeFiles\system.dir\system.pdb
+  TARGET_PDB = lib\system.pdb
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target system
+
+
+#############################################
+# Link the static library lib\system.lib
+
+build lib\system.lib: CXX_STATIC_LIBRARY_LINKER__system_Debug src\CMakeFiles\system.dir\system_timer.cpp.obj
+  LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc  /Zi /Ob0 /Od /RTC1 -MDd
+  LINK_FLAGS = /machine:x64
+  OBJECT_DIR = src\CMakeFiles\system.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = src\CMakeFiles\system.dir\system.pdb
+  TARGET_FILE = lib\system.lib
+  TARGET_PDB = lib\system.pdb
+
+
+#############################################
+# Utility command for edit_cache
+
+build src\CMakeFiles\edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\zaime\CLionProjects\Lonk\cmake-build-debug\src && "C:\Program Files\JetBrains\CLion 2022.2.4\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build src\edit_cache: phony src\CMakeFiles\edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build src\CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\zaime\CLionProjects\Lonk\cmake-build-debug\src && "C:\Program Files\JetBrains\CLion 2022.2.4\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -SC:\Users\zaime\CLionProjects\Lonk -BC:\Users\zaime\CLionProjects\Lonk\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build src\rebuild_cache: phony src\CMakeFiles\rebuild_cache.util
 
 # =============================================================================
 # Target aliases.
 
-build tcp_client: phony bin\tcp_client.exe
+build controller: phony lib\controller.lib
 
-build tcp_client.exe: phony bin\tcp_client.exe
+build controller.lib: phony lib\controller.lib
+
+build main: phony bin\main.exe
+
+build main.exe: phony bin\main.exe
+
+build system: phony lib\system.lib
+
+build system.lib: phony lib\system.lib
 
 # =============================================================================
 # Folder targets.
@@ -172,7 +279,7 @@ build tcp_client.exe: phony bin\tcp_client.exe
 #############################################
 # Folder: C:/Users/zaime/CLionProjects/Lonk/cmake-build-debug
 
-build all: phony _deps\nlohmann_json-build\all tcp\all
+build all: phony _deps\nlohmann_json-build\all main_files\all src\all
 
 # =============================================================================
 
@@ -184,9 +291,16 @@ build _deps\nlohmann_json-build\all: phony
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/zaime/CLionProjects/Lonk/cmake-build-debug/tcp
+# Folder: C:/Users/zaime/CLionProjects/Lonk/cmake-build-debug/main_files
 
-build tcp\all: phony bin\tcp_client.exe
+build main_files\all: phony bin\main.exe
+
+# =============================================================================
+
+#############################################
+# Folder: C:/Users/zaime/CLionProjects/Lonk/cmake-build-debug/src
+
+build src\all: phony lib\controller.lib lib\system.lib
 
 # =============================================================================
 # Built-in targets
@@ -195,14 +309,14 @@ build tcp\all: phony bin\tcp_client.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ..\CMakeLists.txt ..\cmake\conan.cmake ..\tcp\CMakeLists.txt C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeCInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakePackageConfigHelpers.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeParseArguments.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeRCInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\ExternalProject.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\FetchContent.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\FetchContent\CMakeLists.cmake.in C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\FindGit.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\FindPackageHandleStandardArgs.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\FindPackageMessage.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\GNUInstallDirs.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\Platform\Windows.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\Platform\WindowsPaths.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles\3.23.2\CMakeCCompiler.cmake CMakeFiles\3.23.2\CMakeCXXCompiler.cmake CMakeFiles\3.23.2\CMakeRCCompiler.cmake CMakeFiles\3.23.2\CMakeSystem.cmake _deps\nlohmann_json-src\CMakeLists.txt _deps\nlohmann_json-src\cmake\config.cmake.in _deps\nlohmann_json-src\cmake\nlohmann_jsonConfigVersion.cmake.in _deps\nlohmann_json-src\cmake\pkg-config.pc.in conanbuildinfo.cmake
+build build.ninja: RERUN_CMAKE | ..\CMakeLists.txt ..\cmake\conan.cmake ..\main_files\CMakeLists.txt ..\src\CMakeLists.txt C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeCInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakePackageConfigHelpers.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeParseArguments.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeRCInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\ExternalProject.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\FetchContent.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\FetchContent\CMakeLists.cmake.in C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\FindGit.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\FindPackageHandleStandardArgs.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\FindPackageMessage.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\GNUInstallDirs.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\Platform\Windows.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\Platform\WindowsPaths.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles\3.23.2\CMakeCCompiler.cmake CMakeFiles\3.23.2\CMakeCXXCompiler.cmake CMakeFiles\3.23.2\CMakeRCCompiler.cmake CMakeFiles\3.23.2\CMakeSystem.cmake _deps\nlohmann_json-src\CMakeLists.txt _deps\nlohmann_json-src\cmake\config.cmake.in _deps\nlohmann_json-src\cmake\nlohmann_jsonConfigVersion.cmake.in _deps\nlohmann_json-src\cmake\pkg-config.pc.in conanbuildinfo.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ..\CMakeLists.txt ..\cmake\conan.cmake ..\tcp\CMakeLists.txt C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeCInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakePackageConfigHelpers.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeParseArguments.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeRCInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\ExternalProject.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\FetchContent.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\FetchContent\CMakeLists.cmake.in C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\FindGit.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\FindPackageHandleStandardArgs.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\FindPackageMessage.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\GNUInstallDirs.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\Platform\Windows.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\Platform\WindowsPaths.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles\3.23.2\CMakeCCompiler.cmake CMakeFiles\3.23.2\CMakeCXXCompiler.cmake CMakeFiles\3.23.2\CMakeRCCompiler.cmake CMakeFiles\3.23.2\CMakeSystem.cmake _deps\nlohmann_json-src\CMakeLists.txt _deps\nlohmann_json-src\cmake\config.cmake.in _deps\nlohmann_json-src\cmake\nlohmann_jsonConfigVersion.cmake.in _deps\nlohmann_json-src\cmake\pkg-config.pc.in conanbuildinfo.cmake: phony
+build ..\CMakeLists.txt ..\cmake\conan.cmake ..\main_files\CMakeLists.txt ..\src\CMakeLists.txt C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeCInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeCXXInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeCommonLanguageInclude.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeGenericSystem.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeInitializeConfigs.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeLanguageInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakePackageConfigHelpers.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeParseArguments.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeRCInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeSystemSpecificInformation.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\CMakeSystemSpecificInitialize.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\Compiler\MSVC-C.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\Compiler\MSVC-CXX.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\ExternalProject.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\FetchContent.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\FetchContent\CMakeLists.cmake.in C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\FindGit.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\FindPackageHandleStandardArgs.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\FindPackageMessage.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\GNUInstallDirs.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\Platform\Windows-MSVC-C.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\Platform\Windows-MSVC-CXX.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\Platform\Windows-MSVC.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\Platform\Windows.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\Platform\WindowsPaths.cmake C$:\Program$ Files\JetBrains\CLion$ 2022.2.4\bin\cmake\win\share\cmake-3.23\Modules\WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles\3.23.2\CMakeCCompiler.cmake CMakeFiles\3.23.2\CMakeCXXCompiler.cmake CMakeFiles\3.23.2\CMakeRCCompiler.cmake CMakeFiles\3.23.2\CMakeSystem.cmake _deps\nlohmann_json-src\CMakeLists.txt _deps\nlohmann_json-src\cmake\config.cmake.in _deps\nlohmann_json-src\cmake\nlohmann_jsonConfigVersion.cmake.in _deps\nlohmann_json-src\cmake\pkg-config.pc.in conanbuildinfo.cmake: phony
 
 
 #############################################
