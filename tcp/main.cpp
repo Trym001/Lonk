@@ -21,7 +21,6 @@ std::string msg = client_message;
 
 //std::cout << msg << std::endl
 
-
 int main(int argc, char **argv) {
     std::string host = "localhost";
     //std::string host = "10.25.47.143";
@@ -45,16 +44,10 @@ int main(int argc, char **argv) {
             //std::cout << "Got reply from server: " << (server_msg["left"] == 12) << std::endl;
             std::cout << "Got reply from server: " << (server_msg) << std::endl;
         }
-
-
-
-
     } catch (const std::exception &e) {
         std::cerr << e.what() << std::endl;
     }
 }
-
-
 
 /*
 
