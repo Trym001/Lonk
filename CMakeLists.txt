@@ -24,9 +24,6 @@ conan_cmake_run(
         BASIC_SETUP CMAKE_TARGETS
 )
 
-add_subdirectory(tcp)
-
-
 Include(FetchContent)
 FetchContent_Declare(
         nlohmann_json
@@ -34,6 +31,8 @@ FetchContent_Declare(
         GIT_TAG v3.11.2
 )
 FetchContent_MakeAvailable(nlohmann_json)
+
+add_subdirectory(tcp)
 
 
 

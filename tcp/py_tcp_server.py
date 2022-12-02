@@ -14,14 +14,17 @@ class TCPServer:
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         print(f"Serving connections on port {server_address[1]}")
         self.sock.bind(server_address)
+        self.connected = False
 
     def listen(self):
         try:
             self.sock.listen()
             self.conn, addr = self.sock.accept()
+            self.connected = True
             print(f"Connected by {addr}")
 
         except Exception as e:
+            self.connected = False
             print(e)
 
     def send_message(self, server_msg: str):
@@ -35,18 +38,20 @@ class TCPServer:
         return data
 
 def main():
-    N1 = TCPServer(ip_adress='localhost', port=9090)
+    Send = TCPServer(ip_adress='localhost', port=9090)
+    #Get = TCPServer(ip_adress='localhost', port=9091)
     while True:
         try:
-            N1.listen()
+            Send.listen()
             while True:
-                #client_msg = json.loads(N1.get_message())
-                #print(client_msg["speed"])
-                N1.send_message(server_msg=server_messag)
+                client_msg = json.loads(Send.get_message())
+                print(client_msg)
+                Send.send_message(server_msg=server_messag)
 
         except Exception as e:
             print(e)
             #N1.listen()
+            Send.connected
 
 if __name__ == "__main__":
 

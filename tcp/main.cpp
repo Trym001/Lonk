@@ -5,7 +5,8 @@
 #include <iostream>
 #include <string>
 
-#include "network_helper.hpp"
+//#include "../include/test/network_helper.hpp"
+#include "../include/test/tcp_client.hpp"
 
 #include <nlohmann/json.hpp>
 #include <fstream>
@@ -21,6 +22,41 @@ std::string msg = client_message;
 //std::cout << msg << std::endl
 
 
+int main(int argc, char **argv) {
+    //std::string host = "localhost";
+    std::string host = "10.25.47.143";
+    std::string port = "9090";
+    std::string port_2 = "9091";
+    if (argc == 3) {
+        // assuming <hostname> <port>
+        host = argv[1];
+        port = argv[2];
+    }
+
+    try {
+        tcp_client Get(host, port);
+        //tcp_client Send(host, port_2);
+        Get.listen();
+        //Send.listen();
+        while(true){
+            //Get.send_message(msg);
+            auto msg = Get.get_message();
+            json server_msg = json::parse(msg);
+            //std::cout << "Got reply from server: " << (server_msg["left"] == 12) << std::endl;
+            std::cout << "Got reply from server: " << (server_msg) << std::endl;
+        }
+
+
+
+
+    } catch (const std::exception &e) {
+        std::cerr << e.what() << std::endl;
+    }
+}
+
+
+
+/*
 
 int main(int argc, char **argv) {
     //std::string host = "localhost";
@@ -38,6 +74,7 @@ int main(int argc, char **argv) {
 
         tcp::resolver resolver(io_service);
         auto endpoints = resolver.resolve(host, port);
+        //std::cout << (endpoints) << std::endl;
 
         tcp::socket socket(io_service);
         boost::asio::connect(socket, endpoints);
@@ -49,7 +86,7 @@ int main(int argc, char **argv) {
 
         socket.send(boost::asio::buffer(int_to_bytes(msgSize), 4));
         socket.send(boost::asio::buffer(msg));
-        */
+
 
         //lese melding
         boost::system::error_code error;
@@ -76,3 +113,5 @@ int main(int argc, char **argv) {
         std::cerr << e.what() << std::endl;
     }
 }
+*/
+
