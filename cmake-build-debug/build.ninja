@@ -219,7 +219,7 @@ build cmake_object_order_depends_target_test: phony || cmake_object_order_depend
 build main_files\CMakeFiles\test.dir\test.cpp.obj: CXX_COMPILER__test_Debug C$:\Users\zaime\CLionProjects\Lonk\main_files\test.cpp || cmake_object_order_depends_target_test
   DEFINES = -D_WIN32_WINNT=0x0601
   FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc  /Zi /Ob0 /Od /RTC1 -MDd -std:c++17
-  INCLUDES = -IC:\Users\zaime\CLionProjects\Lonk\include
+  INCLUDES = -IC:\Users\zaime\CLionProjects\Lonk\cmake-build-debug\_deps\nlohmann_json-src\include -IC:\Users\zaime\CLionProjects\Lonk\include
   OBJECT_DIR = main_files\CMakeFiles\test.dir
   OBJECT_FILE_DIR = main_files\CMakeFiles\test.dir
   TARGET_COMPILE_PDB = main_files\CMakeFiles\test.dir\

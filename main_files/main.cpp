@@ -7,6 +7,7 @@
 
 #include "tcp/tcp_client.hpp"
 #include "controller/system_timer.hpp"
+#include "other/json.hpp"
 
 
 
@@ -15,8 +16,8 @@ using json = nlohmann::json;
 
 
 json j = "{\"speed\": 6000, \"heading\": 330}"_json;
-std::string client_message = j.dump();
-std::string msg = client_message;
+std::string msg = j.dump();
+//std::string msg = client_message;
 
 //std::cout << msg << std::endl
 
@@ -24,7 +25,7 @@ int main(int argc, char **argv) {
     std::string host = "localhost";
     //std::string host = "10.25.47.143";
     std::string port = "9090";
-    std::string port_2 = "9091";
+    //std::string port_2 = "9091";
     if (argc == 3) {
         // assuming <hostname> <port>
         host = argv[1];
@@ -32,23 +33,21 @@ int main(int argc, char **argv) {
     }
     tcp_client Get(host, port);
     system_timer timer;
+    json_parsing json_struct;
 
     try {
 
 
         //tcp_client Send(host, port_2);
         Get.listen();
-
-        timer.start();
-        //Send.listen();
         while(true){
-            //Get.send_message(msg);
-            auto msg = Get.get_message();
-            json server_msg = json::parse(msg);
+            Get.send_message(msg);
+
+            //auto msg = Get.get_message();
+            //json server_msg = json::parse(msg);
             //std::cout << "Got reply from server: " << (server_msg["left"] == 12) << std::endl;
-            double t = timer.elapsedSeconds();
-            std::cout << "Got reply from server: " << (server_msg) << std::endl;
-            std::cout << "Time: " << (t) << std::endl;
+            //std::cout << "Got reply from server: " << (server_msg) << std::endl;
+            //std::cout << "Got reply from server: " << json_struct.read_json(msg)["left"] << std::endl;
         }
     } catch (const std::exception &e) {
         std::cerr << e.what() << std::endl;

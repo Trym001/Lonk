@@ -2,24 +2,24 @@
 // Created by zaime on 12/3/2022.
 //
 
-#include "controller/system_timer.hpp"
-#include "controller/controller.hpp"
+//#include "controller/system_timer.hpp"
+//#include "controller/controller.hpp"
 #include <iostream>
+#include "other/json.hpp"
+#include <string>
+#include <nlohmann/json.hpp>
+#include <fstream>
 
 int main(){
-    controller controller;
-    system_timer timer;
 
-    int a = 5;
-    int b = 3;
 
-    controller.floor_mod(a,b);
-    timer.start();
+    json_parsing mamma;
 
-    while(true){
-        double t = timer.elapsedSeconds();
-        std::cout << t << std::endl;
-    }
+    std::string write = mamma.write_json("{\"speed\": 6000, \"heading\": 330}");
+
+    json read = mamma.read_json(write);
+
+    std::cout << (read["speed"]) << std::endl;
 
     return 0;
 }

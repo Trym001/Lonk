@@ -23,6 +23,7 @@ public:
         tcp::resolver resolver(io_service);
         auto endpoints_ = resolver.resolve(host_, port_);
         boost::asio::connect(socket, endpoints_);
+        std::cout << "connected to host: " << host_ << " connected to port: " << port_ << std::endl;
     }
 
     template <typename send>
