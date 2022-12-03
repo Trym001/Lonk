@@ -2,8 +2,9 @@
 // Created by Bruker on 02.12.2022.
 //
 
-#ifndef LONK_02_CONTROLLER_HPP
-#define LONK_02_CONTROLLER_HPP
+#ifndef LONK_CONTROLLER_HPP
+#define LONK_CONTROLLER_HPP
+
 
 
 class controller {
@@ -29,4 +30,4 @@ private:
 };
 
 
-#endif //LONK_02_CONTROLLER_HPP
+#endif //LONK_CONTROLLER_HPP

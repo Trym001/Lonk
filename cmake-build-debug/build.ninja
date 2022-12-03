@@ -97,108 +97,6 @@ build _deps\nlohmann_json-build\rebuild_cache: phony _deps\nlohmann_json-build\C
 # =============================================================================
 
 # =============================================================================
-# Object build statements for EXECUTABLE target main
-
-
-#############################################
-# Order-only phony target for main
-
-build cmake_object_order_depends_target_main: phony || main_files\CMakeFiles\main.dir
-
-build main_files\CMakeFiles\main.dir\main.cpp.obj: CXX_COMPILER__main_Debug C$:\Users\zaime\CLionProjects\Lonk\main_files\main.cpp || cmake_object_order_depends_target_main
-  DEFINES = -DBOOST_ALL_NO_LIB -DBOOST_STACKTRACE_USE_NOOP -DBOOST_STACKTRACE_USE_WINDBG -DBOOST_STACKTRACE_USE_WINDBG_CACHED -D_WIN32_WINNT=0x0601
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc  /Zi /Ob0 /Od /RTC1 -MDd -std:c++17
-  INCLUDES = -IC:\Users\zaime\CLionProjects\Lonk\cmake-build-debug\_deps\nlohmann_json-src\include -external:IC:\.conan\30029c\1\include -external:IC:\Users\zaime\.conan\data\zlib\1.2.12\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include -external:IC:\Users\zaime\.conan\data\bzip2\1.0.8\_\_\package\589a23dff5fdb23a7fb851223eb766480ead0a9a\include -external:W0
-  OBJECT_DIR = main_files\CMakeFiles\main.dir
-  OBJECT_FILE_DIR = main_files\CMakeFiles\main.dir
-  TARGET_COMPILE_PDB = main_files\CMakeFiles\main.dir\
-  TARGET_PDB = bin\main.pdb
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target main
-
-
-#############################################
-# Link the executable bin\main.exe
-
-build bin\main.exe: CXX_EXECUTABLE_LINKER__main_Debug main_files\CMakeFiles\main.dir\main.cpp.obj | C$:\.conan\30029c\1\lib\libboost_contract.lib C$:\.conan\30029c\1\lib\libboost_coroutine.lib C$:\.conan\30029c\1\lib\libboost_fiber_numa.lib C$:\.conan\30029c\1\lib\libboost_fiber.lib C$:\.conan\30029c\1\lib\libboost_context.lib C$:\.conan\30029c\1\lib\libboost_graph.lib C$:\.conan\30029c\1\lib\libboost_iostreams.lib C$:\.conan\30029c\1\lib\libboost_log_setup.lib C$:\.conan\30029c\1\lib\libboost_log.lib C$:\.conan\30029c\1\lib\libboost_locale.lib C$:\.conan\30029c\1\lib\libboost_math_c99.lib C$:\.conan\30029c\1\lib\libboost_math_c99f.lib C$:\.conan\30029c\1\lib\libboost_math_c99l.lib C$:\.conan\30029c\1\lib\libboost_math_tr1.lib C$:\.conan\30029c\1\lib\libboost_math_tr1f.lib C$:\.conan\30029c\1\lib\libboost_math_tr1l.lib C$:\.conan\30029c\1\lib\libboost_program_options.lib C$:\.conan\30029c\1\lib\libboost_random.lib C$:\.conan\30029c\1\lib\libboost_regex.lib C$:\.conan\30029c\1\lib\libboost_stacktrace_noop.lib C$:\.conan\30029c\1\lib\libboost_stacktrace_windbg.lib C$:\.conan\30029c\1\lib\libboost_stacktrace_windbg_cached.lib C$:\.conan\30029c\1\lib\libboost_timer.lib C$:\.conan\30029c\1\lib\libboost_type_erasure.lib C$:\.conan\30029c\1\lib\libboost_thread.lib C$:\.conan\30029c\1\lib\libboost_atomic.lib C$:\.conan\30029c\1\lib\libboost_chrono.lib C$:\.conan\30029c\1\lib\libboost_container.lib C$:\.conan\30029c\1\lib\libboost_date_time.lib C$:\.conan\30029c\1\lib\libboost_unit_test_framework.lib C$:\.conan\30029c\1\lib\libboost_prg_exec_monitor.lib C$:\.conan\30029c\1\lib\libboost_test_exec_monitor.lib C$:\.conan\30029c\1\lib\libboost_exception.lib C$:\.conan\30029c\1\lib\libboost_wave.lib C$:\.conan\30029c\1\lib\libboost_filesystem.lib C$:\.conan\30029c\1\lib\libboost_wserialization.lib C$:\.conan\30029c\1\lib\libboost_serialization.lib C$:\Users\zaime\.conan\data\zlib\1.2.12\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\lib\zlib.lib C$:\Users\zaime\.conan\data\bzip2\1.0.8\_\_\package\589a23dff5fdb23a7fb851223eb766480ead0a9a\lib\bz2.lib
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc  /Zi /Ob0 /Od /RTC1 -MDd
-  LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
-  LINK_LIBRARIES = C:\.conan\30029c\1\lib\libboost_contract.lib  C:\.conan\30029c\1\lib\libboost_coroutine.lib  C:\.conan\30029c\1\lib\libboost_fiber_numa.lib  C:\.conan\30029c\1\lib\libboost_fiber.lib  C:\.conan\30029c\1\lib\libboost_context.lib  C:\.conan\30029c\1\lib\libboost_graph.lib  C:\.conan\30029c\1\lib\libboost_iostreams.lib  C:\.conan\30029c\1\lib\libboost_log_setup.lib  C:\.conan\30029c\1\lib\libboost_log.lib  C:\.conan\30029c\1\lib\libboost_locale.lib  C:\.conan\30029c\1\lib\libboost_math_c99.lib  C:\.conan\30029c\1\lib\libboost_math_c99f.lib  C:\.conan\30029c\1\lib\libboost_math_c99l.lib  C:\.conan\30029c\1\lib\libboost_math_tr1.lib  C:\.conan\30029c\1\lib\libboost_math_tr1f.lib  C:\.conan\30029c\1\lib\libboost_math_tr1l.lib  C:\.conan\30029c\1\lib\libboost_program_options.lib  C:\.conan\30029c\1\lib\libboost_random.lib  C:\.conan\30029c\1\lib\libboost_regex.lib  C:\.conan\30029c\1\lib\libboost_stacktrace_noop.lib  C:\.conan\30029c\1\lib\libboost_stacktrace_windbg.lib  C:\.conan\30029c\1\lib\libboost_stacktrace_windbg_cached.lib  C:\.conan\30029c\1\lib\libboost_timer.lib  C:\.conan\30029c\1\lib\libboost_type_erasure.lib  C:\.conan\30029c\1\lib\libboost_thread.lib  C:\.conan\30029c\1\lib\libboost_atomic.lib  C:\.conan\30029c\1\lib\libboost_chrono.lib  C:\.conan\30029c\1\lib\libboost_container.lib  C:\.conan\30029c\1\lib\libboost_date_time.lib  C:\.conan\30029c\1\lib\libboost_unit_test_framework.lib  C:\.conan\30029c\1\lib\libboost_prg_exec_monitor.lib  C:\.conan\30029c\1\lib\libboost_test_exec_monitor.lib  C:\.conan\30029c\1\lib\libboost_exception.lib  C:\.conan\30029c\1\lib\libboost_wave.lib  C:\.conan\30029c\1\lib\libboost_filesystem.lib  C:\.conan\30029c\1\lib\libboost_wserialization.lib  C:\.conan\30029c\1\lib\libboost_serialization.lib  ole32.lib  dbgeng.lib  bcrypt.lib  C:\Users\zaime\.conan\data\zlib\1.2.12\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\lib\zlib.lib  C:\Users\zaime\.conan\data\bzip2\1.0.8\_\_\package\589a23dff5fdb23a7fb851223eb766480ead0a9a\lib\bz2.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
-  OBJECT_DIR = main_files\CMakeFiles\main.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_COMPILE_PDB = main_files\CMakeFiles\main.dir\
-  TARGET_FILE = bin\main.exe
-  TARGET_IMPLIB = lib\main.lib
-  TARGET_PDB = bin\main.pdb
-
-
-#############################################
-# Utility command for edit_cache
-
-build main_files\CMakeFiles\edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\zaime\CLionProjects\Lonk\cmake-build-debug\main_files && "C:\Program Files\JetBrains\CLion 2022.2.4\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
-  DESC = No interactive CMake dialog available...
-  restat = 1
-
-build main_files\edit_cache: phony main_files\CMakeFiles\edit_cache.util
-
-
-#############################################
-# Utility command for rebuild_cache
-
-build main_files\CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\zaime\CLionProjects\Lonk\cmake-build-debug\main_files && "C:\Program Files\JetBrains\CLion 2022.2.4\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -SC:\Users\zaime\CLionProjects\Lonk -BC:\Users\zaime\CLionProjects\Lonk\cmake-build-debug"
-  DESC = Running CMake to regenerate build system...
-  pool = console
-  restat = 1
-
-build main_files\rebuild_cache: phony main_files\CMakeFiles\rebuild_cache.util
-
-# =============================================================================
-# Write statements declared in CMakeLists.txt:
-# C:/Users/zaime/CLionProjects/Lonk/CMakeLists.txt
-# =============================================================================
-
-# =============================================================================
-# Object build statements for STATIC_LIBRARY target controller
-
-
-#############################################
-# Order-only phony target for controller
-
-build cmake_object_order_depends_target_controller: phony || src\CMakeFiles\controller.dir
-
-build src\CMakeFiles\controller.dir\controller.cpp.obj: CXX_COMPILER__controller_Debug C$:\Users\zaime\CLionProjects\Lonk\src\controller.cpp || cmake_object_order_depends_target_controller
-  DEFINES = -D_WIN32_WINNT=0x0601
-  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc  /Zi /Ob0 /Od /RTC1 -MDd -std:c++17
-  INCLUDES = -IC:\Users\zaime\CLionProjects\Lonk\include
-  OBJECT_DIR = src\CMakeFiles\controller.dir
-  OBJECT_FILE_DIR = src\CMakeFiles\controller.dir
-  TARGET_COMPILE_PDB = src\CMakeFiles\controller.dir\controller.pdb
-  TARGET_PDB = lib\controller.pdb
-
-
-# =============================================================================
-# Link build statements for STATIC_LIBRARY target controller
-
-
-#############################################
-# Link the static library lib\controller.lib
-
-build lib\controller.lib: CXX_STATIC_LIBRARY_LINKER__controller_Debug src\CMakeFiles\controller.dir\controller.cpp.obj
-  LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc  /Zi /Ob0 /Od /RTC1 -MDd
-  LINK_FLAGS = /machine:x64
-  OBJECT_DIR = src\CMakeFiles\controller.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_COMPILE_PDB = src\CMakeFiles\controller.dir\controller.pdb
-  TARGET_FILE = lib\controller.lib
-  TARGET_PDB = lib\controller.pdb
-
-# =============================================================================
 # Object build statements for STATIC_LIBRARY target system
 
 
@@ -210,6 +108,7 @@ build cmake_object_order_depends_target_system: phony || src\CMakeFiles\system.d
 build src\CMakeFiles\system.dir\system_timer.cpp.obj: CXX_COMPILER__system_Debug C$:\Users\zaime\CLionProjects\Lonk\src\system_timer.cpp || cmake_object_order_depends_target_system
   DEFINES = -D_WIN32_WINNT=0x0601
   FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc  /Zi /Ob0 /Od /RTC1 -MDd -std:c++17
+  INCLUDES = -IC:\Users\zaime\CLionProjects\Lonk\include
   OBJECT_DIR = src\CMakeFiles\system.dir
   OBJECT_FILE_DIR = src\CMakeFiles\system.dir
   TARGET_COMPILE_PDB = src\CMakeFiles\system.dir\system.pdb
@@ -257,11 +156,111 @@ build src\CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
 build src\rebuild_cache: phony src\CMakeFiles\rebuild_cache.util
 
 # =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Users/zaime/CLionProjects/Lonk/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for EXECUTABLE target main
+
+
+#############################################
+# Order-only phony target for main
+
+build cmake_object_order_depends_target_main: phony || main_files\CMakeFiles\main.dir
+
+build main_files\CMakeFiles\main.dir\main.cpp.obj: CXX_COMPILER__main_Debug C$:\Users\zaime\CLionProjects\Lonk\main_files\main.cpp || cmake_object_order_depends_target_main
+  DEFINES = -DBOOST_ALL_NO_LIB -DBOOST_STACKTRACE_USE_NOOP -DBOOST_STACKTRACE_USE_WINDBG -DBOOST_STACKTRACE_USE_WINDBG_CACHED -D_WIN32_WINNT=0x0601
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc  /Zi /Ob0 /Od /RTC1 -MDd -std:c++17
+  INCLUDES = -IC:\Users\zaime\CLionProjects\Lonk\include -IC:\Users\zaime\CLionProjects\Lonk\cmake-build-debug\_deps\nlohmann_json-src\include -external:IC:\.conan\30029c\1\include -external:IC:\Users\zaime\.conan\data\zlib\1.2.12\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\include -external:IC:\Users\zaime\.conan\data\bzip2\1.0.8\_\_\package\589a23dff5fdb23a7fb851223eb766480ead0a9a\include -external:W0
+  OBJECT_DIR = main_files\CMakeFiles\main.dir
+  OBJECT_FILE_DIR = main_files\CMakeFiles\main.dir
+  TARGET_COMPILE_PDB = main_files\CMakeFiles\main.dir\
+  TARGET_PDB = bin\main.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target main
+
+
+#############################################
+# Link the executable bin\main.exe
+
+build bin\main.exe: CXX_EXECUTABLE_LINKER__main_Debug main_files\CMakeFiles\main.dir\main.cpp.obj | C$:\.conan\30029c\1\lib\libboost_contract.lib C$:\.conan\30029c\1\lib\libboost_coroutine.lib C$:\.conan\30029c\1\lib\libboost_fiber_numa.lib C$:\.conan\30029c\1\lib\libboost_fiber.lib C$:\.conan\30029c\1\lib\libboost_context.lib C$:\.conan\30029c\1\lib\libboost_graph.lib C$:\.conan\30029c\1\lib\libboost_iostreams.lib C$:\.conan\30029c\1\lib\libboost_log_setup.lib C$:\.conan\30029c\1\lib\libboost_log.lib C$:\.conan\30029c\1\lib\libboost_locale.lib C$:\.conan\30029c\1\lib\libboost_math_c99.lib C$:\.conan\30029c\1\lib\libboost_math_c99f.lib C$:\.conan\30029c\1\lib\libboost_math_c99l.lib C$:\.conan\30029c\1\lib\libboost_math_tr1.lib C$:\.conan\30029c\1\lib\libboost_math_tr1f.lib C$:\.conan\30029c\1\lib\libboost_math_tr1l.lib C$:\.conan\30029c\1\lib\libboost_program_options.lib C$:\.conan\30029c\1\lib\libboost_random.lib C$:\.conan\30029c\1\lib\libboost_regex.lib C$:\.conan\30029c\1\lib\libboost_stacktrace_noop.lib C$:\.conan\30029c\1\lib\libboost_stacktrace_windbg.lib C$:\.conan\30029c\1\lib\libboost_stacktrace_windbg_cached.lib C$:\.conan\30029c\1\lib\libboost_timer.lib C$:\.conan\30029c\1\lib\libboost_type_erasure.lib C$:\.conan\30029c\1\lib\libboost_thread.lib C$:\.conan\30029c\1\lib\libboost_atomic.lib C$:\.conan\30029c\1\lib\libboost_chrono.lib C$:\.conan\30029c\1\lib\libboost_container.lib C$:\.conan\30029c\1\lib\libboost_date_time.lib C$:\.conan\30029c\1\lib\libboost_unit_test_framework.lib C$:\.conan\30029c\1\lib\libboost_prg_exec_monitor.lib C$:\.conan\30029c\1\lib\libboost_test_exec_monitor.lib C$:\.conan\30029c\1\lib\libboost_exception.lib C$:\.conan\30029c\1\lib\libboost_wave.lib C$:\.conan\30029c\1\lib\libboost_filesystem.lib C$:\.conan\30029c\1\lib\libboost_wserialization.lib C$:\.conan\30029c\1\lib\libboost_serialization.lib C$:\Users\zaime\.conan\data\zlib\1.2.12\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\lib\zlib.lib C$:\Users\zaime\.conan\data\bzip2\1.0.8\_\_\package\589a23dff5fdb23a7fb851223eb766480ead0a9a\lib\bz2.lib
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc  /Zi /Ob0 /Od /RTC1 -MDd
+  LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
+  LINK_LIBRARIES = C:\.conan\30029c\1\lib\libboost_contract.lib  C:\.conan\30029c\1\lib\libboost_coroutine.lib  C:\.conan\30029c\1\lib\libboost_fiber_numa.lib  C:\.conan\30029c\1\lib\libboost_fiber.lib  C:\.conan\30029c\1\lib\libboost_context.lib  C:\.conan\30029c\1\lib\libboost_graph.lib  C:\.conan\30029c\1\lib\libboost_iostreams.lib  C:\.conan\30029c\1\lib\libboost_log_setup.lib  C:\.conan\30029c\1\lib\libboost_log.lib  C:\.conan\30029c\1\lib\libboost_locale.lib  C:\.conan\30029c\1\lib\libboost_math_c99.lib  C:\.conan\30029c\1\lib\libboost_math_c99f.lib  C:\.conan\30029c\1\lib\libboost_math_c99l.lib  C:\.conan\30029c\1\lib\libboost_math_tr1.lib  C:\.conan\30029c\1\lib\libboost_math_tr1f.lib  C:\.conan\30029c\1\lib\libboost_math_tr1l.lib  C:\.conan\30029c\1\lib\libboost_program_options.lib  C:\.conan\30029c\1\lib\libboost_random.lib  C:\.conan\30029c\1\lib\libboost_regex.lib  C:\.conan\30029c\1\lib\libboost_stacktrace_noop.lib  C:\.conan\30029c\1\lib\libboost_stacktrace_windbg.lib  C:\.conan\30029c\1\lib\libboost_stacktrace_windbg_cached.lib  C:\.conan\30029c\1\lib\libboost_timer.lib  C:\.conan\30029c\1\lib\libboost_type_erasure.lib  C:\.conan\30029c\1\lib\libboost_thread.lib  C:\.conan\30029c\1\lib\libboost_atomic.lib  C:\.conan\30029c\1\lib\libboost_chrono.lib  C:\.conan\30029c\1\lib\libboost_container.lib  C:\.conan\30029c\1\lib\libboost_date_time.lib  C:\.conan\30029c\1\lib\libboost_unit_test_framework.lib  C:\.conan\30029c\1\lib\libboost_prg_exec_monitor.lib  C:\.conan\30029c\1\lib\libboost_test_exec_monitor.lib  C:\.conan\30029c\1\lib\libboost_exception.lib  C:\.conan\30029c\1\lib\libboost_wave.lib  C:\.conan\30029c\1\lib\libboost_filesystem.lib  C:\.conan\30029c\1\lib\libboost_wserialization.lib  C:\.conan\30029c\1\lib\libboost_serialization.lib  ole32.lib  dbgeng.lib  bcrypt.lib  C:\Users\zaime\.conan\data\zlib\1.2.12\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\lib\zlib.lib  C:\Users\zaime\.conan\data\bzip2\1.0.8\_\_\package\589a23dff5fdb23a7fb851223eb766480ead0a9a\lib\bz2.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+  OBJECT_DIR = main_files\CMakeFiles\main.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = main_files\CMakeFiles\main.dir\
+  TARGET_FILE = bin\main.exe
+  TARGET_IMPLIB = lib\main.lib
+  TARGET_PDB = bin\main.pdb
+
+# =============================================================================
+# Object build statements for EXECUTABLE target test
+
+
+#############################################
+# Order-only phony target for test
+
+build cmake_object_order_depends_target_test: phony || main_files\CMakeFiles\test.dir
+
+build main_files\CMakeFiles\test.dir\test.cpp.obj: CXX_COMPILER__test_Debug C$:\Users\zaime\CLionProjects\Lonk\main_files\test.cpp || cmake_object_order_depends_target_test
+  DEFINES = -D_WIN32_WINNT=0x0601
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc  /Zi /Ob0 /Od /RTC1 -MDd -std:c++17
+  INCLUDES = -IC:\Users\zaime\CLionProjects\Lonk\include
+  OBJECT_DIR = main_files\CMakeFiles\test.dir
+  OBJECT_FILE_DIR = main_files\CMakeFiles\test.dir
+  TARGET_COMPILE_PDB = main_files\CMakeFiles\test.dir\
+  TARGET_PDB = bin\test.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test
+
+
+#############################################
+# Link the executable bin\test.exe
+
+build bin\test.exe: CXX_EXECUTABLE_LINKER__test_Debug main_files\CMakeFiles\test.dir\test.cpp.obj
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc  /Zi /Ob0 /Od /RTC1 -MDd
+  LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
+  LINK_LIBRARIES = kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+  OBJECT_DIR = main_files\CMakeFiles\test.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = main_files\CMakeFiles\test.dir\
+  TARGET_FILE = bin\test.exe
+  TARGET_IMPLIB = lib\test.lib
+  TARGET_PDB = bin\test.pdb
+
+
+#############################################
+# Utility command for edit_cache
+
+build main_files\CMakeFiles\edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\zaime\CLionProjects\Lonk\cmake-build-debug\main_files && "C:\Program Files\JetBrains\CLion 2022.2.4\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build main_files\edit_cache: phony main_files\CMakeFiles\edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build main_files\CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\zaime\CLionProjects\Lonk\cmake-build-debug\main_files && "C:\Program Files\JetBrains\CLion 2022.2.4\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -SC:\Users\zaime\CLionProjects\Lonk -BC:\Users\zaime\CLionProjects\Lonk\cmake-build-debug"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build main_files\rebuild_cache: phony main_files\CMakeFiles\rebuild_cache.util
+
+# =============================================================================
 # Target aliases.
-
-build controller: phony lib\controller.lib
-
-build controller.lib: phony lib\controller.lib
 
 build main: phony bin\main.exe
 
@@ -271,6 +270,10 @@ build system: phony lib\system.lib
 
 build system.lib: phony lib\system.lib
 
+build test: phony bin\test.exe
+
+build test.exe: phony bin\test.exe
+
 # =============================================================================
 # Folder targets.
 
@@ -279,7 +282,7 @@ build system.lib: phony lib\system.lib
 #############################################
 # Folder: C:/Users/zaime/CLionProjects/Lonk/cmake-build-debug
 
-build all: phony _deps\nlohmann_json-build\all main_files\all src\all
+build all: phony _deps\nlohmann_json-build\all src\all main_files\all
 
 # =============================================================================
 
@@ -293,14 +296,14 @@ build _deps\nlohmann_json-build\all: phony
 #############################################
 # Folder: C:/Users/zaime/CLionProjects/Lonk/cmake-build-debug/main_files
 
-build main_files\all: phony bin\main.exe
+build main_files\all: phony bin\main.exe bin\test.exe
 
 # =============================================================================
 
 #############################################
 # Folder: C:/Users/zaime/CLionProjects/Lonk/cmake-build-debug/src
 
-build src\all: phony lib\controller.lib lib\system.lib
+build src\all: phony lib\system.lib
 
 # =============================================================================
 # Built-in targets

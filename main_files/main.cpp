@@ -5,8 +5,10 @@
 #include <nlohmann/json.hpp>
 #include <fstream>
 
-#include "../include/tcp/tcp_client.hpp"
-#include "../include/controller/system_timer.hpp"
+#include "tcp/tcp_client.hpp"
+#include "controller/system_timer.hpp"
+
+
 
 using boost::asio::ip::tcp;
 using json = nlohmann::json;
@@ -29,21 +31,22 @@ int main(int argc, char **argv) {
         port = argv[2];
     }
     tcp_client Get(host, port);
-    fokkelg timer;
+    system_timer timer;
 
     try {
 
 
         //tcp_client Send(host, port_2);
         Get.listen();
-        timer.start();
+
+        //timer.start();
         //Send.listen();
         while(true){
             //Get.send_message(msg);
             auto msg = Get.get_message();
             json server_msg = json::parse(msg);
             //std::cout << "Got reply from server: " << (server_msg["left"] == 12) << std::endl;
-            //double t = fokkelg.elapsedSeconds();
+            //double t = system_timer.elapsedSeconds();
             std::cout << "Got reply from server: " << (server_msg) << std::endl;
             //std::cout << "Time: " << (t) << std::endl;
         }

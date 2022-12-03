@@ -2,16 +2,17 @@
 // Created by Bruker on 02.12.2022.
 //
 
-#ifndef LONK_02_SYSTEM_TIMER_HPP
-#define LONK_02_SYSTEM_TIMER_HPP
+#ifndef LONK_SYSTEM_TIMER_HPP
+#define LONK_SYSTEM_TIMER_HPP
 
-#include <iostream>
+//#include <iostream>
 #include <chrono>
 #include <ctime>
 #include <cmath>
 
+
 // src - https://gist.github.com/mcleary/b0bf4fa88830ff7c882d
-class fokkelg
+class system_timer
 {
 public:
     void start();
@@ -29,4 +30,4 @@ private:
 };
 
 
-#endif //LONK_02_SYSTEM_TIMER_HPP
+#endif //LONK_SYSTEM_TIMER_HPP

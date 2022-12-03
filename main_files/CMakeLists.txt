@@ -3,6 +3,11 @@ add_executable(main main.cpp)
 target_link_libraries(main PUBLIC CONAN_PKG::boost)
 target_link_libraries(main PRIVATE nlohmann_json::nlohmann_json)
 
-#target_include_directories(main PUBLIC "${CMAKE_SOURCE_DIR}/include")
+target_include_directories(main PUBLIC "${CMAKE_SOURCE_DIR}/include")
+
+add_executable(test test.cpp)
+
+target_include_directories(test PUBLIC "${CMAKE_SOURCE_DIR}/include")
+
 
 

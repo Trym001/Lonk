@@ -5,11 +5,13 @@
 #ifndef LONK_TCP_CLIENT_HPP
 #define LONK_TCP_CLIENT_HPP
 
-#include "network_helper.hpp"
+#include "tcp/network_helper.hpp"
 
 #include <boost/asio.hpp>
 #include <string>
 #include <fstream>
+
+//src - https://github.com/AIS2203-H-2022/networking_demo
 
 using boost::asio::ip::tcp;
 

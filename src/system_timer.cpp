@@ -2,21 +2,22 @@
 // Created by Bruker on 02.12.2022.
 //
 
-#include "../include/controller/system_timer.hpp"
+#include "controller/system_timer.hpp"
 
-void fokkelg::start()
+
+void system_timer::start()
 {
     m_StartTime = std::chrono::system_clock::now();
     m_bRunning = true;
 }
 
-void fokkelg::stop()
+void system_timer::stop()
 {
     m_EndTime = std::chrono::system_clock::now();
     m_bRunning = false;
 }
 
-double fokkelg::elapsedMilliseconds()
+double system_timer::elapsedMilliseconds()
 {
     std::chrono::time_point<std::chrono::system_clock> endTime;
 
@@ -32,7 +33,9 @@ double fokkelg::elapsedMilliseconds()
     return std::chrono::duration_cast<std::chrono::milliseconds>(endTime - m_StartTime).count();
 }
 
-double fokkelg::elapsedSeconds()
+//trur ikkje elapsedSeconds e bra funksjons. Funksjonen unna 100% avhengig av funksjonen øve. Hør me guttan.
+
+double system_timer::elapsedSeconds()
 {
     return elapsedMilliseconds() / 1000.0;
 }

@@ -3,7 +3,7 @@
 //
 
 #include "../include/controller/controller.hpp"
-#include "../include/controller/system_timer.hpp"
+#include "controller/system_timer.hpp"
 
 // floorMod constructor
 int controller::floor_mod(int a, int n)

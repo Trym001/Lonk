@@ -1,7 +1,7 @@
 
 
-#ifndef NETWORKING_DEMO_NETWORK_HELPER_HPP
-#define NETWORKING_DEMO_NETWORK_HELPER_HPP
+#ifndef LONK_NETWORK_HELPER_HPP
+#define LONK_NETWORK_HELPER_HPP
 
 #include <array>
 
@@ -41,4 +41,4 @@ int bytes_to_int(std::array<unsigned char, 4> buffer, byte_order order = byte_or
     }
 }
 
-#endif//NETWORKING_DEMO_NETWORK_HELPER_HPP
+#endif//LONK_NETWORK_HELPER_HPP
