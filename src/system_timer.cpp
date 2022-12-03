@@ -38,5 +38,5 @@ double system_timer::elapsedMilliseconds()
 
 double system_timer::elapsedSeconds()
 {
-    return elapsedMilliseconds() / 100.00;
+    return elapsedMilliseconds() / 1000.00;
 }

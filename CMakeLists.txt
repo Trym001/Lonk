@@ -26,14 +26,6 @@ conan_cmake_run(
 
 Include(FetchContent)
 FetchContent_Declare(
-        Catch2
-        GIT_REPOSITORY https://github.com/catchorg/Catch2.git
-        GIT_TAG v2.13.8
-)
-FetchContent_MakeAvailable(Catch2)
-
-Include(FetchContent)
-FetchContent_Declare(
         nlohmann_json
         GIT_REPOSITORY https://github.com/nlohmann/json.git
         GIT_TAG v3.11.2
