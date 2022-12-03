@@ -7,6 +7,7 @@
 
 void system_timer::start()
 {
+
     m_StartTime = std::chrono::system_clock::now();
     m_bRunning = true;
 }
@@ -37,5 +38,5 @@ double system_timer::elapsedMilliseconds()
 
 double system_timer::elapsedSeconds()
 {
-    return elapsedMilliseconds() / 1000.0;
+    return elapsedMilliseconds() / 100.00;
 }

@@ -2,7 +2,7 @@
 // Created by Bruker on 02.12.2022.
 //
 
-#include "../include/controller/controller.hpp"
+#include "controller/controller.hpp"
 #include "controller/system_timer.hpp"
 
 // floorMod constructor

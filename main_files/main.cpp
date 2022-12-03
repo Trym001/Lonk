@@ -39,16 +39,16 @@ int main(int argc, char **argv) {
         //tcp_client Send(host, port_2);
         Get.listen();
 
-        //timer.start();
+        timer.start();
         //Send.listen();
         while(true){
             //Get.send_message(msg);
             auto msg = Get.get_message();
             json server_msg = json::parse(msg);
             //std::cout << "Got reply from server: " << (server_msg["left"] == 12) << std::endl;
-            //double t = system_timer.elapsedSeconds();
+            double t = timer.elapsedSeconds();
             std::cout << "Got reply from server: " << (server_msg) << std::endl;
-            //std::cout << "Time: " << (t) << std::endl;
+            std::cout << "Time: " << (t) << std::endl;
         }
     } catch (const std::exception &e) {
         std::cerr << e.what() << std::endl;

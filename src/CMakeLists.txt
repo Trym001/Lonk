@@ -1,9 +1,12 @@
-#add_library(controller controller.cpp)
-add_library(system system_timer.cpp)
+add_library(cont controller.cpp)
 
-target_include_directories(system PUBLIC "${CMAKE_SOURCE_DIR}/include")
+target_include_directories(cont PUBLIC "${CMAKE_SOURCE_DIR}/include")
 
-#target_include_directories(system PUBLIC "${CMAKE_SOURCE_DIR}/include")
+add_library(system_timer system_timer.cpp)
+
+target_include_directories(system_timer PUBLIC "${CMAKE_SOURCE_DIR}/include")
+
+
 
 
 
