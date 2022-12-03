@@ -7,22 +7,12 @@ target_include_directories(main PUBLIC "${CMAKE_SOURCE_DIR}/include")
 
 target_link_libraries(main PUBLIC cont)
 
-target_link_libraries(main PUBLIC system_timer)
-
-
-
-
-
 
 add_executable(test test.cpp)
 
 target_link_libraries(test PUBLIC cont)
 
-target_link_libraries(test PUBLIC system_timer)
 
-
-
-#target_include_directories(test PUBLIC "${CMAKE_SOURCE_DIR}/include")
 
 
 
