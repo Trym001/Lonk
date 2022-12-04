@@ -59,9 +59,9 @@ def main():
                 msg = alp[i]
                 server_messag = json.dumps(msg)
                 print(server_messag)
-                #client_msg = json.loads(Send.get_message())
-                #print(client_msg)
-                Send.send_message(server_msg=server_messag)
+                client_msg = json.loads(Send.get_message())
+                print(client_msg)
+                #Send.send_message(server_msg=server_messag)
                 i = i+1
                 i %= 4
 

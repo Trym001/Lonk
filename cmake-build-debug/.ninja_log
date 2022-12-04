@@ -6,9 +6,11 @@
 11	705	6916968997184942	tcp/CMakeFiles/tcp_client.dir/__/src/tcp_client.cpp.obj	da779ab0d44940dd
 16	7374	6917220927223284	tcp/CMakeFiles/tcp_client.dir/main.cpp.obj	e840d76ce28d2054
 6531	7502	6918542072622304	bin/main.exe	2f288cb3ab3ebd8b
-3	8547	6918577119973288	build.ninja	b84f2c04020c7f0c
+3	8547	6918591448061366	build.ninja	b84f2c04020c7f0c
 958	1082	6918542009122849	lib/cont.lib	b68722462dabe05c
 14	6521	6918542063302299	main_files/CMakeFiles/main.dir/main.cpp.obj	ec4f877995d2b72
 7	958	6918542007878585	src/CMakeFiles/cont.dir/system_timer.cpp.obj	c4355052a3c94059
 4	3724	6918577352770151	main_files/CMakeFiles/webcam_demo.dir/webcam.cpp.obj	3008d29e6628b13b
 3727	22911	6918577543886472	bin/webcam_demo.exe	5f2874fa4ced31d4
+20	7112	6918594991500575	main_files/CMakeFiles/main.dir/main.cpp.obj	ec4f877995d2b72
+7113	8083	6918595000555279	bin/main.exe	2f288cb3ab3ebd8b
