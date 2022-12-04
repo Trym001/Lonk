@@ -13,7 +13,11 @@ add_executable(test test.cpp)
 target_link_libraries(test PRIVATE nlohmann_json::nlohmann_json)
 target_link_libraries(test PUBLIC cont)
 
-
+add_executable(webcam_demo webcam.cpp)
+target_link_libraries(webcam_demo PRIVATE opencv::opencv)
+if (UNIX)
+    target_link_libraries(webcam_demo PRIVATE pthread)
+endif()
 
 
 

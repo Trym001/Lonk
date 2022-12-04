@@ -4,7 +4,17 @@ import json
 a = {"left" : 12,
      "right" : 55,
      "front" : 1000}
-server_messag = json.dumps(a)
+b = {"left" : 1134,
+     "right" : 234,
+     "front" : 13523}
+c = {"left" : 3456647,
+     "right" : 234234,
+     "front" : 42535}
+d = {"left" : 234,
+     "right" : 234345,
+     "front" : 345234}
+#server_messag = json.dumps(a)
+alp = [a,b,c,d]
 #print(type(server_messag))
 
 class TCPServer:
@@ -42,11 +52,18 @@ def main():
     #Get = TCPServer(ip_adress='localhost', port=9091)
     while True:
         try:
+            print(("test"))
             Send.listen()
+            i = 0
             while True:
-                client_msg = json.loads(Send.get_message())
-                print(client_msg)
-                #Send.send_message(server_msg=server_messag)
+                msg = alp[i]
+                server_messag = json.dumps(msg)
+                print(server_messag)
+                #client_msg = json.loads(Send.get_message())
+                #print(client_msg)
+                Send.send_message(server_msg=server_messag)
+                i = i+1
+                i %= 4
 
         except Exception as e:
             print(e)

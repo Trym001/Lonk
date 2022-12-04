@@ -36,18 +36,15 @@ int main(int argc, char **argv) {
     json_parsing json_struct;
 
     try {
-
-
         //tcp_client Send(host, port_2);
         Get.listen();
         while(true){
-            Get.send_message(msg);
-
-            //auto msg = Get.get_message();
-            //json server_msg = json::parse(msg);
+            //Get.send_message(msg);
+            auto msg = Get.get_message();
+            json server_msg = json::parse(msg);
             //std::cout << "Got reply from server: " << (server_msg["left"] == 12) << std::endl;
             //std::cout << "Got reply from server: " << (server_msg) << std::endl;
-            //std::cout << "Got reply from server: " << json_struct.read_json(msg)["left"] << std::endl;
+            std::cout << "Got reply from server: " << json_struct.read_json(msg) << std::endl;
         }
     } catch (const std::exception &e) {
         std::cerr << e.what() << std::endl;
