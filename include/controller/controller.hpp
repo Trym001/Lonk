@@ -7,7 +7,7 @@
 
 
 
-class controller {
+struct controller {
 public:
 
 
@@ -15,18 +15,18 @@ public:
     // floorMod declaration
     static int floor_mod(int a, int n);
     // p_controller declaration
-    [[nodiscard]] int p_controller(const int* leftSens, const int* rightSens, int heading);
+    [[nodiscard]] int p_controller(const int* leftSens, const int* rightSens, const int* yaw);
     // pi_controller declaration
-    [[nodiscard]] int pi_controller(const int* leftSens, const int* rightSens, int heading);
+    [[nodiscard]] int pi_controller(const int* leftSens, const int* rightSens, const int* yaw);
 
-    void diff_converting(int leftSens, int rightSens);
+    void diff_converting(const int *leftSens, const int* rightSens);
 
 private:
     float p_ = 6.42f;
     float i_ = 0.1f;
     //double d_ = 0.1;
 
-    float diff_{};
+    int diff_;
 };
 
 

@@ -130,7 +130,7 @@ macro(_conan_detect_compiler)
 
     if (${CMAKE_${LANGUAGE}_COMPILER_ID} STREQUAL GNU)
         # using GCC
-        # TODO: Handle other params
+        # TODO: Handle data_parsing params
         string(REPLACE "." ";" VERSION_LIST ${CMAKE_${LANGUAGE}_COMPILER_VERSION})
         list(GET VERSION_LIST 0 MAJOR)
         list(GET VERSION_LIST 1 MINOR)
@@ -321,7 +321,7 @@ function(conan_cmake_detect_unix_libcxx result)
     set(EXPAND_CXX_COMPILER ${CMAKE_CXX_COMPILER})
     if(CMAKE_CXX_COMPILER_ARG1)
         # CMake splits CXX="foo bar baz" into CMAKE_CXX_COMPILER="foo", CMAKE_CXX_COMPILER_ARG1="bar baz"
-        # without this, ccache, winegcc, or other wrappers might lose all their arguments
+        # without this, ccache, winegcc, or data_parsing wrappers might lose all their arguments
         separate_arguments(SPLIT_CXX_COMPILER_ARG1 NATIVE_COMMAND ${CMAKE_CXX_COMPILER_ARG1})
         list(APPEND EXPAND_CXX_COMPILER ${SPLIT_CXX_COMPILER_ARG1})
     endif()

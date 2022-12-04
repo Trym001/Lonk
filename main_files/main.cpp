@@ -10,11 +10,6 @@
 #include "other/json.hpp"
 
 
-
-using boost::asio::ip::tcp;
-using json = nlohmann::json;
-
-
 //json j = "{\"speed\": 6000, \"heading\": 330}"_json;
 //std::string msg = j.dump();
 //std::string msg = client_message;
@@ -50,7 +45,7 @@ int main(int argc, char **argv) {
             //json server_msg = json::parse(msg);
             //std::cout << "Got reply from server: " << (server_msg["left"] == 12) << std::endl;
             //std::cout << "Got reply from server: " << (server_msg) << std::endl;
-            auto parsed_msg = json_parsing::read_json(msg);
+            auto parsed_msg = json_struct.read_json(msg);
             std::cout << "Got reply from server: " << (parsed_msg) << std::endl;
         }
     } catch (const std::exception &e) {

@@ -19,34 +19,31 @@ int controller::floor_mod(int a, int n)
 
 
 // p_controller constructor
-int controller::p_controller(const int* leftSens, const int* rightSens, int heading)
+int controller::p_controller(const int* leftSens, const int* rightSens, const int* yaw)
 {
-    diff_converting(*leftSens, *rightSens);
+    diff_converting(leftSens, rightSens);
 
     float u = -p_ * diff_;
 
-    int newHeading = floor_mod((heading + int(u)), 360);
+    int newHeading = floor_mod((*yaw + int(u)), 360);
 
     return newHeading;
 }
 
 
 //pi_controller constructor
-int controller::pi_controller(const int* leftSens, const int* rightSens, int heading)
+int controller::pi_controller(const int* leftSens, const int* rightSens, const int* yaw)
 {
-    diff_converting(*leftSens, *rightSens);
+    diff_converting(leftSens, rightSens);
 
     float u = -p_ * diff_;
     u = u + i_*diff_; //*fokkelg::elapsedMilliseconds();
 
-    int newHeading = floor_mod((heading + int(u)), 360);
+    int newHeading = floor_mod((*yaw + int(u)), 360);
 
     return newHeading;
 }
 
-void controller::diff_converting(int leftSens, int rightSens) {
-    leftSens = leftSens / 10;
-    rightSens = rightSens / 10;
-
-    diff_ = float(leftSens) - float(rightSens);
+void controller::diff_converting(const int *leftSens, const int* rightSens) {
+    diff_ = *leftSens/10 - *rightSens/10;
 }
