@@ -19,7 +19,7 @@ public:
         return dump;
     }
 
-    static json read_json(std::string msg2){
+    static json read_json(std::string& msg2){
         return json::parse(msg2);
     }
 

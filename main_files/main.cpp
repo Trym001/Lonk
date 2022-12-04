@@ -15,15 +15,18 @@ using boost::asio::ip::tcp;
 using json = nlohmann::json;
 
 
-json j = "{\"speed\": 6000, \"heading\": 330}"_json;
-std::string msg = j.dump();
+//json j = "{\"speed\": 6000, \"heading\": 330}"_json;
+//std::string msg = j.dump();
 //std::string msg = client_message;
 
 //std::cout << msg << std::endl
 
 int main(int argc, char **argv) {
-    std::string host = "localhost";
-    //std::string host = "10.25.47.143";
+    //faan er argc og argv??
+    //std::cout << "argc: " << argc << " argv: " << argv << std::endl;
+
+    //std::string host = "localhost";
+    std::string host = "10.25.47.143";
     std::string port = "9090";
     //std::string port_2 = "9091";
     if (argc == 3) {
@@ -41,13 +44,14 @@ int main(int argc, char **argv) {
         //tcp_client Send(host, port_2);
         Get.listen();
         while(true){
-            Get.send_message(msg);
+            //Get.send_message(msg);
 
-            //auto msg = Get.get_message();
+            auto msg = Get.get_message();
             //json server_msg = json::parse(msg);
             //std::cout << "Got reply from server: " << (server_msg["left"] == 12) << std::endl;
             //std::cout << "Got reply from server: " << (server_msg) << std::endl;
-            //std::cout << "Got reply from server: " << json_struct.read_json(msg)["left"] << std::endl;
+            auto parsed_msg = json_parsing::read_json(msg);
+            std::cout << "Got reply from server: " << (parsed_msg) << std::endl;
         }
     } catch (const std::exception &e) {
         std::cerr << e.what() << std::endl;
