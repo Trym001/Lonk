@@ -8,10 +8,22 @@
 
 int main(int argc, char** argv) {
     std::string host = "10.25.47.143";
-    std::string sender_port = "9090";
-    std::string receiver_port = "9091";
+    std::string receiverPort = "9090";
+    std::string senderPort = "9091";
 
+    tcp_client get(host, recieverPort);
+    system_timer stopWatch;
+    json_parsing jsonParsing;
 
+    try
+    {
+        get.listen();
+        while(true)
+        {
+            auto receivedMessage = get.get_message();
+            auto
+        }
+    }
 }
 
 
