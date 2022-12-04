@@ -21,7 +21,8 @@ int main(int argc, char** argv) {
         while(true)
         {
             auto receivedMessage = get.get_message();
-            auto
+            receivedMessage = jsonParsing::read_json(receivedMessage);
+
         }
     }
 }
