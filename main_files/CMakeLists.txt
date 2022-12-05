@@ -8,7 +8,7 @@ target_include_directories(main PUBLIC "${CMAKE_SOURCE_DIR}/include")
 target_link_libraries(main PUBLIC cont)
 
 
-add_executable(test test.cpp)
+add_executable(test test.cpp ../src/big_brain.cpp ../include/controller/big_brain.hpp)
 
 target_link_libraries(test PRIVATE nlohmann_json::nlohmann_json)
 target_link_libraries(test PUBLIC cont)

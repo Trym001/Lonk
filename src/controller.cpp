@@ -1,3 +1,4 @@
+/*
 //
 // Created by Bruker on 02.12.2022.
 //
@@ -47,3 +48,8 @@ int controller::pi_controller(const int* leftSens, const int* rightSens, const i
 void controller::diff_converting(const int *leftSens, const int* rightSens) {
     diff_ = *leftSens/10 - *rightSens/10;
 }
+
+controller::controller() {
+
+}
+*/

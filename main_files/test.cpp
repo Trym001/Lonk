@@ -1,10 +1,10 @@
 #include <iostream>
 #include <string>
 #include <fstream>
-#include "data_parsing/json.hpp"
 #include <nlohmann/json.hpp>
 #include "tcp/tcp_client.hpp"
-#include "controller/controller.hpp"
+#include "data_parsing/json.hpp"
+#include "controller/big_brain.hpp"
 #include "controller/system_timer.hpp"
 
 int main(int argc, char** argv) {
@@ -15,7 +15,6 @@ int main(int argc, char** argv) {
     tcp_client get(host, receiverPort);
     system_timer stopWatch;
     json_parsing jsonParsing;
-    controller regulator;
 
     try
     {
@@ -28,15 +27,17 @@ int main(int argc, char** argv) {
             // convert to usable data (a struct containing distSensors)
             received_data parsedRMessage = json_parsing::read_json(receivedMessage);
 
-            // calling control-system to process the data
-            // When it is implemented in the values sent from Lonk "yaw" will be gotten from "parsedRMessage"
-            int yaw = 0;
-            int heading = regulator.p_controller(
-                    &parsedRMessage.distSensor.left,
-                    &parsedRMessage.distSensor.right,
-                    &yaw /* **yaw** */
+            // tell Lonk where to go
+            where_go whereGo;
+            whereGo.onwards(
+                    parsedRMessage.drivingdata.heading,
+                    parsedRMessage.imu.yaw,
+                    parsedRMessage.distSensor.front
+            );
+            whereGo.turn(
+                    parsedRMessage.distSensor.left,
+                    parsedRMessage.distSensor.right
                     );
-
 
         }
     }   catch(const std::exception &e)

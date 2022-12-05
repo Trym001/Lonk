@@ -7,13 +7,15 @@
 
 
 
-struct controller {
+/*struct controller {
 public:
-
+    controller();
 
     // src - https://www.geeksforgeeks.org/modulo-operations-in-programming-with-negative-results/
     // floorMod declaration
     static int floor_mod(int a, int n);
+    // Decides where Lonk should go.
+     //when_to_march(const int* frontSens, const int* heading, const int* yaw);
     // p_controller declaration
     [[nodiscard]] int p_controller(const int* leftSens, const int* rightSens, const int* yaw);
     // pi_controller declaration
@@ -26,8 +28,13 @@ private:
     float i_ = 0.1f;
     //double d_ = 0.1;
 
-    int diff_;
-};
+    int diff_{};
+    struct the_march_
+    {
+        int desiredDistToFront_ = 150;
+        bool valid              = false;
+    };
+};*/
 
 
 #endif //LONK_CONTROLLER_HPP

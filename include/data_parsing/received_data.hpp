@@ -13,6 +13,21 @@ struct received_data
         int right;
     };
 
-    distSensor_ distSensor;
+    struct drivingData_
+    {
+        int speed;
+        int heading;
+    };
+
+    struct imu_
+    {
+        int pitch;
+        int roll;
+        int yaw;
+    };
+
+    distSensor_     distSensor;
+    drivingData_    drivingdata;
+    imu_            imu;
 };
 #endif //LONK_RECEIVED_DATA_HPP
