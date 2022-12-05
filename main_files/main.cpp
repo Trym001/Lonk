@@ -1,13 +1,27 @@
+#include <boost/asio.hpp>
+#include <array>
 #include <iostream>
 #include <string>
+#include <nlohmann/json.hpp>
 #include <fstream>
 
 #include "tcp/tcp_client.hpp"
-#include "../../Lonk/include/camera/detect_face.hpp"
+#include "controller/system_timer.hpp"
+#include "other/json.hpp"
 
-#include <opencv2/opencv.hpp>
 
-using namespace cv;
+
+using boost::asio::ip::tcp;
+using json = nlohmann::json;
+
+
+//json j = "{\"speed\": 20, \"heading\": 10}"_json;
+json j = "{\"speed\": 20, \"heading\": 10}";
+
+std::string msg = j.dump();
+//std::string msg = client_message;
+
+//std::cout << msg << std::endl
 
 int main(int argc, char **argv) {
     //std::string host = "localhost";
@@ -20,62 +34,81 @@ int main(int argc, char **argv) {
         port = argv[2];
     }
     tcp_client Get(host, port);
+    system_timer timer;
+    json_parsing json_struct;
 
     try {
+
+
+        //tcp_client Send(host, port_2);
         Get.listen();
-        bool stop{false};
-        while(!stop){
+        while(true){
+            auto img = Get.get_message();
 
-            //std::vector<unsigned char> msg = Get.get_message();
-            auto msg = Get.get_message();
-            //std::cout << msg << '\n';
+            cv::imshow("mamma", img);
 
-//            for (char i: msg)
-//                std::cout << i << ' ';
-        //std::cout << msg << std::endl;
-
-            //cv::Mat img = cv::imdecode(msg, 1);
-
-            imshow("test", msg);
-
-
-            int key = waitKey(1);
-                    if (key == 'q') {
-                        stop = true;
-                    }
-
-
-
-//            try {
-//
-//                VideoCapture capture(0);
-//                if (!capture.isOpened()) {
-//                    std::cerr << "Unable to open camera.." << std::endl;
-//                    return 1;
-//                }
-//
-//                const std::string windowTitle{"Display image"};
-//                namedWindow(windowTitle, WINDOW_AUTOSIZE);
-//
-//                Mat image;
-//                bool stop{false};
-//                while (!stop) {
-//                    capture >> image;
-//
-//                    imshow("Display Image", image);
-//                    int key = waitKey(1);
-//                    if (key == 'q') {
-//                        stop = true;
-//                    }
-//                }
-//
-//            } catch (const std::exception &ex) {
-//                std::cerr << ex.what() << std::endl;
-//                return 1;
-//            }
         }
     } catch (const std::exception &e) {
         std::cerr << e.what() << std::endl;
     }
 }
+
+/*
+
+int main(int argc, char **argv) {
+    //std::string host = "localhost";
+    std::string host = "10.25.47.143";
+    std::string port = "9090";
+    if (argc == 3) {
+        // assuming <hostname> <port>
+        host = argv[1];
+        port = argv[2];
+    }
+
+    try {
+        //connecte me server
+        boost::asio::io_service io_service;
+
+        main_files::resolver resolver(io_service);
+        auto endpoints = resolver.resolve(host, port);
+        //std::cout << (endpoints) << std::endl;
+
+        main_files::socket socket(io_service);
+        boost::asio::connect(socket, endpoints);
+
+
+        //sende melding
+        /*
+        int msgSize = static_cast<int>(msg.size());
+
+        socket.send(boost::asio::buffer(int_to_bytes(msgSize), 4));
+        socket.send(boost::asio::buffer(msg));
+
+
+        //lese melding
+        boost::system::error_code error;
+        while (true)
+        {
+            std::array<unsigned char, 4> sizeBuf{};
+            boost::asio::read(socket, boost::asio::buffer(sizeBuf), boost::asio::transfer_exactly(4), error);
+            if (error) {
+                throw boost::system::system_error(error);
+            }
+            boost::asio::streambuf buf;
+            size_t len = boost::asio::read(socket, buf, boost::asio::transfer_exactly(bytes_to_int(sizeBuf)), error);
+            if (error) {
+                throw boost::system::system_error(error);
+            }
+            std::string data(boost::asio::buffer_cast<const char *>(buf.data()), len);
+            //fått melding og parse jason filen
+            json server_msg = json::parse(data);
+            //std::cout << "Got reply from server: " << (server_msg["left"] == 12) << std::endl;
+            std::cout << "Got reply from server: " << (server_msg) << std::endl;
+        }
+
+    } catch (const std::exception &e) {
+        std::cerr << e.what() << std::endl;
+    }
+}
+*/
 
