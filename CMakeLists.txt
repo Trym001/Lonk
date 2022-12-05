@@ -6,14 +6,17 @@ set(CMAKE_CXX_STANDARD 17)
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_BINARY_DIR})
 list(APPEND CMAKE_PREFIX_PATH ${CMAKE_BINARY_DIR})
 
-set(generatedSourcesDir ${CMAKE_BINARY_DIR}/generated)
-file(MAKE_DIRECTORY "${generatedSourcesDir}")
+if (MSVC)
+    # Boost asio wants this...
+    add_compile_definitions("_WIN32_WINNT=0x0601")
+endif ()
 
 include(cmake/conan.cmake)
 
 conan_cmake_configure(
         REQUIRES
         opencv/4.5.5
+        boost/1.71.0
         GENERATORS cmake_find_package
         IMPORTS "res, haarcascades* -> cascades"
         IMPORTS "res, lbpcascades* -> cascades"
@@ -26,23 +29,8 @@ conan_cmake_install(PATH_OR_REFERENCE .
         SETTINGS ${settings})
 
 find_package(opencv REQUIRED)
+find_package(Boost COMPONENTS REQUIRED system)
 
-if (MSVC)
-    # Boost asio wants this...
-    add_compile_definitions("_WIN32_WINNT=0x0601")
-endif ()
-
-
-
-set(DEPS boost/1.71.0)
-
-conan_cmake_run(
-        REQUIRES
-        ${DEPS}
-        GENERATORS cmake
-        BUILD missing
-        BASIC_SETUP CMAKE_TARGETS
-)
 
 Include(FetchContent)
 FetchContent_Declare(

@@ -1,5 +1,8 @@
 [requires]
+opencv/4.5.5
 boost/1.71.0
 [generators]
-cmake
-cmake
+cmake_find_package
+[imports]
+res, haarcascades* -> cascades
+res, lbpcascades* -> cascades
