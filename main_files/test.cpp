@@ -28,13 +28,10 @@ int main(int argc, char** argv) {
             received_data parsedRMessage = json_parsing::read_json(receivedMessage);
 
             // tell Lonk where to go
-            where_go whereGo;
-            whereGo.onwards(
+            where_go whereGo(
                     parsedRMessage.drivingdata.heading,
                     parsedRMessage.imu.yaw,
-                    parsedRMessage.distSensor.front
-            );
-            whereGo.turn(
+                    parsedRMessage.distSensor.front,
                     parsedRMessage.distSensor.left,
                     parsedRMessage.distSensor.right
                     );

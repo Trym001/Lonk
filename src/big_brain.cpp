@@ -34,9 +34,11 @@ std::string where_go::turn(const int &distLeft, const int &distRight) {
     return lonkCommand;
 }
 
-where_go::where_go() {
+where_go::where_go(const int& heading, const int& yaw, const int& distFront, const int& distLeft, const int& distRight) {
     // SPAWN THREAD THAT MAKES DECISIONS HERE
     // IT NEEDS TO HAVE AN ITERATION OF TCP CLASS THAT CAN SEND TO LONK
+    onwards(heading, yaw, distFront);
+    turn(distLeft, distRight);
 }
 
 where_go::~where_go() {

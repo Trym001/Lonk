@@ -8,7 +8,9 @@
 #include <string>
 
 struct where_go {
-    where_go();
+    where_go(const int& heading, const int& yaw, const int& distFront, const int& distLeft, const int& distRight);
+
+    virtual ~where_go();
 
     // drive onwards
     std::string onwards(const int& heading, const int& yaw, const int& distFront);
@@ -18,8 +20,6 @@ struct where_go {
     // else if høyre clear
     // else 180
     std::string turn(const int& distLeft, const int& distRight);
-
-    virtual ~where_go();
 };
 
 
