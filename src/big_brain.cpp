@@ -6,6 +6,7 @@
 #include <string>
 #include <chrono>
 #include <thread>
+#include <utility>
 using std::string, std::chrono::milliseconds;
 
 std::string where_go::onwards(const int &heading, const int &yaw, const int &distFront) {
@@ -34,7 +35,11 @@ std::string where_go::turn(const int &distLeft, const int &distRight) {
     return lonkCommand;
 }
 
-where_go::where_go(const int& heading, const int& yaw, const int& distFront, const int& distLeft, const int& distRight) {
+where_go::where_go(std::string  host, std::string  port, const int& heading, const int& yaw,
+                   const int& distFront, const int& distLeft, const int& distRight)
+                   : host_(std::move(host)), senderPort_(std::move(port)) {
+
+    tcp_client send(host_, senderPort_);
     // SPAWN THREAD THAT MAKES DECISIONS HERE
     // IT NEEDS TO HAVE AN ITERATION OF TCP CLASS THAT CAN SEND TO LONK
     onwards(heading, yaw, distFront);

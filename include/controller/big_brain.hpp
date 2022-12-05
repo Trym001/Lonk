@@ -6,9 +6,12 @@
 #define LONK_BIG_BRAIN_HPP
 
 #include <string>
+#include "tcp/tcp_client.hpp"
+
 
 struct where_go {
-    where_go(const int& heading, const int& yaw, const int& distFront, const int& distLeft, const int& distRight);
+    where_go(std::string  host, std::string  port, const int &heading, const int &yaw, const int &distFront,
+             const int &distLeft, const int &distRight);
 
     virtual ~where_go();
 
@@ -20,6 +23,10 @@ struct where_go {
     // else if høyre clear
     // else 180
     std::string turn(const int& distLeft, const int& distRight);
+
+private:
+    std::string host_;
+    std::string senderPort_;
 };
 
 
