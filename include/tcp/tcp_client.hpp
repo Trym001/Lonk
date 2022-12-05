@@ -9,7 +9,6 @@
 
 #include <boost/asio.hpp>
 #include <string>
-#include <>
 #include <fstream>
 
 //src - https://github.com/AIS2203-H-2022/networking_demo
@@ -41,15 +40,15 @@ public:
         if (error) {
             throw boost::system::system_error(error);
         }
-        boost::asio::streambuf buf;
-        size_t len = boost::asio::read(socket, buf, boost::asio::transfer_exactly(bytes_to_int(sizeBuf)), error);
+        std::vector<unsigned char> buf;
+        size_t len = boost::asio::read(socket, boost::asio::buffer(buf), boost::asio::transfer_exactly(bytes_to_int(sizeBuf)), error);
         if (error) {
             throw boost::system::system_error(error);
         }
         //std::string data(boost::asio::buffer_cast<const char *>(buf.data()), len);
-        std::string data(boost::asio::buffer_cast<const char *>(buf.data()), len);
+        //std::string data(boost::asio::buffer_cast<const char *>(buf.data()), len);
 
-        return data;
+        return buf;
     }
 
 

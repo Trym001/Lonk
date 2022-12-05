@@ -17,7 +17,7 @@ using namespace cv;
 int main(int argc, char **argv) {
     //std::string host = "localhost";
     std::string host = "10.25.47.143";
-    std::string port = "9095";
+    std::string port = "9094";
     //std::string port_2 = "9091";
     if (argc == 3) {
         // assuming <hostname> <port>
@@ -28,9 +28,22 @@ int main(int argc, char **argv) {
 
     try {
         Get.listen();
-        while(true){
+        bool stop{false};
+        while(!stop){
+
             auto msg = Get.get_message();
-            std::cout << msg << std::endl;
+        //std::cout << msg << std::endl;
+
+            cv::Mat img = cv::imdecode(msg, 1);
+
+            imshow("test", img);
+
+
+            int key = waitKey(1);
+                    if (key == 'q') {
+                        stop = true;
+                    }
+
 
 
 //            try {
