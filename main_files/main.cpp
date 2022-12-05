@@ -15,15 +15,17 @@ using boost::asio::ip::tcp;
 using json = nlohmann::json;
 
 
-json j = "{\"speed\": 6000, \"heading\": 330}"_json;
+//json j = "{\"speed\": 20, \"heading\": 10}"_json;
+json j = "{\"speed\": 20, \"heading\": 10}";
+
 std::string msg = j.dump();
 //std::string msg = client_message;
 
 //std::cout << msg << std::endl
 
 int main(int argc, char **argv) {
-    std::string host = "localhost";
-    //std::string host = "10.25.47.143";
+    //std::string host = "localhost";
+    std::string host = "10.25.47.143";
     std::string port = "9090";
     //std::string port_2 = "9091";
     if (argc == 3) {
