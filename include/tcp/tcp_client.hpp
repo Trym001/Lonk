@@ -10,6 +10,10 @@
 #include <boost/asio.hpp>
 #include <string>
 #include <fstream>
+#include <opencv2/opencv.hpp>
+
+using namespace cv;
+
 
 //src - https://github.com/AIS2203-H-2022/networking_demo
 
@@ -47,8 +51,9 @@ public:
         }
         //std::string data(boost::asio::buffer_cast<const char *>(buf.data()), len);
         //std::string data(boost::asio::buffer_cast<const char *>(buf.data()), len);
+        cv::Mat img = cv::imdecode(buf, 1);
 
-        return buf;
+        return img;
     }
 
 

@@ -1,13 +1,8 @@
-#include <boost/asio.hpp>
-#include <array>
 #include <iostream>
 #include <string>
-#include <nlohmann/json.hpp>
 #include <fstream>
 
 #include "tcp/tcp_client.hpp"
-#include "controller/system_timer.hpp"
-#include "other/json.hpp"
 #include "../../Lonk/include/camera/detect_face.hpp"
 
 #include <opencv2/opencv.hpp>
@@ -17,7 +12,7 @@ using namespace cv;
 int main(int argc, char **argv) {
     //std::string host = "localhost";
     std::string host = "10.25.47.143";
-    std::string port = "9094";
+    std::string port = "9098";
     //std::string port_2 = "9091";
     if (argc == 3) {
         // assuming <hostname> <port>
@@ -31,12 +26,17 @@ int main(int argc, char **argv) {
         bool stop{false};
         while(!stop){
 
+            //std::vector<unsigned char> msg = Get.get_message();
             auto msg = Get.get_message();
+            //std::cout << msg << '\n';
+
+//            for (char i: msg)
+//                std::cout << i << ' ';
         //std::cout << msg << std::endl;
 
-            cv::Mat img = cv::imdecode(msg, 1);
+            //cv::Mat img = cv::imdecode(msg, 1);
 
-            imshow("test", img);
+            imshow("test", msg);
 
 
             int key = waitKey(1);
