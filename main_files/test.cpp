@@ -7,17 +7,20 @@
 #include "controller/big_brain.hpp"
 #include "controller/system_timer.hpp"
 
-std::mutex m;
-std::condition_variable cv;
-
 int main(int argc, char** argv) {
     std::string host = "10.25.47.143";
     std::string receiverPort = "9090";
     std::string senderPort = "9091";
 
-    tcp_client get(host, receiverPort);
+    tcp_client get(&host, receiverPort);
     system_timer stopWatch;
     json_parsing jsonParsing;
+
+    std::promise<received_data> promise;
+    // std::shared_ptr<std::future<received_data>> (future) = std::make_shared<std::future<received_data>>(promise.get_future());
+    auto future = promise.get_future();
+    std::condition_variable cv;
+    std::mutex m;
 
     try
     {
@@ -26,30 +29,30 @@ int main(int argc, char** argv) {
 
         std::string receivedMessage;
         received_data parsedRMessage{};
-        std::thread t1([&]{ // make a function in the tcp class that spawns the tread and runs this bit of
-                                       // code repeatedly and makes the data available for the data processing thread.
-            bool doBreak = false;
+        std::thread t1([&]{
             while(true){
                 // receive message from Lonk.
                 receivedMessage = get.get_message();
-                // convert to usable data (a struct containing distSensors)
-                parsedRMessage = json_parsing::read_json(receivedMessage);
-                if(doBreak){
-                    break;
+                {
+                    const std::lock_guard<std::mutex> lock(m);
+                    // convert to usable data (a struct containing distSensors)
+                    parsedRMessage = json_parsing::read_json(receivedMessage);
+                    promise.set_value(parsedRMessage);
                 }
             }
         });
-
         // tell Lonk where to go
-        where_go whereGo(
-                host,
-                senderPort,
-                parsedRMessage.drivingdata.heading,
-                parsedRMessage.imu.yaw,
-                parsedRMessage.distSensor.front,
-                parsedRMessage.distSensor.left,
-                parsedRMessage.distSensor.right
-                );
+        std::thread whereGoThread([&]{
+            tcp_client send(&host, senderPort);
+            where_go whereGo;
+            while(true) {
+                received_data receivedMessage = future.get();
+
+                std::string lonkCommand = whereGo.start(receivedMessage);
+
+                send.send_message(lonkCommand);
+            }
+        });
 
         // Show GUI with camera feed and all lonk values we are receiving.
         // Allow a manual overwrite of lonk controls that terminates thread(s) that write to lonk in the program.

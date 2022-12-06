@@ -6,14 +6,13 @@
 #define LONK_BIG_BRAIN_HPP
 
 #include <string>
+#include <thread>
+#include <memory>
 #include "tcp/tcp_client.hpp"
 
 
 struct where_go {
-    where_go(std::string  host, std::string  port, const int &heading, const int &yaw, const int &distFront,
-             const int &distLeft, const int &distRight);
-
-    virtual ~where_go();
+    std::string start(received_data lonkData);
 
     // drive onwards
     std::string onwards(const int& heading, const int& yaw, const int& distFront);
@@ -22,12 +21,11 @@ struct where_go {
     // if venstre clear
     // else if høyre clear
     // else 180
-    std::string turn(const int& distLeft, const int& distRight);
+    std::string turn(const int& distLeft, const int& distRight, std::string& lonkCommand);
 
 private:
     std::string host_;
     std::string senderPort_;
 };
-
 
 #endif //LONK_BIG_BRAIN_HPP

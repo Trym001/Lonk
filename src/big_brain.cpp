@@ -1,12 +1,14 @@
 //
 // Created by Bruker on 05.12.2022.
 //
-
-#include "controller/big_brain.hpp"
+#include "data_parsing/received_data.hpp"
 #include <string>
 #include <chrono>
 #include <thread>
 #include <utility>
+#include <memory>
+#include <mutex>
+#include "controller/big_brain.hpp"
 using std::string, std::chrono::milliseconds;
 
 std::string where_go::onwards(const int &heading, const int &yaw, const int &distFront) {
@@ -14,38 +16,31 @@ std::string where_go::onwards(const int &heading, const int &yaw, const int &dis
     string lonkCommand{};
     if(heading == yaw and distFront > 150) {
         lonkCommand = "onwards";
-    }   else {
-        std::this_thread::sleep_for(milliseconds(10));
-        // notify receive-thread new data is needed.
     }
     return lonkCommand;
 }
 
-std::string where_go::turn(const int &distLeft, const int &distRight) {
+std::string where_go::turn(const int &distLeft, const int &distRight, string& lonkCommand) {
+    if(std::empty(lonkCommand)) {
+        if (distLeft > 150) {
+            lonkCommand = "Left";
+        } else if (distRight > 150) {
+            lonkCommand = "Right";
+        } else {
+            lonkCommand = "Dead_end";
+        }
+    }
+    return lonkCommand;
+}
+
+string where_go::start(received_data lonkData) {
+
+    string lonkCommand = onwards(heading, yaw, distFront);
+
     // bzz bzzz msg from Lonk: "I haf stoopt" (condition variable from receiver-thread)
 
-    string lonkCommand{};
-    if(distLeft > 150){
-        lonkCommand = "Left";
-    }   else if(distRight > 150){
-        lonkCommand = "Right";
-    }   else{
-        lonkCommand = "Dead_end";
-    }
+    lonkCommand = turn(distLeft, distRight, lonkCommand);
+
     return lonkCommand;
-}
 
-where_go::where_go(std::string  host, std::string  port, const int& heading, const int& yaw,
-                   const int& distFront, const int& distLeft, const int& distRight)
-                   : host_(std::move(host)), senderPort_(std::move(port)) {
-
-    tcp_client send(host_, senderPort_);
-    // SPAWN THREAD THAT MAKES DECISIONS HERE
-    // IT NEEDS TO HAVE AN ITERATION OF TCP CLASS THAT CAN SEND TO LONK
-    onwards(heading, yaw, distFront);
-    turn(distLeft, distRight);
-}
-
-where_go::~where_go() {
-    // JOIN THREAD THAT WAS SPAWNED!
 }
