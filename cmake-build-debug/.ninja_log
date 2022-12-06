@@ -7,15 +7,11 @@
 16	7374	6917220927223284	tcp/CMakeFiles/tcp_client.dir/main.cpp.obj	e840d76ce28d2054
 11	705	6916968997184942	tcp/CMakeFiles/tcp_client.dir/__/src/tcp_client.cpp.obj	da779ab0d44940dd
 2678	3041	6919642539287669	bin/main.exe	2f288cb3ab3ebd8b
-2	4294	6920576432200262	build.ninja	b84f2c04020c7f0c
+2	4294	6920592604318662	build.ninja	b84f2c04020c7f0c
 335	378	6919642325760045	lib/cont.lib	b68722462dabe05c
 3	3771	6920481541114104	main_files/CMakeFiles/main.dir/main.cpp.obj	613ebd91bdfb302d
 1	1536	6917854675219510	main_files/CMakeFiles/test.dir/test.cpp.obj	c500f94d7ac58fb3
 7	173	6919721915124578	src/CMakeFiles/cont.dir/system_timer.cpp.obj	63f1d7dc9974a4a
 174	208	6919721915454561	src/cont.lib	15788fbb0e181d91
-2	856	6920528038569429	main_files/CMakeFiles/fargekamera.dir/find_farge_kamera.cpp.obj	a021837d2b1bae6d
-857	4393	6920528073109412	main_files/fargekamera.exe	19e2ed7b1e33f5d8
-2	1168	6920577778834643	main_files/CMakeFiles/fargekamera.dir/find_farge_kamera.cpp.obj	ba37397625d9a0a5
-1169	4677	6920577813184621	main_files/fargekamera.exe	19e2ed7b1e33f5d8
 2	824	6920579819884620	main_files/CMakeFiles/fargekamera.dir/find_farge_kamera.cpp.obj	ba37397625d9a0a5
 825	1229	6920579823604623	main_files/fargekamera.exe	19e2ed7b1e33f5d8
