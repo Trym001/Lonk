@@ -26,7 +26,7 @@ std::string msg = j.dump();
 int main(int argc, char **argv) {
     //std::string host = "localhost";
     std::string host = "10.25.47.143";
-    std::string port = "9098";
+    std::string port = "9091";
     //std::string port_2 = "9091";
     if (argc == 3) {
         // assuming <hostname> <port>
@@ -42,10 +42,17 @@ int main(int argc, char **argv) {
 
         //tcp_client Send(host, port_2);
         Get.listen();
-        while(true){
-            auto img = Get.get_message();
+        bool stop{false};
+        while(!stop){
+            auto test = Get.get_video();
 
+            cv::Mat img = cv::imdecode(test, IMREAD_COLOR);
+            //std::cout << img << std::endl;
             cv::imshow("mamma", img);
+            int key = waitKey(1);
+            if (key == 'q') {
+                stop = true;
+            }
 
         }
     } catch (const std::exception &e) {

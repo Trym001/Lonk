@@ -44,16 +44,29 @@ public:
         if (error) {
             throw boost::system::system_error(error);
         }
-        std::vector<unsigned char> buf;
-        size_t len = boost::asio::read(socket, boost::asio::buffer(buf), boost::asio::transfer_exactly(bytes_to_int(sizeBuf)), error);
+        boost::asio::streambuf buf;
+        size_t len = boost::asio::read(socket, buf, boost::asio::transfer_exactly(bytes_to_int(sizeBuf)), error);
         if (error) {
             throw boost::system::system_error(error);
         }
-        //std::string data(boost::asio::buffer_cast<const char *>(buf.data()), len);
-        //std::string data(boost::asio::buffer_cast<const char *>(buf.data()), len);
-        cv::Mat img = cv::imdecode(buf, 1);
+        std::string data(boost::asio::buffer_cast<const char *>(buf.data()), len);
+        return data;
+    }
 
-        return img;
+    auto get_video(){
+        std::array<unsigned char, 4> sizeBuf{};
+        boost::asio::read(socket, boost::asio::buffer(sizeBuf), boost::asio::transfer_exactly(4), error);
+        if (error) {
+            throw boost::system::system_error(error);
+        }
+        boost::asio::streambuf buf;
+        size_t len = boost::asio::read(socket, buf, boost::asio::transfer_exactly(bytes_to_int(sizeBuf)), error);
+        if (error) {
+            throw boost::system::system_error(error);
+        }
+        std::vector<unsigned char> target(len);
+        buffer_copy(boost::asio::buffer(target), buf.data());
+        return target;
     }
 
 

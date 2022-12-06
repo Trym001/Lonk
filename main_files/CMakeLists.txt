@@ -24,5 +24,12 @@ if (UNIX)
     target_link_libraries(webcam_demo PRIVATE pthread)
 endif()
 
+add_executable(fargekamera find_farge_kamera.cpp)
+
+target_link_libraries(fargekamera PRIVATE opencv::opencv)
+if (UNIX)
+    target_link_libraries(fargekamera PRIVATE pthread)
+endif()
+
 
 
