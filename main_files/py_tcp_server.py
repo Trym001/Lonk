@@ -35,8 +35,7 @@ class TCPServer:
         return data
 
     def send_vid(self, server_msg):
-        msg = server_msg#.encode("utf-8")
-        #self.conn.send(len(msg).to_bytes(4, byteorder="little"))
+        msg = server_msg
         self.conn.send(msg)
 
 
