@@ -10,6 +10,10 @@
 #include <boost/asio.hpp>
 #include <string>
 #include <fstream>
+#include <opencv2/opencv.hpp>
+
+using namespace cv;
+
 
 //src - https://github.com/AIS2203-H-2022/networking_demo
 
@@ -35,10 +39,12 @@ public:
     }
 
     auto get_message(){
+        std::array<unsigned char, 4> sizeBuf{};
         boost::asio::read(socket, boost::asio::buffer(sizeBuf), boost::asio::transfer_exactly(4), error);
         if (error) {
             throw boost::system::system_error(error);
         }
+        boost::asio::streambuf buf;
         size_t len = boost::asio::read(socket, buf, boost::asio::transfer_exactly(bytes_to_int(sizeBuf)), error);
         if (error) {
             throw boost::system::system_error(error);
@@ -47,12 +53,26 @@ public:
         return data;
     }
 
+    auto get_video(){
+        std::array<unsigned char, 4> sizeBuf{};
+        boost::asio::read(socket, boost::asio::buffer(sizeBuf), boost::asio::transfer_exactly(4), error);
+        if (error) {
+            throw boost::system::system_error(error);
+        }
+        boost::asio::streambuf buf;
+        size_t len = boost::asio::read(socket, buf, boost::asio::transfer_exactly(bytes_to_int(sizeBuf)), error);
+        if (error) {
+            throw boost::system::system_error(error);
+        }
+        std::vector<unsigned char> target(len);
+        buffer_copy(boost::asio::buffer(target), buf.data());
+        return target;
+    }
+
 
 private:
     boost::asio::io_service io_service;
     boost::system::error_code error;
-    boost::asio::streambuf buf;
-    std::array<unsigned char, 4> sizeBuf{};
     std::string host_;
     std::string port_;
     tcp::socket socket;

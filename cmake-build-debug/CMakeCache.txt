@@ -14,33 +14,6 @@
 # EXTERNAL cache entries
 ########################
 
-//Build documentation examples
-CATCH_BUILD_EXAMPLES:BOOL=OFF
-
-//Build extra tests
-CATCH_BUILD_EXTRA_TESTS:BOOL=OFF
-
-//Builds static library from the main implementation. EXPERIMENTAL
-CATCH_BUILD_STATIC_LIBRARY:BOOL=OFF
-
-//Build SelfTest project
-CATCH_BUILD_TESTING:BOOL=ON
-
-//Generate coverage for codecov.io
-CATCH_ENABLE_COVERAGE:BOOL=OFF
-
-//Enable all warnings as errors
-CATCH_ENABLE_WERROR:BOOL=ON
-
-//Install documentation alongside library
-CATCH_INSTALL_DOCS:BOOL=ON
-
-//Install contrib alongside library
-CATCH_INSTALL_HELPERS:BOOL=ON
-
-//Perform SelfTests with Valgrind
-CATCH_USE_VALGRIND:BOOL=OFF
-
 //Path to a program.
 CMAKE_AR:FILEPATH=C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.29.30133/bin/Hostx86/x64/lib.exe
 
@@ -286,15 +259,6 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 //Path to a program.
 CONAN_CMD:FILEPATH=C:/Users/zaime/AppData/Local/Programs/Python/Python39/Scripts/conan.exe
 
-//Value Computed by CMake
-Catch2_BINARY_DIR:STATIC=C:/Users/zaime/CLionProjects/Lonk/cmake-build-debug/_deps/catch2-build
-
-//Value Computed by CMake
-Catch2_IS_TOP_LEVEL:STATIC=OFF
-
-//Value Computed by CMake
-Catch2_SOURCE_DIR:STATIC=C:/Users/zaime/CLionProjects/Lonk/cmake-build-debug/_deps/catch2-src
-
 //Directory under which to collect all populated content
 FETCHCONTENT_BASE_DIR:PATH=C:/Users/zaime/CLionProjects/Lonk/cmake-build-debug/_deps
 
@@ -306,24 +270,17 @@ FETCHCONTENT_FULLY_DISCONNECTED:BOOL=OFF
 FETCHCONTENT_QUIET:BOOL=ON
 
 //When not empty, overrides where to find pre-populated content
-// for Catch2
-FETCHCONTENT_SOURCE_DIR_CATCH2:PATH=
-
-//When not empty, overrides where to find pre-populated content
 // for nlohmann_json
 FETCHCONTENT_SOURCE_DIR_NLOHMANN_JSON:PATH=
 
 //Enables UPDATE_DISCONNECTED behavior for all content population
 FETCHCONTENT_UPDATES_DISCONNECTED:BOOL=OFF
 
-//Enables UPDATE_DISCONNECTED behavior just for population of Catch2
-FETCHCONTENT_UPDATES_DISCONNECTED_CATCH2:BOOL=OFF
-
 //Enables UPDATE_DISCONNECTED behavior just for population of nlohmann_json
 FETCHCONTENT_UPDATES_DISCONNECTED_NLOHMANN_JSON:BOOL=OFF
 
 //Git command line client
-GIT_EXECUTABLE:FILEPATH=C:/Program Files/Git/cmd/git.exe
+GIT_EXECUTABLE:FILEPATH=C:/Program Files/Git/bin/git.exe
 
 //Build the unit tests when BUILD_TESTING is enabled.
 JSON_BuildTests:BOOL=OFF
@@ -364,6 +321,9 @@ Lonk_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 Lonk_SOURCE_DIR:STATIC=C:/Users/zaime/CLionProjects/Lonk
 
+//The protoc compiler
+Protobuf_PROTOC_EXECUTABLE:FILEPATH=C:/.conan/2d9f4b/1/bin/protoc.exe
+
 //Build all demos (overrides individual settings)
 WITH_ALL:BOOL=OFF
 
@@ -375,6 +335,15 @@ nlohmann_json_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
 nlohmann_json_SOURCE_DIR:STATIC=C:/Users/zaime/CLionProjects/Lonk/cmake-build-debug/_deps/nlohmann_json-src
+
+//The directory containing a CMake configuration file for opencv.
+opencv_DIR:PATH=opencv_DIR-NOTFOUND
+
+//CMake built-in FindProtobuf.cmake module compatible
+protobuf_MODULE_COMPATIBLE:BOOL=OFF
+
+//Enable for verbose output
+protobuf_VERBOSE:BOOL=OFF
 
 
 ########################
@@ -545,9 +514,79 @@ CMAKE_STATIC_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Details about finding BZip2
+FIND_PACKAGE_MESSAGE_DETAILS_BZip2:INTERNAL=[1.0.8][v1.0.8()]
+//Details about finding Boost
+FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[1.71.0][v1.71.0()]
+//Details about finding Brotli
+FIND_PACKAGE_MESSAGE_DETAILS_Brotli:INTERNAL=[1.0.9][v1.0.9()]
+//Details about finding Eigen3
+FIND_PACKAGE_MESSAGE_DETAILS_Eigen3:INTERNAL=[3.3.9][v3.3.9()]
+//Details about finding Freetype
+FIND_PACKAGE_MESSAGE_DETAILS_Freetype:INTERNAL=[2.12.1][v2.12.1()]
+//Details about finding Iconv
+FIND_PACKAGE_MESSAGE_DETAILS_Iconv:INTERNAL=[1.17][v1.17()]
+//Details about finding JPEG
+FIND_PACKAGE_MESSAGE_DETAILS_JPEG:INTERNAL=[9d][v9d()]
+//Details about finding Jasper
+FIND_PACKAGE_MESSAGE_DETAILS_Jasper:INTERNAL=[2.0.33][v2.0.33()]
+//Details about finding LibLZMA
+FIND_PACKAGE_MESSAGE_DETAILS_LibLZMA:INTERNAL=[5.2.5][v5.2.5()]
+//Details about finding Ogg
+FIND_PACKAGE_MESSAGE_DETAILS_Ogg:INTERNAL=[1.3.5][v1.3.5()]
+//Details about finding OpenCV
+FIND_PACKAGE_MESSAGE_DETAILS_OpenCV:INTERNAL=[4.5.5][v4.5.5()]
+//Details about finding OpenEXR
+FIND_PACKAGE_MESSAGE_DETAILS_OpenEXR:INTERNAL=[2.5.7][v2.5.7()]
+//Details about finding OpenJPEG
+FIND_PACKAGE_MESSAGE_DETAILS_OpenJPEG:INTERNAL=[2.5.0][v2.5.0()]
+//Details about finding OpenSSL
+FIND_PACKAGE_MESSAGE_DETAILS_OpenSSL:INTERNAL=[1.1.1q][v1.1.1q()]
+//Details about finding Opus
+FIND_PACKAGE_MESSAGE_DETAILS_Opus:INTERNAL=[1.3.1][v1.3.1()]
+//Details about finding PNG
+FIND_PACKAGE_MESSAGE_DETAILS_PNG:INTERNAL=[1.6.37][v1.6.37()]
+//Details about finding Protobuf
+FIND_PACKAGE_MESSAGE_DETAILS_Protobuf:INTERNAL=[3.17.1][v3.17.1()]
+//Details about finding TIFF
+FIND_PACKAGE_MESSAGE_DETAILS_TIFF:INTERNAL=[4.3.0][v4.3.0()]
+//Details about finding Vorbis
+FIND_PACKAGE_MESSAGE_DETAILS_Vorbis:INTERNAL=[1.3.7][v1.3.7()]
+//Details about finding WebP
+FIND_PACKAGE_MESSAGE_DETAILS_WebP:INTERNAL=[1.2.2][v1.2.2()]
+//Details about finding ZLIB
+FIND_PACKAGE_MESSAGE_DETAILS_ZLIB:INTERNAL=[1.2.12][v1.2.12()]
+//Details about finding ade
+FIND_PACKAGE_MESSAGE_DETAILS_ade:INTERNAL=[0.1.1f][v0.1.1f()]
+//Details about finding fdk-aac
+FIND_PACKAGE_MESSAGE_DETAILS_fdk-aac:INTERNAL=[2.0.2][v2.0.2()]
+//Details about finding ffmpeg
+FIND_PACKAGE_MESSAGE_DETAILS_ffmpeg:INTERNAL=[4.4][v4.4()]
+//Details about finding jbig
+FIND_PACKAGE_MESSAGE_DETAILS_jbig:INTERNAL=[20160605][v20160605()]
+//Details about finding libdeflate
+FIND_PACKAGE_MESSAGE_DETAILS_libdeflate:INTERNAL=[1.12][v1.12()]
+//Details about finding libmp3lame
+FIND_PACKAGE_MESSAGE_DETAILS_libmp3lame:INTERNAL=[3.100][v3.100()]
+//Details about finding libvpx
+FIND_PACKAGE_MESSAGE_DETAILS_libvpx:INTERNAL=[1.11.0][v1.11.0()]
+//Details about finding libx264
+FIND_PACKAGE_MESSAGE_DETAILS_libx264:INTERNAL=[20191217][v20191217()]
+//Details about finding libx265
+FIND_PACKAGE_MESSAGE_DETAILS_libx265:INTERNAL=[3.4][v3.4()]
+//Details about finding openh264
+FIND_PACKAGE_MESSAGE_DETAILS_openh264:INTERNAL=[2.1.1][v2.1.1()]
+//Details about finding quirc
+FIND_PACKAGE_MESSAGE_DETAILS_quirc:INTERNAL=[1.1][v1.1()]
+//Details about finding zstd
+FIND_PACKAGE_MESSAGE_DETAILS_zstd:INTERNAL=[1.5.2][v1.5.2()]
 //ADVANCED property for variable: GIT_EXECUTABLE
 GIT_EXECUTABLE-ADVANCED:INTERNAL=1
 NLOHMANN_JSON_CONFIG_INSTALL_DIR:INTERNAL=share/cmake/nlohmann_json
 //CMAKE_INSTALL_PREFIX during last run
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files (x86)/Lonk
+//ADVANCED property for variable: protobuf_MODULE_COMPATIBLE
+protobuf_MODULE_COMPATIBLE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: protobuf_VERBOSE
+protobuf_VERBOSE-ADVANCED:INTERNAL=1
 

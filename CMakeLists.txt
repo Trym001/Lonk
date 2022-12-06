@@ -1,11 +1,10 @@
 cmake_minimum_required(VERSION 3.15)
 project(Lonk)
 
-option(WITH_ALL "Build all demos (overrides individual settings)" OFF)
-
 set(CMAKE_CXX_STANDARD 17)
-set(generatedSourcesDir ${CMAKE_BINARY_DIR}/generated)
-file(MAKE_DIRECTORY "${generatedSourcesDir}")
+
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_BINARY_DIR})
+list(APPEND CMAKE_PREFIX_PATH ${CMAKE_BINARY_DIR})
 
 if (MSVC)
     # Boost asio wants this...
@@ -14,15 +13,24 @@ endif ()
 
 include(cmake/conan.cmake)
 
-set(DEPS boost/1.71.0)
-
-conan_cmake_run(
+conan_cmake_configure(
         REQUIRES
-        ${DEPS}
-        GENERATORS cmake
-        BUILD missing
-        BASIC_SETUP CMAKE_TARGETS
+        opencv/4.5.5
+        boost/1.71.0
+        GENERATORS cmake_find_package
+        IMPORTS "res, haarcascades* -> cascades"
+        IMPORTS "res, lbpcascades* -> cascades"
 )
+
+conan_cmake_autodetect(settings)
+#itte her
+conan_cmake_install(PATH_OR_REFERENCE .
+        BUILD missing
+        SETTINGS ${settings})
+
+find_package(opencv REQUIRED)
+find_package(Boost COMPONENTS REQUIRED system)
+
 
 Include(FetchContent)
 FetchContent_Declare(

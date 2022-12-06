@@ -1,11 +1,10 @@
 "C:\Program Files\JetBrains\CLion 2022.2.4\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2022.2.4/bin/ninja/win/ninja.exe" -G Ninja -S C:\Users\zaime\CLionProjects\Lonk -B C:\Users\zaime\CLionProjects\Lonk\cmake-build-debug
--- Conan: Automatic detection of conan settings from cmake
 -- Conan: Detected VS runtime: MDd
--- Conan: Settings= -s;arch=x86_64;-s;build_type=Debug;-s;compiler=Visual Studio;-s;compiler.version=16;-s;compiler.runtime=MDd
 -- Conan: checking conan executable
 -- Conan: Found program C:/Users/zaime/AppData/Local/Programs/Python/Python39/Scripts/conan.exe
 -- Conan: Version found Conan version 1.54.0
--- Conan executing: C:/Users/zaime/AppData/Local/Programs/Python/Python39/Scripts/conan.exe install . -s arch=x86_64 -s build_type=Debug -s compiler=Visual Studio -s compiler.version=16 -s compiler.runtime=MDd -g=cmake -g=cmake --build=missing
+
+-- Conan executing: C:/Users/zaime/AppData/Local/Programs/Python/Python39/Scripts/conan.exe install . --build missing --settings arch=x86_64 --settings build_type=Debug --settings compiler=Visual Studio --settings compiler.version=16 --settings compiler.runtime=MDd
 Configuration:
 [settings]
 arch=x86_64
@@ -20,72 +19,603 @@ os_build=Windows
 [build_requires]
 [env]
 
+WARN: libtiff/4.3.0: requirement libjpeg/9e overridden by opencv/4.5.5 to libjpeg/9d 
+WARN: libtiff/4.3.0: requirement libwebp/1.2.4 overridden by opencv/4.5.5 to libwebp/1.2.2 
+WARN: ffmpeg/4.4: requirement libwebp/1.2.3 overridden by opencv/4.5.5 to libwebp/1.2.2 
+WARN: freetype/2.12.1: requirement libpng/1.6.38 overridden by ffmpeg/4.4 to libpng/1.6.37 
 conanfile.txt: Installing package
 Requirements
+    ade/0.1.1f from 'conancenter' - Cache
     boost/1.71.0 from 'conancenter' - Cache
+    brotli/1.0.9 from 'conancenter' - Cache
     bzip2/1.0.8 from 'conancenter' - Cache
+    eigen/3.3.9 from 'conancenter' - Cache
+    ffmpeg/4.4 from 'conancenter' - Cache
+    freetype/2.12.1 from 'conancenter' - Cache
+    jasper/2.0.33 from 'conancenter' - Cache
+    jbig/20160605 from 'conancenter' - Cache
+    libdeflate/1.12 from 'conancenter' - Cache
+    libfdk_aac/2.0.2 from 'conancenter' - Cache
+    libiconv/1.17 from 'conancenter' - Cache
+    libjpeg/9d from 'conancenter' - Cache
+    libmp3lame/3.100 from 'conancenter' - Cache
+    libpng/1.6.37 from 'conancenter' - Cache
+    libtiff/4.3.0 from 'conancenter' - Cache
+    libvpx/1.11.0 from 'conancenter' - Cache
+    libwebp/1.2.2 from 'conancenter' - Cache
+    libx264/20191217 from 'conancenter' - Cache
+    libx265/3.4 from 'conancenter' - Cache
+    ogg/1.3.5 from 'conancenter' - Cache
+    opencv/4.5.5 from 'conancenter' - Cache
+    openexr/2.5.7 from 'conancenter' - Cache
+    openh264/2.1.1 from 'conancenter' - Cache
+    openjpeg/2.5.0 from 'conancenter' - Cache
+    openssl/1.1.1q from 'conancenter' - Cache
+    opus/1.3.1 from 'conancenter' - Cache
+    protobuf/3.17.1 from 'conancenter' - Cache
+    quirc/1.1 from 'conancenter' - Cache
+    vorbis/1.3.7 from 'conancenter' - Cache
+    xz_utils/5.2.5 from 'conancenter' - Cache
     zlib/1.2.12 from 'conancenter' - Cache
+    zstd/1.5.2 from 'conancenter' - Cache
 Packages
+    ade/0.1.1f:d057732059ea44a47760900cb5e4855d2bea8714 - Cache
     boost/1.71.0:e25da6736836401d14d18eb2361204b3783cc5f4 - Cache
+    brotli/1.0.9:06a7a5848f39a2b1d31f3ee2414a17d463f68a34 - Cache
     bzip2/1.0.8:589a23dff5fdb23a7fb851223eb766480ead0a9a - Cache
+    eigen/3.3.9:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9 - Cache
+    ffmpeg/4.4:9630da8cb1aceefadfc3308398bb3fa740574c6d - Cache
+    freetype/2.12.1:c69bad48274e7fc45c887cddc32aa0459f0a81e0 - Cache
+    jasper/2.0.33:2278242cc765d77e29f54e7b3e73f056c18d9a10 - Cache
+    jbig/20160605:a05a9ef21a91686b7138c926ec52aaeb70439310 - Cache
+    libdeflate/1.12:d057732059ea44a47760900cb5e4855d2bea8714 - Cache
+    libfdk_aac/2.0.2:d057732059ea44a47760900cb5e4855d2bea8714 - Cache
+    libiconv/1.17:d057732059ea44a47760900cb5e4855d2bea8714 - Cache
+    libjpeg/9d:d057732059ea44a47760900cb5e4855d2bea8714 - Cache
+    libmp3lame/3.100:d057732059ea44a47760900cb5e4855d2bea8714 - Cache
+    libpng/1.6.37:8b1ef0ec9599374db4689199730c00a0d5f4de36 - Cache
+    libtiff/4.3.0:e2e95cb5797e0ea720de15db3e7a049a3772be97 - Cache
+    libvpx/1.11.0:0a69d6ddb06b8782b01aad521e2a0c2edf39870a - Cache
+    libwebp/1.2.2:092f77d3b4b4678d81fbffc1fccc9642b870175e - Cache
+    libx264/20191217:e03f63a768ca59a76d565ff28923e7805edec16d - Cache
+    libx265/3.4:1287c7aad58fe35bb1a62d9fcc674752df4a764a - Cache
+    ogg/1.3.5:d057732059ea44a47760900cb5e4855d2bea8714 - Cache
+    opencv/4.5.5:31e15981256e96c0da02dd2d8f74b6fdb472f00b - Cache
+    openexr/2.5.7:6acf24cd4adf2df742e006cc0e5f0329e3b6e60b - Cache
+    openh264/2.1.1:d057732059ea44a47760900cb5e4855d2bea8714 - Cache
+    openjpeg/2.5.0:d057732059ea44a47760900cb5e4855d2bea8714 - Cache
+    openssl/1.1.1q:d057732059ea44a47760900cb5e4855d2bea8714 - Cache
+    opus/1.3.1:d057732059ea44a47760900cb5e4855d2bea8714 - Cache
+    protobuf/3.17.1:2c92c32af71324f0143d3738c61b80db04fc702a - Cache
+    quirc/1.1:11b7230897ba30e6da1af1c8b0726ed134f404ee - Cache
+    vorbis/1.3.7:b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47 - Cache
+    xz_utils/5.2.5:d057732059ea44a47760900cb5e4855d2bea8714 - Cache
     zlib/1.2.12:d057732059ea44a47760900cb5e4855d2bea8714 - Cache
+    zstd/1.5.2:1967f444568571a94da80e35a521699f1a90cb74 - Cache
 
 Installing (downloading, building) binaries...
+ade/0.1.1f: Already installed!
+brotli/1.0.9: Already installed!
 bzip2/1.0.8: Already installed!
 bzip2/1.0.8: Appending PATH environment variable: C:\Users\zaime\.conan\data\bzip2\1.0.8\_\_\package\589a23dff5fdb23a7fb851223eb766480ead0a9a\bin
+eigen/3.3.9: Already installed!
+jbig/20160605: Already installed!
+jbig/20160605: Appending PATH environment variable: C:\Users\zaime\.conan\data\jbig\20160605\_\_\package\a05a9ef21a91686b7138c926ec52aaeb70439310\bin
+libdeflate/1.12: Already installed!
+libfdk_aac/2.0.2: Already installed!
+libiconv/1.17: Already installed!
+libiconv/1.17: Appending PATH environment var: C:\Users\zaime\.conan\data\libiconv\1.17\_\_\package\d057732059ea44a47760900cb5e4855d2bea8714\bin
+libjpeg/9d: Already installed!
+libmp3lame/3.100: Already installed!
+libvpx/1.11.0: Already installed!
+libwebp/1.2.2: Already installed!
+libx264/20191217: Already installed!
+libx265/3.4: Already installed!
+ogg/1.3.5: Already installed!
+openh264/2.1.1: Already installed!
+openjpeg/2.5.0: Already installed!
+openssl/1.1.1q: Already installed!
+opus/1.3.1: Already installed!
+quirc/1.1: Already installed!
+xz_utils/5.2.5: Already installed!
 zlib/1.2.12: Already installed!
+zstd/1.5.2: Already installed!
 boost/1.71.0: Already installed!
 boost/1.71.0: Disabled magic autolinking (smart and magic decisions)
-conanfile.txt: Generator cmake created conanbuildinfo.cmake
+jasper/2.0.33: Already installed!
+libpng/1.6.37: Already installed!
+libtiff/4.3.0: Already installed!
+openexr/2.5.7: Already installed!
+protobuf/3.17.1: Already installed!
+protobuf/3.17.1: Appending PATH environment variable: C:\.conan\2d9f4b\1\bin
+vorbis/1.3.7: Already installed!
+freetype/2.12.1: Already installed!
+ffmpeg/4.4: Already installed!
+opencv/4.5.5: Already installed!
 conanfile.txt: Generator txt created conanbuildinfo.txt
+conanfile.txt: Generator cmake_find_package created FindOpenCV.cmake
+conanfile.txt: Generator cmake_find_package created FindBoost.cmake
+conanfile.txt: Generator cmake_find_package created FindJasper.cmake
+conanfile.txt: Generator cmake_find_package created FindOpenEXR.cmake
+conanfile.txt: Generator cmake_find_package created FindTIFF.cmake
+conanfile.txt: Generator cmake_find_package created FindEigen3.cmake
+conanfile.txt: Generator cmake_find_package created Findffmpeg.cmake
+conanfile.txt: Generator cmake_find_package created Findquirc.cmake
+conanfile.txt: Generator cmake_find_package created FindProtobuf.cmake
+conanfile.txt: Generator cmake_find_package created Findade.cmake
+conanfile.txt: Generator cmake_find_package created FindJPEG.cmake
+conanfile.txt: Generator cmake_find_package created Findlibdeflate.cmake
+conanfile.txt: Generator cmake_find_package created FindLibLZMA.cmake
+conanfile.txt: Generator cmake_find_package created Findjbig.cmake
+conanfile.txt: Generator cmake_find_package created Findzstd.cmake
+conanfile.txt: Generator cmake_find_package created FindWebP.cmake
+conanfile.txt: Generator cmake_find_package created FindIconv.cmake
+conanfile.txt: Generator cmake_find_package created FindFreetype.cmake
+conanfile.txt: Generator cmake_find_package created FindOpenJPEG.cmake
+conanfile.txt: Generator cmake_find_package created Findopenh264.cmake
+conanfile.txt: Generator cmake_find_package created FindVorbis.cmake
+conanfile.txt: Generator cmake_find_package created FindOpus.cmake
+conanfile.txt: Generator cmake_find_package created Findlibx264.cmake
+conanfile.txt: Generator cmake_find_package created Findlibx265.cmake
+conanfile.txt: Generator cmake_find_package created Findlibvpx.cmake
+conanfile.txt: Generator cmake_find_package created Findlibmp3lame.cmake
+conanfile.txt: Generator cmake_find_package created Findfdk-aac.cmake
+conanfile.txt: Generator cmake_find_package created FindOpenSSL.cmake
+conanfile.txt: Generator cmake_find_package created FindPNG.cmake
+conanfile.txt: Generator cmake_find_package created FindBZip2.cmake
+conanfile.txt: Generator cmake_find_package created FindBrotli.cmake
+conanfile.txt: Generator cmake_find_package created FindOgg.cmake
+conanfile.txt: Generator cmake_find_package created FindZLIB.cmake
 conanfile.txt: Aggregating env generators
 conanfile.txt: Generated conaninfo.txt
 conanfile.txt: Generated graphinfo
--- Conan: Loading conanbuildinfo.cmake
--- Conan: Adjusting output directories
--- Conan: Using cmake targets configuration
--- Library libboost_contract found C:/.conan/30029c/1/lib/libboost_contract.lib
--- Library libboost_coroutine found C:/.conan/30029c/1/lib/libboost_coroutine.lib
--- Library libboost_fiber_numa found C:/.conan/30029c/1/lib/libboost_fiber_numa.lib
--- Library libboost_fiber found C:/.conan/30029c/1/lib/libboost_fiber.lib
--- Library libboost_context found C:/.conan/30029c/1/lib/libboost_context.lib
--- Library libboost_graph found C:/.conan/30029c/1/lib/libboost_graph.lib
--- Library libboost_iostreams found C:/.conan/30029c/1/lib/libboost_iostreams.lib
--- Library libboost_log_setup found C:/.conan/30029c/1/lib/libboost_log_setup.lib
--- Library libboost_log found C:/.conan/30029c/1/lib/libboost_log.lib
--- Library libboost_locale found C:/.conan/30029c/1/lib/libboost_locale.lib
--- Library libboost_math_c99 found C:/.conan/30029c/1/lib/libboost_math_c99.lib
--- Library libboost_math_c99f found C:/.conan/30029c/1/lib/libboost_math_c99f.lib
--- Library libboost_math_c99l found C:/.conan/30029c/1/lib/libboost_math_c99l.lib
--- Library libboost_math_tr1 found C:/.conan/30029c/1/lib/libboost_math_tr1.lib
--- Library libboost_math_tr1f found C:/.conan/30029c/1/lib/libboost_math_tr1f.lib
--- Library libboost_math_tr1l found C:/.conan/30029c/1/lib/libboost_math_tr1l.lib
--- Library libboost_program_options found C:/.conan/30029c/1/lib/libboost_program_options.lib
--- Library libboost_random found C:/.conan/30029c/1/lib/libboost_random.lib
--- Library libboost_regex found C:/.conan/30029c/1/lib/libboost_regex.lib
--- Library libboost_stacktrace_noop found C:/.conan/30029c/1/lib/libboost_stacktrace_noop.lib
--- Library libboost_stacktrace_windbg found C:/.conan/30029c/1/lib/libboost_stacktrace_windbg.lib
--- Library libboost_stacktrace_windbg_cached found C:/.conan/30029c/1/lib/libboost_stacktrace_windbg_cached.lib
--- Library libboost_timer found C:/.conan/30029c/1/lib/libboost_timer.lib
--- Library libboost_type_erasure found C:/.conan/30029c/1/lib/libboost_type_erasure.lib
--- Library libboost_thread found C:/.conan/30029c/1/lib/libboost_thread.lib
--- Library libboost_atomic found C:/.conan/30029c/1/lib/libboost_atomic.lib
--- Library libboost_chrono found C:/.conan/30029c/1/lib/libboost_chrono.lib
--- Library libboost_container found C:/.conan/30029c/1/lib/libboost_container.lib
--- Library libboost_date_time found C:/.conan/30029c/1/lib/libboost_date_time.lib
--- Library libboost_unit_test_framework found C:/.conan/30029c/1/lib/libboost_unit_test_framework.lib
--- Library libboost_prg_exec_monitor found C:/.conan/30029c/1/lib/libboost_prg_exec_monitor.lib
--- Library libboost_test_exec_monitor found C:/.conan/30029c/1/lib/libboost_test_exec_monitor.lib
--- Library libboost_exception found C:/.conan/30029c/1/lib/libboost_exception.lib
--- Library libboost_wave found C:/.conan/30029c/1/lib/libboost_wave.lib
--- Library libboost_filesystem found C:/.conan/30029c/1/lib/libboost_filesystem.lib
--- Library libboost_wserialization found C:/.conan/30029c/1/lib/libboost_wserialization.lib
--- Library libboost_serialization found C:/.conan/30029c/1/lib/libboost_serialization.lib
+conanfile.txt imports(): Copied 22 '.xml' files
+-- Conan: Using autogenerated FindOpenCV.cmake
+CMake Warning (dev) at C:/Program Files/JetBrains/CLion 2022.2.4/bin/cmake/win/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+  The package name passed to `find_package_handle_standard_args` (OpenCV)
+  does not match the name of the calling package (opencv).  This can lead to
+  problems in calling code that expects `find_package` result variables
+  (e.g., `_FOUND`) to follow a certain pattern.
+Call Stack (most recent call first):
+  cmake-build-debug/FindOpenCV.cmake:81 (find_package_handle_standard_args)
+  CMakeLists.txt:31 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Library opencv_ml455d found C:/.conan/4418e8/1/lib/opencv_ml455d.lib
+-- Found: C:/.conan/4418e8/1/lib/opencv_ml455d.lib
+-- Library opencv_photo455d found C:/.conan/4418e8/1/lib/opencv_photo455d.lib
+-- Found: C:/.conan/4418e8/1/lib/opencv_photo455d.lib
+-- Library opencv_highgui455d found C:/.conan/4418e8/1/lib/opencv_highgui455d.lib
+-- Found: C:/.conan/4418e8/1/lib/opencv_highgui455d.lib
+-- Library opencv_videoio455d found C:/.conan/4418e8/1/lib/opencv_videoio455d.lib
+-- Found: C:/.conan/4418e8/1/lib/opencv_videoio455d.lib
+-- Library opencv_imgcodecs455d found C:/.conan/4418e8/1/lib/opencv_imgcodecs455d.lib
+-- Found: C:/.conan/4418e8/1/lib/opencv_imgcodecs455d.lib
+-- Library opencv_stitching455d found C:/.conan/4418e8/1/lib/opencv_stitching455d.lib
+-- Found: C:/.conan/4418e8/1/lib/opencv_stitching455d.lib
+-- Library opencv_dnn455d found C:/.conan/4418e8/1/lib/opencv_dnn455d.lib
+-- Found: C:/.conan/4418e8/1/lib/opencv_dnn455d.lib
+-- Library opencv_objdetect455d found C:/.conan/4418e8/1/lib/opencv_objdetect455d.lib
+-- Found: C:/.conan/4418e8/1/lib/opencv_objdetect455d.lib
+-- Library opencv_gapi455d found C:/.conan/4418e8/1/lib/opencv_gapi455d.lib
+-- Found: C:/.conan/4418e8/1/lib/opencv_gapi455d.lib
+-- Library opencv_video455d found C:/.conan/4418e8/1/lib/opencv_video455d.lib
+-- Found: C:/.conan/4418e8/1/lib/opencv_video455d.lib
+-- Library opencv_calib3d455d found C:/.conan/4418e8/1/lib/opencv_calib3d455d.lib
+-- Found: C:/.conan/4418e8/1/lib/opencv_calib3d455d.lib
+-- Library opencv_features2d455d found C:/.conan/4418e8/1/lib/opencv_features2d455d.lib
+-- Found: C:/.conan/4418e8/1/lib/opencv_features2d455d.lib
+-- Library opencv_flann455d found C:/.conan/4418e8/1/lib/opencv_flann455d.lib
+-- Found: C:/.conan/4418e8/1/lib/opencv_flann455d.lib
+-- Library opencv_imgproc455d found C:/.conan/4418e8/1/lib/opencv_imgproc455d.lib
+-- Found: C:/.conan/4418e8/1/lib/opencv_imgproc455d.lib
+-- Library opencv_core455d found C:/.conan/4418e8/1/lib/opencv_core455d.lib
+-- Found: C:/.conan/4418e8/1/lib/opencv_core455d.lib
+-- Conan: Using autogenerated FindEigen3.cmake
+-- Conan: Using autogenerated Findffmpeg.cmake
+-- Library avdevice found C:/Users/zaime/.conan/data/ffmpeg/4.4/_/_/package/9630da8cb1aceefadfc3308398bb3fa740574c6d/lib/avdevice.lib
+-- Found: C:/Users/zaime/.conan/data/ffmpeg/4.4/_/_/package/9630da8cb1aceefadfc3308398bb3fa740574c6d/lib/avdevice.lib
+-- Library avfilter found C:/Users/zaime/.conan/data/ffmpeg/4.4/_/_/package/9630da8cb1aceefadfc3308398bb3fa740574c6d/lib/avfilter.lib
+-- Found: C:/Users/zaime/.conan/data/ffmpeg/4.4/_/_/package/9630da8cb1aceefadfc3308398bb3fa740574c6d/lib/avfilter.lib
+-- Library avformat found C:/Users/zaime/.conan/data/ffmpeg/4.4/_/_/package/9630da8cb1aceefadfc3308398bb3fa740574c6d/lib/avformat.lib
+-- Found: C:/Users/zaime/.conan/data/ffmpeg/4.4/_/_/package/9630da8cb1aceefadfc3308398bb3fa740574c6d/lib/avformat.lib
+-- Library avcodec found C:/Users/zaime/.conan/data/ffmpeg/4.4/_/_/package/9630da8cb1aceefadfc3308398bb3fa740574c6d/lib/avcodec.lib
+-- Found: C:/Users/zaime/.conan/data/ffmpeg/4.4/_/_/package/9630da8cb1aceefadfc3308398bb3fa740574c6d/lib/avcodec.lib
+-- Library swscale found C:/Users/zaime/.conan/data/ffmpeg/4.4/_/_/package/9630da8cb1aceefadfc3308398bb3fa740574c6d/lib/swscale.lib
+-- Found: C:/Users/zaime/.conan/data/ffmpeg/4.4/_/_/package/9630da8cb1aceefadfc3308398bb3fa740574c6d/lib/swscale.lib
+-- Library swresample found C:/Users/zaime/.conan/data/ffmpeg/4.4/_/_/package/9630da8cb1aceefadfc3308398bb3fa740574c6d/lib/swresample.lib
+-- Found: C:/Users/zaime/.conan/data/ffmpeg/4.4/_/_/package/9630da8cb1aceefadfc3308398bb3fa740574c6d/lib/swresample.lib
+-- Library postproc found C:/Users/zaime/.conan/data/ffmpeg/4.4/_/_/package/9630da8cb1aceefadfc3308398bb3fa740574c6d/lib/postproc.lib
+-- Found: C:/Users/zaime/.conan/data/ffmpeg/4.4/_/_/package/9630da8cb1aceefadfc3308398bb3fa740574c6d/lib/postproc.lib
+-- Library avutil found C:/Users/zaime/.conan/data/ffmpeg/4.4/_/_/package/9630da8cb1aceefadfc3308398bb3fa740574c6d/lib/avutil.lib
+-- Found: C:/Users/zaime/.conan/data/ffmpeg/4.4/_/_/package/9630da8cb1aceefadfc3308398bb3fa740574c6d/lib/avutil.lib
+-- Conan: Using autogenerated FindFreetype.cmake
+-- Library freetyped found C:/Users/zaime/.conan/data/freetype/2.12.1/_/_/package/c69bad48274e7fc45c887cddc32aa0459f0a81e0/lib/freetyped.lib
+-- Found: C:/Users/zaime/.conan/data/freetype/2.12.1/_/_/package/c69bad48274e7fc45c887cddc32aa0459f0a81e0/lib/freetyped.lib
+-- Conan: Using autogenerated FindPNG.cmake
+-- Library libpng16d found C:/Users/zaime/.conan/data/libpng/1.6.37/_/_/package/8b1ef0ec9599374db4689199730c00a0d5f4de36/lib/libpng16d.lib
+-- Found: C:/Users/zaime/.conan/data/libpng/1.6.37/_/_/package/8b1ef0ec9599374db4689199730c00a0d5f4de36/lib/libpng16d.lib
+-- Conan: Using autogenerated FindZLIB.cmake
 -- Library zlib found C:/Users/zaime/.conan/data/zlib/1.2.12/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/zlib.lib
+-- Found: C:/Users/zaime/.conan/data/zlib/1.2.12/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/zlib.lib
+-- Dependency ZLIB already found
+-- Conan: Using autogenerated FindBZip2.cmake
 -- Library bz2 found C:/Users/zaime/.conan/data/bzip2/1.0.8/_/_/package/589a23dff5fdb23a7fb851223eb766480ead0a9a/lib/bz2.lib
--- Conan: Adjusting default RPATHs Conan policies
--- Conan: Adjusting language standard
--- Current conanbuildinfo.cmake directory: C:/Users/zaime/CLionProjects/Lonk/cmake-build-debug
+-- Found: C:/Users/zaime/.conan/data/bzip2/1.0.8/_/_/package/589a23dff5fdb23a7fb851223eb766480ead0a9a/lib/bz2.lib
+-- Conan: Using autogenerated FindBrotli.cmake
+-- Library brotlidec-static found C:/Users/zaime/.conan/data/brotli/1.0.9/_/_/package/06a7a5848f39a2b1d31f3ee2414a17d463f68a34/lib/brotlidec-static.lib
+-- Found: C:/Users/zaime/.conan/data/brotli/1.0.9/_/_/package/06a7a5848f39a2b1d31f3ee2414a17d463f68a34/lib/brotlidec-static.lib
+-- Library brotlienc-static found C:/Users/zaime/.conan/data/brotli/1.0.9/_/_/package/06a7a5848f39a2b1d31f3ee2414a17d463f68a34/lib/brotlienc-static.lib
+-- Found: C:/Users/zaime/.conan/data/brotli/1.0.9/_/_/package/06a7a5848f39a2b1d31f3ee2414a17d463f68a34/lib/brotlienc-static.lib
+-- Library brotlicommon-static found C:/Users/zaime/.conan/data/brotli/1.0.9/_/_/package/06a7a5848f39a2b1d31f3ee2414a17d463f68a34/lib/brotlicommon-static.lib
+-- Found: C:/Users/zaime/.conan/data/brotli/1.0.9/_/_/package/06a7a5848f39a2b1d31f3ee2414a17d463f68a34/lib/brotlicommon-static.lib
+-- Library brotlicommon-static found C:/Users/zaime/.conan/data/brotli/1.0.9/_/_/package/06a7a5848f39a2b1d31f3ee2414a17d463f68a34/lib/brotlicommon-static.lib
+-- Found: C:/Users/zaime/.conan/data/brotli/1.0.9/_/_/package/06a7a5848f39a2b1d31f3ee2414a17d463f68a34/lib/brotlicommon-static.lib
+-- Library brotlienc-static found C:/Users/zaime/.conan/data/brotli/1.0.9/_/_/package/06a7a5848f39a2b1d31f3ee2414a17d463f68a34/lib/brotlienc-static.lib
+-- Found: C:/Users/zaime/.conan/data/brotli/1.0.9/_/_/package/06a7a5848f39a2b1d31f3ee2414a17d463f68a34/lib/brotlienc-static.lib
+-- Library brotlidec-static found C:/Users/zaime/.conan/data/brotli/1.0.9/_/_/package/06a7a5848f39a2b1d31f3ee2414a17d463f68a34/lib/brotlidec-static.lib
+-- Found: C:/Users/zaime/.conan/data/brotli/1.0.9/_/_/package/06a7a5848f39a2b1d31f3ee2414a17d463f68a34/lib/brotlidec-static.lib
+-- Conan: Dependency BZip2 already found
+-- Conan: Using autogenerated FindOpenSSL.cmake
+-- Library libssld found C:/Users/zaime/.conan/data/openssl/1.1.1q/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/libssld.lib
+-- Found: C:/Users/zaime/.conan/data/openssl/1.1.1q/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/libssld.lib
+-- Library libcryptod found C:/Users/zaime/.conan/data/openssl/1.1.1q/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/libcryptod.lib
+-- Found: C:/Users/zaime/.conan/data/openssl/1.1.1q/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/libcryptod.lib
+-- Library libcryptod found C:/Users/zaime/.conan/data/openssl/1.1.1q/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/libcryptod.lib
+-- Found: C:/Users/zaime/.conan/data/openssl/1.1.1q/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/libcryptod.lib
+-- Library libssld found C:/Users/zaime/.conan/data/openssl/1.1.1q/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/libssld.lib
+-- Found: C:/Users/zaime/.conan/data/openssl/1.1.1q/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/libssld.lib
+-- Conan: Dependency ZLIB already found
+-- Conan: Using autogenerated FindLibLZMA.cmake
+-- Library lzma found C:/Users/zaime/.conan/data/xz_utils/5.2.5/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/lzma.lib
+-- Found: C:/Users/zaime/.conan/data/xz_utils/5.2.5/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/lzma.lib
+-- Conan: Using autogenerated FindIconv.cmake
+-- Library iconv found C:/Users/zaime/.conan/data/libiconv/1.17/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/iconv.lib
+-- Found: C:/Users/zaime/.conan/data/libiconv/1.17/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/iconv.lib
+-- Library charset found C:/Users/zaime/.conan/data/libiconv/1.17/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/charset.lib
+-- Found: C:/Users/zaime/.conan/data/libiconv/1.17/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/charset.lib
+-- Conan: Using autogenerated FindOpenJPEG.cmake
+-- Library openjp2 found C:/Users/zaime/.conan/data/openjpeg/2.5.0/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/openjp2.lib
+-- Found: C:/Users/zaime/.conan/data/openjpeg/2.5.0/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/openjp2.lib
+-- Conan: Using autogenerated Findopenh264.cmake
+-- Library openh264 found C:/Users/zaime/.conan/data/openh264/2.1.1/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/openh264.lib
+-- Found: C:/Users/zaime/.conan/data/openh264/2.1.1/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/openh264.lib
+-- Conan: Using autogenerated FindVorbis.cmake
+-- Library vorbisenc found C:/Users/zaime/.conan/data/vorbis/1.3.7/_/_/package/b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47/lib/vorbisenc.lib
+-- Found: C:/Users/zaime/.conan/data/vorbis/1.3.7/_/_/package/b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47/lib/vorbisenc.lib
+-- Library vorbisfile found C:/Users/zaime/.conan/data/vorbis/1.3.7/_/_/package/b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47/lib/vorbisfile.lib
+-- Found: C:/Users/zaime/.conan/data/vorbis/1.3.7/_/_/package/b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47/lib/vorbisfile.lib
+-- Library vorbis found C:/Users/zaime/.conan/data/vorbis/1.3.7/_/_/package/b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47/lib/vorbis.lib
+-- Found: C:/Users/zaime/.conan/data/vorbis/1.3.7/_/_/package/b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47/lib/vorbis.lib
+-- Conan: Using autogenerated FindOgg.cmake
+-- Library ogg found C:/Users/zaime/.conan/data/ogg/1.3.5/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/ogg.lib
+-- Found: C:/Users/zaime/.conan/data/ogg/1.3.5/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/ogg.lib
+-- Library ogg found C:/Users/zaime/.conan/data/ogg/1.3.5/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/ogg.lib
+-- Found: C:/Users/zaime/.conan/data/ogg/1.3.5/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/ogg.lib
+-- Library vorbis found C:/Users/zaime/.conan/data/vorbis/1.3.7/_/_/package/b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47/lib/vorbis.lib
+-- Found: C:/Users/zaime/.conan/data/vorbis/1.3.7/_/_/package/b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47/lib/vorbis.lib
+-- Library vorbisfile found C:/Users/zaime/.conan/data/vorbis/1.3.7/_/_/package/b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47/lib/vorbisfile.lib
+-- Found: C:/Users/zaime/.conan/data/vorbis/1.3.7/_/_/package/b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47/lib/vorbisfile.lib
+-- Library vorbisenc found C:/Users/zaime/.conan/data/vorbis/1.3.7/_/_/package/b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47/lib/vorbisenc.lib
+-- Found: C:/Users/zaime/.conan/data/vorbis/1.3.7/_/_/package/b8a7c0e3d5f7f2dd0a4cf862cb60ff9f1b73be47/lib/vorbisenc.lib
+-- Conan: Using autogenerated FindOpus.cmake
+-- Library opus found C:/Users/zaime/.conan/data/opus/1.3.1/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/opus.lib
+-- Found: C:/Users/zaime/.conan/data/opus/1.3.1/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/opus.lib
+-- Library opus found C:/Users/zaime/.conan/data/opus/1.3.1/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/opus.lib
+-- Found: C:/Users/zaime/.conan/data/opus/1.3.1/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/opus.lib
+-- Conan: Using autogenerated Findlibx264.cmake
+-- Library x264 found C:/Users/zaime/.conan/data/libx264/20191217/_/_/package/e03f63a768ca59a76d565ff28923e7805edec16d/lib/x264.lib
+-- Found: C:/Users/zaime/.conan/data/libx264/20191217/_/_/package/e03f63a768ca59a76d565ff28923e7805edec16d/lib/x264.lib
+-- Conan: Using autogenerated Findlibx265.cmake
+-- Library x265 found C:/Users/zaime/.conan/data/libx265/3.4/_/_/package/1287c7aad58fe35bb1a62d9fcc674752df4a764a/lib/x265.lib
+-- Found: C:/Users/zaime/.conan/data/libx265/3.4/_/_/package/1287c7aad58fe35bb1a62d9fcc674752df4a764a/lib/x265.lib
+-- Conan: Using autogenerated Findlibvpx.cmake
+-- Library vpxmdd found C:/Users/zaime/.conan/data/libvpx/1.11.0/_/_/package/0a69d6ddb06b8782b01aad521e2a0c2edf39870a/lib/vpxmdd.lib
+-- Found: C:/Users/zaime/.conan/data/libvpx/1.11.0/_/_/package/0a69d6ddb06b8782b01aad521e2a0c2edf39870a/lib/vpxmdd.lib
+-- Conan: Using autogenerated Findlibmp3lame.cmake
+-- Library mp3lame found C:/Users/zaime/.conan/data/libmp3lame/3.100/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/mp3lame.lib
+-- Found: C:/Users/zaime/.conan/data/libmp3lame/3.100/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/mp3lame.lib
+-- Conan: Using autogenerated Findfdk-aac.cmake
+-- Library fdk-aac found C:/Users/zaime/.conan/data/libfdk_aac/2.0.2/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/fdk-aac.lib
+-- Found: C:/Users/zaime/.conan/data/libfdk_aac/2.0.2/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/fdk-aac.lib
+-- Library fdk-aac found C:/Users/zaime/.conan/data/libfdk_aac/2.0.2/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/fdk-aac.lib
+-- Found: C:/Users/zaime/.conan/data/libfdk_aac/2.0.2/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/fdk-aac.lib
+-- Conan: Using autogenerated FindWebP.cmake
+-- Library webpdecoder found C:/Users/zaime/.conan/data/libwebp/1.2.2/_/_/package/092f77d3b4b4678d81fbffc1fccc9642b870175e/lib/webpdecoder.lib
+-- Found: C:/Users/zaime/.conan/data/libwebp/1.2.2/_/_/package/092f77d3b4b4678d81fbffc1fccc9642b870175e/lib/webpdecoder.lib
+-- Library webpdemux found C:/Users/zaime/.conan/data/libwebp/1.2.2/_/_/package/092f77d3b4b4678d81fbffc1fccc9642b870175e/lib/webpdemux.lib
+-- Found: C:/Users/zaime/.conan/data/libwebp/1.2.2/_/_/package/092f77d3b4b4678d81fbffc1fccc9642b870175e/lib/webpdemux.lib
+-- Library webpmux found C:/Users/zaime/.conan/data/libwebp/1.2.2/_/_/package/092f77d3b4b4678d81fbffc1fccc9642b870175e/lib/webpmux.lib
+-- Found: C:/Users/zaime/.conan/data/libwebp/1.2.2/_/_/package/092f77d3b4b4678d81fbffc1fccc9642b870175e/lib/webpmux.lib
+-- Library webp found C:/Users/zaime/.conan/data/libwebp/1.2.2/_/_/package/092f77d3b4b4678d81fbffc1fccc9642b870175e/lib/webp.lib
+-- Found: C:/Users/zaime/.conan/data/libwebp/1.2.2/_/_/package/092f77d3b4b4678d81fbffc1fccc9642b870175e/lib/webp.lib
+-- Library webp found C:/Users/zaime/.conan/data/libwebp/1.2.2/_/_/package/092f77d3b4b4678d81fbffc1fccc9642b870175e/lib/webp.lib
+-- Found: C:/Users/zaime/.conan/data/libwebp/1.2.2/_/_/package/092f77d3b4b4678d81fbffc1fccc9642b870175e/lib/webp.lib
+-- Library webpmux found C:/Users/zaime/.conan/data/libwebp/1.2.2/_/_/package/092f77d3b4b4678d81fbffc1fccc9642b870175e/lib/webpmux.lib
+-- Found: C:/Users/zaime/.conan/data/libwebp/1.2.2/_/_/package/092f77d3b4b4678d81fbffc1fccc9642b870175e/lib/webpmux.lib
+-- Library webpdemux found C:/Users/zaime/.conan/data/libwebp/1.2.2/_/_/package/092f77d3b4b4678d81fbffc1fccc9642b870175e/lib/webpdemux.lib
+-- Found: C:/Users/zaime/.conan/data/libwebp/1.2.2/_/_/package/092f77d3b4b4678d81fbffc1fccc9642b870175e/lib/webpdemux.lib
+-- Library webpdecoder found C:/Users/zaime/.conan/data/libwebp/1.2.2/_/_/package/092f77d3b4b4678d81fbffc1fccc9642b870175e/lib/webpdecoder.lib
+-- Found: C:/Users/zaime/.conan/data/libwebp/1.2.2/_/_/package/092f77d3b4b4678d81fbffc1fccc9642b870175e/lib/webpdecoder.lib
+-- Library avutil found C:/Users/zaime/.conan/data/ffmpeg/4.4/_/_/package/9630da8cb1aceefadfc3308398bb3fa740574c6d/lib/avutil.lib
+-- Found: C:/Users/zaime/.conan/data/ffmpeg/4.4/_/_/package/9630da8cb1aceefadfc3308398bb3fa740574c6d/lib/avutil.lib
+-- Library postproc found C:/Users/zaime/.conan/data/ffmpeg/4.4/_/_/package/9630da8cb1aceefadfc3308398bb3fa740574c6d/lib/postproc.lib
+-- Found: C:/Users/zaime/.conan/data/ffmpeg/4.4/_/_/package/9630da8cb1aceefadfc3308398bb3fa740574c6d/lib/postproc.lib
+-- Library swresample found C:/Users/zaime/.conan/data/ffmpeg/4.4/_/_/package/9630da8cb1aceefadfc3308398bb3fa740574c6d/lib/swresample.lib
+-- Found: C:/Users/zaime/.conan/data/ffmpeg/4.4/_/_/package/9630da8cb1aceefadfc3308398bb3fa740574c6d/lib/swresample.lib
+-- Library swscale found C:/Users/zaime/.conan/data/ffmpeg/4.4/_/_/package/9630da8cb1aceefadfc3308398bb3fa740574c6d/lib/swscale.lib
+-- Found: C:/Users/zaime/.conan/data/ffmpeg/4.4/_/_/package/9630da8cb1aceefadfc3308398bb3fa740574c6d/lib/swscale.lib
+-- Library avcodec found C:/Users/zaime/.conan/data/ffmpeg/4.4/_/_/package/9630da8cb1aceefadfc3308398bb3fa740574c6d/lib/avcodec.lib
+-- Found: C:/Users/zaime/.conan/data/ffmpeg/4.4/_/_/package/9630da8cb1aceefadfc3308398bb3fa740574c6d/lib/avcodec.lib
+-- Library avformat found C:/Users/zaime/.conan/data/ffmpeg/4.4/_/_/package/9630da8cb1aceefadfc3308398bb3fa740574c6d/lib/avformat.lib
+-- Found: C:/Users/zaime/.conan/data/ffmpeg/4.4/_/_/package/9630da8cb1aceefadfc3308398bb3fa740574c6d/lib/avformat.lib
+-- Library avfilter found C:/Users/zaime/.conan/data/ffmpeg/4.4/_/_/package/9630da8cb1aceefadfc3308398bb3fa740574c6d/lib/avfilter.lib
+-- Found: C:/Users/zaime/.conan/data/ffmpeg/4.4/_/_/package/9630da8cb1aceefadfc3308398bb3fa740574c6d/lib/avfilter.lib
+-- Library avdevice found C:/Users/zaime/.conan/data/ffmpeg/4.4/_/_/package/9630da8cb1aceefadfc3308398bb3fa740574c6d/lib/avdevice.lib
+-- Found: C:/Users/zaime/.conan/data/ffmpeg/4.4/_/_/package/9630da8cb1aceefadfc3308398bb3fa740574c6d/lib/avdevice.lib
+-- Conan: Dependency ffmpeg already found
+-- Conan: Dependency ffmpeg already found
+-- Conan: Dependency ffmpeg already found
+-- Conan: Dependency ffmpeg already found
+-- Conan: Dependency ffmpeg already found
+-- Conan: Dependency ZLIB already found
+-- Conan: Using autogenerated FindJasper.cmake
+-- Library jasper found C:/Users/zaime/.conan/data/jasper/2.0.33/_/_/package/2278242cc765d77e29f54e7b3e73f056c18d9a10/lib/jasper.lib
+-- Found: C:/Users/zaime/.conan/data/jasper/2.0.33/_/_/package/2278242cc765d77e29f54e7b3e73f056c18d9a10/lib/jasper.lib
+-- Conan: Using autogenerated FindJPEG.cmake
+-- Library libjpeg found C:/Users/zaime/.conan/data/libjpeg/9d/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/libjpeg.lib
+-- Found: C:/Users/zaime/.conan/data/libjpeg/9d/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/libjpeg.lib
+-- Conan: Dependency PNG already found
+-- Conan: Dependency JPEG already found
+-- Conan: Using autogenerated FindTIFF.cmake
+-- Library tiffxxd found C:/Users/zaime/.conan/data/libtiff/4.3.0/_/_/package/e2e95cb5797e0ea720de15db3e7a049a3772be97/lib/tiffxxd.lib
+-- Found: C:/Users/zaime/.conan/data/libtiff/4.3.0/_/_/package/e2e95cb5797e0ea720de15db3e7a049a3772be97/lib/tiffxxd.lib
+-- Library tiffd found C:/Users/zaime/.conan/data/libtiff/4.3.0/_/_/package/e2e95cb5797e0ea720de15db3e7a049a3772be97/lib/tiffd.lib
+-- Found: C:/Users/zaime/.conan/data/libtiff/4.3.0/_/_/package/e2e95cb5797e0ea720de15db3e7a049a3772be97/lib/tiffd.lib
+-- Dependency ZLIB already found
+-- Conan: Using autogenerated Findlibdeflate.cmake
+-- Library libdeflatestatic found C:/Users/zaime/.conan/data/libdeflate/1.12/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/libdeflatestatic.lib
+-- Found: C:/Users/zaime/.conan/data/libdeflate/1.12/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/libdeflatestatic.lib
+-- Dependency LibLZMA already found
+-- Dependency JPEG already found
+-- Conan: Using autogenerated Findjbig.cmake
+-- Library jbig found C:/Users/zaime/.conan/data/jbig/20160605/_/_/package/a05a9ef21a91686b7138c926ec52aaeb70439310/lib/jbig.lib
+-- Found: C:/Users/zaime/.conan/data/jbig/20160605/_/_/package/a05a9ef21a91686b7138c926ec52aaeb70439310/lib/jbig.lib
+-- Conan: Using autogenerated Findzstd.cmake
+-- Library zstd_static found C:/Users/zaime/.conan/data/zstd/1.5.2/_/_/package/1967f444568571a94da80e35a521699f1a90cb74/lib/zstd_static.lib
+-- Found: C:/Users/zaime/.conan/data/zstd/1.5.2/_/_/package/1967f444568571a94da80e35a521699f1a90cb74/lib/zstd_static.lib
+-- Library zstd_static found C:/Users/zaime/.conan/data/zstd/1.5.2/_/_/package/1967f444568571a94da80e35a521699f1a90cb74/lib/zstd_static.lib
+-- Found: C:/Users/zaime/.conan/data/zstd/1.5.2/_/_/package/1967f444568571a94da80e35a521699f1a90cb74/lib/zstd_static.lib
+-- Dependency WebP already found
+-- Conan: Using autogenerated FindOpenEXR.cmake
+-- Library IlmImfUtil-2_5_d found C:/Users/zaime/.conan/data/openexr/2.5.7/_/_/package/6acf24cd4adf2df742e006cc0e5f0329e3b6e60b/lib/IlmImfUtil-2_5_d.lib
+-- Found: C:/Users/zaime/.conan/data/openexr/2.5.7/_/_/package/6acf24cd4adf2df742e006cc0e5f0329e3b6e60b/lib/IlmImfUtil-2_5_d.lib
+-- Library IlmImf-2_5_d found C:/Users/zaime/.conan/data/openexr/2.5.7/_/_/package/6acf24cd4adf2df742e006cc0e5f0329e3b6e60b/lib/IlmImf-2_5_d.lib
+-- Found: C:/Users/zaime/.conan/data/openexr/2.5.7/_/_/package/6acf24cd4adf2df742e006cc0e5f0329e3b6e60b/lib/IlmImf-2_5_d.lib
+-- Library Imath-2_5_d found C:/Users/zaime/.conan/data/openexr/2.5.7/_/_/package/6acf24cd4adf2df742e006cc0e5f0329e3b6e60b/lib/Imath-2_5_d.lib
+-- Found: C:/Users/zaime/.conan/data/openexr/2.5.7/_/_/package/6acf24cd4adf2df742e006cc0e5f0329e3b6e60b/lib/Imath-2_5_d.lib
+-- Library Half-2_5_d found C:/Users/zaime/.conan/data/openexr/2.5.7/_/_/package/6acf24cd4adf2df742e006cc0e5f0329e3b6e60b/lib/Half-2_5_d.lib
+-- Found: C:/Users/zaime/.conan/data/openexr/2.5.7/_/_/package/6acf24cd4adf2df742e006cc0e5f0329e3b6e60b/lib/Half-2_5_d.lib
+-- Library IexMath-2_5_d found C:/Users/zaime/.conan/data/openexr/2.5.7/_/_/package/6acf24cd4adf2df742e006cc0e5f0329e3b6e60b/lib/IexMath-2_5_d.lib
+-- Found: C:/Users/zaime/.conan/data/openexr/2.5.7/_/_/package/6acf24cd4adf2df742e006cc0e5f0329e3b6e60b/lib/IexMath-2_5_d.lib
+-- Library IlmThread-2_5_d found C:/Users/zaime/.conan/data/openexr/2.5.7/_/_/package/6acf24cd4adf2df742e006cc0e5f0329e3b6e60b/lib/IlmThread-2_5_d.lib
+-- Found: C:/Users/zaime/.conan/data/openexr/2.5.7/_/_/package/6acf24cd4adf2df742e006cc0e5f0329e3b6e60b/lib/IlmThread-2_5_d.lib
+-- Library Iex-2_5_d found C:/Users/zaime/.conan/data/openexr/2.5.7/_/_/package/6acf24cd4adf2df742e006cc0e5f0329e3b6e60b/lib/Iex-2_5_d.lib
+-- Found: C:/Users/zaime/.conan/data/openexr/2.5.7/_/_/package/6acf24cd4adf2df742e006cc0e5f0329e3b6e60b/lib/Iex-2_5_d.lib
+-- Conan: Dependency ZLIB already found
+-- Library Iex-2_5_d found C:/Users/zaime/.conan/data/openexr/2.5.7/_/_/package/6acf24cd4adf2df742e006cc0e5f0329e3b6e60b/lib/Iex-2_5_d.lib
+-- Found: C:/Users/zaime/.conan/data/openexr/2.5.7/_/_/package/6acf24cd4adf2df742e006cc0e5f0329e3b6e60b/lib/Iex-2_5_d.lib
+-- Library IlmThread-2_5_d found C:/Users/zaime/.conan/data/openexr/2.5.7/_/_/package/6acf24cd4adf2df742e006cc0e5f0329e3b6e60b/lib/IlmThread-2_5_d.lib
+-- Found: C:/Users/zaime/.conan/data/openexr/2.5.7/_/_/package/6acf24cd4adf2df742e006cc0e5f0329e3b6e60b/lib/IlmThread-2_5_d.lib
+-- Library IexMath-2_5_d found C:/Users/zaime/.conan/data/openexr/2.5.7/_/_/package/6acf24cd4adf2df742e006cc0e5f0329e3b6e60b/lib/IexMath-2_5_d.lib
+-- Found: C:/Users/zaime/.conan/data/openexr/2.5.7/_/_/package/6acf24cd4adf2df742e006cc0e5f0329e3b6e60b/lib/IexMath-2_5_d.lib
+-- Library Half-2_5_d found C:/Users/zaime/.conan/data/openexr/2.5.7/_/_/package/6acf24cd4adf2df742e006cc0e5f0329e3b6e60b/lib/Half-2_5_d.lib
+-- Found: C:/Users/zaime/.conan/data/openexr/2.5.7/_/_/package/6acf24cd4adf2df742e006cc0e5f0329e3b6e60b/lib/Half-2_5_d.lib
+-- Library Imath-2_5_d found C:/Users/zaime/.conan/data/openexr/2.5.7/_/_/package/6acf24cd4adf2df742e006cc0e5f0329e3b6e60b/lib/Imath-2_5_d.lib
+-- Found: C:/Users/zaime/.conan/data/openexr/2.5.7/_/_/package/6acf24cd4adf2df742e006cc0e5f0329e3b6e60b/lib/Imath-2_5_d.lib
+-- Library IlmImf-2_5_d found C:/Users/zaime/.conan/data/openexr/2.5.7/_/_/package/6acf24cd4adf2df742e006cc0e5f0329e3b6e60b/lib/IlmImf-2_5_d.lib
+-- Found: C:/Users/zaime/.conan/data/openexr/2.5.7/_/_/package/6acf24cd4adf2df742e006cc0e5f0329e3b6e60b/lib/IlmImf-2_5_d.lib
+-- Library IlmImfUtil-2_5_d found C:/Users/zaime/.conan/data/openexr/2.5.7/_/_/package/6acf24cd4adf2df742e006cc0e5f0329e3b6e60b/lib/IlmImfUtil-2_5_d.lib
+-- Found: C:/Users/zaime/.conan/data/openexr/2.5.7/_/_/package/6acf24cd4adf2df742e006cc0e5f0329e3b6e60b/lib/IlmImfUtil-2_5_d.lib
+-- Conan: Dependency WebP already found
+-- Conan: Using autogenerated FindProtobuf.cmake
+-- Library libprotocd found C:/.conan/2d9f4b/1/lib/libprotocd.lib
+-- Found: C:/.conan/2d9f4b/1/lib/libprotocd.lib
+-- Library libprotobufd found C:/.conan/2d9f4b/1/lib/libprotobufd.lib
+-- Found: C:/.conan/2d9f4b/1/lib/libprotobufd.lib
+-- Conan: Dependency ZLIB already found
+-- Library libprotobufd found C:/.conan/2d9f4b/1/lib/libprotobufd.lib
+-- Found: C:/.conan/2d9f4b/1/lib/libprotobufd.lib
+-- Library libprotocd found C:/.conan/2d9f4b/1/lib/libprotocd.lib
+-- Found: C:/.conan/2d9f4b/1/lib/libprotocd.lib
+-- Conan: Using autogenerated Findquirc.cmake
+-- Library quirc found C:/Users/zaime/.conan/data/quirc/1.1/_/_/package/11b7230897ba30e6da1af1c8b0726ed134f404ee/lib/quirc.lib
+-- Found: C:/Users/zaime/.conan/data/quirc/1.1/_/_/package/11b7230897ba30e6da1af1c8b0726ed134f404ee/lib/quirc.lib
+-- Conan: Using autogenerated Findade.cmake
+-- Library ade found C:/Users/zaime/.conan/data/ade/0.1.1f/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/ade.lib
+-- Found: C:/Users/zaime/.conan/data/ade/0.1.1f/_/_/package/d057732059ea44a47760900cb5e4855d2bea8714/lib/ade.lib
+-- Library opencv_core455d found C:/.conan/4418e8/1/lib/opencv_core455d.lib
+-- Found: C:/.conan/4418e8/1/lib/opencv_core455d.lib
+-- Library opencv_imgproc455d found C:/.conan/4418e8/1/lib/opencv_imgproc455d.lib
+-- Found: C:/.conan/4418e8/1/lib/opencv_imgproc455d.lib
+-- Library opencv_flann455d found C:/.conan/4418e8/1/lib/opencv_flann455d.lib
+-- Found: C:/.conan/4418e8/1/lib/opencv_flann455d.lib
+-- Library opencv_features2d455d found C:/.conan/4418e8/1/lib/opencv_features2d455d.lib
+-- Found: C:/.conan/4418e8/1/lib/opencv_features2d455d.lib
+-- Library opencv_calib3d455d found C:/.conan/4418e8/1/lib/opencv_calib3d455d.lib
+-- Found: C:/.conan/4418e8/1/lib/opencv_calib3d455d.lib
+-- Library opencv_video455d found C:/.conan/4418e8/1/lib/opencv_video455d.lib
+-- Found: C:/.conan/4418e8/1/lib/opencv_video455d.lib
+-- Library opencv_gapi455d found C:/.conan/4418e8/1/lib/opencv_gapi455d.lib
+-- Found: C:/.conan/4418e8/1/lib/opencv_gapi455d.lib
+-- Library opencv_objdetect455d found C:/.conan/4418e8/1/lib/opencv_objdetect455d.lib
+-- Found: C:/.conan/4418e8/1/lib/opencv_objdetect455d.lib
+-- Library opencv_dnn455d found C:/.conan/4418e8/1/lib/opencv_dnn455d.lib
+-- Found: C:/.conan/4418e8/1/lib/opencv_dnn455d.lib
+-- Library opencv_stitching455d found C:/.conan/4418e8/1/lib/opencv_stitching455d.lib
+-- Found: C:/.conan/4418e8/1/lib/opencv_stitching455d.lib
+-- Library opencv_imgcodecs455d found C:/.conan/4418e8/1/lib/opencv_imgcodecs455d.lib
+-- Found: C:/.conan/4418e8/1/lib/opencv_imgcodecs455d.lib
+-- Library opencv_videoio455d found C:/.conan/4418e8/1/lib/opencv_videoio455d.lib
+-- Found: C:/.conan/4418e8/1/lib/opencv_videoio455d.lib
+-- Library opencv_highgui455d found C:/.conan/4418e8/1/lib/opencv_highgui455d.lib
+-- Found: C:/.conan/4418e8/1/lib/opencv_highgui455d.lib
+-- Library opencv_photo455d found C:/.conan/4418e8/1/lib/opencv_photo455d.lib
+-- Found: C:/.conan/4418e8/1/lib/opencv_photo455d.lib
+-- Library opencv_ml455d found C:/.conan/4418e8/1/lib/opencv_ml455d.lib
+-- Found: C:/.conan/4418e8/1/lib/opencv_ml455d.lib
+-- Conan: Using autogenerated FindBoost.cmake
+-- Conan: Component 'system' found in package 'Boost'
+-- Library libboost_contract found C:/.conan/30029c/1/lib/libboost_contract.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_contract.lib
+-- Library libboost_coroutine found C:/.conan/30029c/1/lib/libboost_coroutine.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_coroutine.lib
+-- Library libboost_fiber_numa found C:/.conan/30029c/1/lib/libboost_fiber_numa.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_fiber_numa.lib
+-- Library libboost_fiber found C:/.conan/30029c/1/lib/libboost_fiber.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_fiber.lib
+-- Library libboost_context found C:/.conan/30029c/1/lib/libboost_context.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_context.lib
+-- Library libboost_graph found C:/.conan/30029c/1/lib/libboost_graph.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_graph.lib
+-- Library libboost_iostreams found C:/.conan/30029c/1/lib/libboost_iostreams.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_iostreams.lib
+-- Library libboost_log_setup found C:/.conan/30029c/1/lib/libboost_log_setup.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_log_setup.lib
+-- Library libboost_log found C:/.conan/30029c/1/lib/libboost_log.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_log.lib
+-- Library libboost_locale found C:/.conan/30029c/1/lib/libboost_locale.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_locale.lib
+-- Library libboost_math_c99 found C:/.conan/30029c/1/lib/libboost_math_c99.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_math_c99.lib
+-- Library libboost_math_c99f found C:/.conan/30029c/1/lib/libboost_math_c99f.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_math_c99f.lib
+-- Library libboost_math_c99l found C:/.conan/30029c/1/lib/libboost_math_c99l.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_math_c99l.lib
+-- Library libboost_math_tr1 found C:/.conan/30029c/1/lib/libboost_math_tr1.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_math_tr1.lib
+-- Library libboost_math_tr1f found C:/.conan/30029c/1/lib/libboost_math_tr1f.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_math_tr1f.lib
+-- Library libboost_math_tr1l found C:/.conan/30029c/1/lib/libboost_math_tr1l.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_math_tr1l.lib
+-- Library libboost_program_options found C:/.conan/30029c/1/lib/libboost_program_options.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_program_options.lib
+-- Library libboost_random found C:/.conan/30029c/1/lib/libboost_random.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_random.lib
+-- Library libboost_regex found C:/.conan/30029c/1/lib/libboost_regex.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_regex.lib
+-- Library libboost_stacktrace_noop found C:/.conan/30029c/1/lib/libboost_stacktrace_noop.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_stacktrace_noop.lib
+-- Library libboost_stacktrace_windbg found C:/.conan/30029c/1/lib/libboost_stacktrace_windbg.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_stacktrace_windbg.lib
+-- Library libboost_stacktrace_windbg_cached found C:/.conan/30029c/1/lib/libboost_stacktrace_windbg_cached.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_stacktrace_windbg_cached.lib
+-- Library libboost_timer found C:/.conan/30029c/1/lib/libboost_timer.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_timer.lib
+-- Library libboost_type_erasure found C:/.conan/30029c/1/lib/libboost_type_erasure.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_type_erasure.lib
+-- Library libboost_thread found C:/.conan/30029c/1/lib/libboost_thread.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_thread.lib
+-- Library libboost_atomic found C:/.conan/30029c/1/lib/libboost_atomic.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_atomic.lib
+-- Library libboost_chrono found C:/.conan/30029c/1/lib/libboost_chrono.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_chrono.lib
+-- Library libboost_container found C:/.conan/30029c/1/lib/libboost_container.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_container.lib
+-- Library libboost_date_time found C:/.conan/30029c/1/lib/libboost_date_time.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_date_time.lib
+-- Library libboost_unit_test_framework found C:/.conan/30029c/1/lib/libboost_unit_test_framework.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_unit_test_framework.lib
+-- Library libboost_prg_exec_monitor found C:/.conan/30029c/1/lib/libboost_prg_exec_monitor.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_prg_exec_monitor.lib
+-- Library libboost_test_exec_monitor found C:/.conan/30029c/1/lib/libboost_test_exec_monitor.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_test_exec_monitor.lib
+-- Library libboost_exception found C:/.conan/30029c/1/lib/libboost_exception.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_exception.lib
+-- Library libboost_wave found C:/.conan/30029c/1/lib/libboost_wave.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_wave.lib
+-- Library libboost_filesystem found C:/.conan/30029c/1/lib/libboost_filesystem.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_filesystem.lib
+-- Library libboost_wserialization found C:/.conan/30029c/1/lib/libboost_wserialization.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_wserialization.lib
+-- Library libboost_serialization found C:/.conan/30029c/1/lib/libboost_serialization.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_serialization.lib
+-- Conan: Dependency BZip2 already found
+-- Conan: Dependency ZLIB already found
+-- Library libboost_serialization found C:/.conan/30029c/1/lib/libboost_serialization.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_serialization.lib
+-- Library libboost_wserialization found C:/.conan/30029c/1/lib/libboost_wserialization.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_wserialization.lib
+-- Library libboost_filesystem found C:/.conan/30029c/1/lib/libboost_filesystem.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_filesystem.lib
+-- Library libboost_wave found C:/.conan/30029c/1/lib/libboost_wave.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_wave.lib
+-- Library libboost_exception found C:/.conan/30029c/1/lib/libboost_exception.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_exception.lib
+-- Library libboost_test_exec_monitor found C:/.conan/30029c/1/lib/libboost_test_exec_monitor.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_test_exec_monitor.lib
+-- Library libboost_prg_exec_monitor found C:/.conan/30029c/1/lib/libboost_prg_exec_monitor.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_prg_exec_monitor.lib
+-- Library libboost_unit_test_framework found C:/.conan/30029c/1/lib/libboost_unit_test_framework.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_unit_test_framework.lib
+-- Library libboost_date_time found C:/.conan/30029c/1/lib/libboost_date_time.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_date_time.lib
+-- Library libboost_container found C:/.conan/30029c/1/lib/libboost_container.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_container.lib
+-- Library libboost_chrono found C:/.conan/30029c/1/lib/libboost_chrono.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_chrono.lib
+-- Library libboost_atomic found C:/.conan/30029c/1/lib/libboost_atomic.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_atomic.lib
+-- Library libboost_thread found C:/.conan/30029c/1/lib/libboost_thread.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_thread.lib
+-- Library libboost_type_erasure found C:/.conan/30029c/1/lib/libboost_type_erasure.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_type_erasure.lib
+-- Library libboost_timer found C:/.conan/30029c/1/lib/libboost_timer.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_timer.lib
+-- Library libboost_stacktrace_windbg_cached found C:/.conan/30029c/1/lib/libboost_stacktrace_windbg_cached.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_stacktrace_windbg_cached.lib
+-- Library libboost_stacktrace_windbg found C:/.conan/30029c/1/lib/libboost_stacktrace_windbg.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_stacktrace_windbg.lib
+-- Library libboost_stacktrace_noop found C:/.conan/30029c/1/lib/libboost_stacktrace_noop.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_stacktrace_noop.lib
+-- Library libboost_regex found C:/.conan/30029c/1/lib/libboost_regex.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_regex.lib
+-- Library libboost_random found C:/.conan/30029c/1/lib/libboost_random.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_random.lib
+-- Library libboost_program_options found C:/.conan/30029c/1/lib/libboost_program_options.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_program_options.lib
+-- Library libboost_math_tr1l found C:/.conan/30029c/1/lib/libboost_math_tr1l.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_math_tr1l.lib
+-- Library libboost_math_tr1f found C:/.conan/30029c/1/lib/libboost_math_tr1f.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_math_tr1f.lib
+-- Library libboost_math_tr1 found C:/.conan/30029c/1/lib/libboost_math_tr1.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_math_tr1.lib
+-- Library libboost_math_c99l found C:/.conan/30029c/1/lib/libboost_math_c99l.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_math_c99l.lib
+-- Library libboost_math_c99f found C:/.conan/30029c/1/lib/libboost_math_c99f.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_math_c99f.lib
+-- Library libboost_math_c99 found C:/.conan/30029c/1/lib/libboost_math_c99.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_math_c99.lib
+-- Library libboost_locale found C:/.conan/30029c/1/lib/libboost_locale.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_locale.lib
+-- Library libboost_log found C:/.conan/30029c/1/lib/libboost_log.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_log.lib
+-- Library libboost_log_setup found C:/.conan/30029c/1/lib/libboost_log_setup.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_log_setup.lib
+-- Library libboost_iostreams found C:/.conan/30029c/1/lib/libboost_iostreams.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_iostreams.lib
+-- Library libboost_graph found C:/.conan/30029c/1/lib/libboost_graph.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_graph.lib
+-- Library libboost_context found C:/.conan/30029c/1/lib/libboost_context.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_context.lib
+-- Library libboost_fiber found C:/.conan/30029c/1/lib/libboost_fiber.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_fiber.lib
+-- Library libboost_fiber_numa found C:/.conan/30029c/1/lib/libboost_fiber_numa.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_fiber_numa.lib
+-- Library libboost_coroutine found C:/.conan/30029c/1/lib/libboost_coroutine.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_coroutine.lib
+-- Library libboost_contract found C:/.conan/30029c/1/lib/libboost_contract.lib
+-- Found: C:/.conan/30029c/1/lib/libboost_contract.lib
 -- Using the multi-header code from C:/Users/zaime/CLionProjects/Lonk/cmake-build-debug/_deps/nlohmann_json-src/include/
 -- Configuring done
 -- Generating done
