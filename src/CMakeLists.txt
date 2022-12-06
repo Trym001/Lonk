@@ -1,6 +1,6 @@
-add_library(cont controller.cpp system_timer.cpp)
+add_library(cpp controller.cpp system_timer.cpp wasd_controller.cpp)
 
-target_include_directories(cont PUBLIC "${CMAKE_SOURCE_DIR}/include")
+target_include_directories(cpp PUBLIC "${CMAKE_SOURCE_DIR}/include")
 
 
 
