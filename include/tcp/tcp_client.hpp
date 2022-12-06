@@ -6,10 +6,14 @@
 #define LONK_TCP_CLIENT_HPP
 
 #include "tcp/network_helper.hpp"
+#include "data_parsing/received_data.hpp"
 
 #include <boost/asio.hpp>
 #include <string>
 #include <fstream>
+#include <thread>
+#include <memory>
+#include <iostream>
 
 //src - https://github.com/AIS2203-H-2022/networking_demo
 
@@ -46,13 +50,26 @@ public:
             throw boost::system::system_error(error);
         }
         std::string data(boost::asio::buffer_cast<const char *>(buf.data()), len);
-        return data;
+        return data;    // cannot return data. Put in promise and send to another thread.
     }
 
+    void start_tcp_thread() {
+        // std::unique_ptr<received_data> sp = std::make_unique<received_data>();
+        // tcpThread = std::make_unique<std::thread>(&tcp_client::get_message, this);
+        tcpThread = std::make_unique<std::thread>([&]{
+            // receive message from Lonk.
+            receivedMessage = get.get_message();
+            // convert to usable data (a struct containing distSensors)
+            parsedRMessage = json_parsing::read_json(receivedMessage);
+
+        });
+    }
 
 private:
     boost::asio::io_service io_service;
     boost::system::error_code error;
+    std::unique_ptr<std::thread> tcpThread;
+    received_data lonkData{};
     std::string host_;
     std::string port_;
     tcp::socket socket;
