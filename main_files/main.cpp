@@ -6,22 +6,11 @@
 #include <fstream>
 
 #include "tcp/tcp_client.hpp"
-#include "controller/system_timer.hpp"
-#include "other/json.hpp"
+#include "other/camera.hpp"
 
 
 
-using boost::asio::ip::tcp;
-using json = nlohmann::json;
 
-
-//json j = "{\"speed\": 20, \"heading\": 10}"_json;
-json j = "{\"speed\": 20, \"heading\": 10}";
-
-std::string msg = j.dump();
-//std::string msg = client_message;
-
-//std::cout << msg << std::endl
 
 int main(int argc, char **argv) {
     //std::string host = "localhost";
@@ -34,8 +23,7 @@ int main(int argc, char **argv) {
         port = argv[2];
     }
     tcp_client Get(host, port);
-    system_timer timer;
-    json_parsing json_struct;
+    camera_library camera;
 
     try {
 
@@ -44,11 +32,13 @@ int main(int argc, char **argv) {
         Get.listen();
         bool stop{false};
         while(!stop){
-            auto test = Get.get_video();
+            //auto test = Get.get_video();
 
-            cv::Mat img = cv::imdecode(test, IMREAD_COLOR);
+           // cv::Mat img = cv::imdecode(test, IMREAD_COLOR);
+
+
             //std::cout << img << std::endl;
-            cv::imshow("mamma", img);
+            cv::imshow("Lonk", camera.get_img_from_bits(Get.get_video()));
             int key = waitKey(1);
             if (key == 'q') {
                 stop = true;

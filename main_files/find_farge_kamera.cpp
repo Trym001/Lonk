@@ -1,27 +1,48 @@
-#include<iostream>
-#include<opencv2/highgui/highgui.hpp>
-#includHue_Lower_Value, 30);//track-bar for lower hue//
-    createTrackbar("Hue_Upper", "Adjust", &Hue_Lower_Upper_Value, 60);//track-bar for lower-upper hue//
-    createTrackbar("Sat_Lower", "Adjust", &Saturation_Lower_Value, 30);//track-bar for lower saturation//
-    createTrackbar("Sat_Upper", "Adjust", &Saturation_Upper_Value, 130);//track-bar for higher saturation//
-    createTrackbar("Val_Lower", "Adjust", &Value_Lower, 65);//track-bar for lower value//
-    createTrackbar("Val_Upper", "Adjust", &Value_Upper, 255);//track-bar for upper value//
-    while (1) {
-        Mat actual_Image;//matrix to load actual image//
-        bool temp = video_load.read(actual_Image);//loading actual image to matrix from video stream//
-        Mat convert_to_HSV;//declaring a matrix to store converted image//
-        cvtColor(actual_Image, convert_to_HSV, COLOR_BGR2HSV);//converting BGR image to HSV and storing it in convert_to_HSV matrix//
-        Mat detection_screen;//declaring matrix for window where object will be detected//
-        inRange(convert_to_HSV,Scalar(Hue_Lower_Value,Saturation_Lower_Value, Value_Lower),Scalar(Hue_Lower_Upper_Value,Saturation_Upper_Value, Value_Upper), detection_screen);//applying track-bar modified value of track-bar//
-        erode(detection_screen, detection_screen, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)));//morphological opening for removing small objects from foreground//
-        dilate(detection_screen, detection_screen, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)));//morphological opening for removing small object from foreground//
-        dilate(detection_screen, detection_screen, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)));//morphological closing for filling up small holes in foreground//
-        erode(detection_screen, detection_screen, getStructuringElement(MORPH_ELLIPSE, Size(5, 5)));//morphological closing for filling up small holes in foreground//
-        imshow("Threesholded Image", detection_screen);//showing detected object//
-        imshow("Original", actual_Image);//showing actual image//
-        if (waitKey(30) == 27){ //if esc is press break the loop//
+#include <iostream>
+#include "opencv2/highgui/highgui.hpp"
+#include "opencv2/imgproc/imgproc.hpp"
+
+#include "other/camera.hpp"
+
+using namespace cv;
+
+
+int main( int argc, char** argv )
+{
+    camera_library findColor;
+    VideoCapture cap(0); //capture the video from webcam
+
+    if ( !cap.isOpened() )  // if not success, exit program
+    {
+        std::cout << "Cannot open the web cam" << std::endl;
+        return -1;
+    }
+
+    while (true)
+    {
+        Mat imgOriginal;
+
+        bool bSuccess = cap.read(imgOriginal); // read a new frame from video
+
+
+
+        if (!bSuccess) //if not success, break loop
+        {
+            std::cout << "Cannot read a frame from video stream" << std::endl;
+            break;
+        }
+
+
+        imshow("Original", imgOriginal); //show the original image
+
+        std::cout << findColor.find_blue(imgOriginal, 5) << std::endl;
+
+        if (waitKey(30) == 27) //wait for 'esc' key press for 30ms. If 'esc' key is pressed, break loop
+        {
+            std::cout << "esc key is pressed by user" << std::endl;
             break;
         }
     }
+
     return 0;
 }
