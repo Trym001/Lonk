@@ -26,6 +26,8 @@ endif()
 
 add_executable(fargekamera find_farge_kamera.cpp)
 
+target_include_directories(fargekamera PUBLIC "${CMAKE_SOURCE_DIR}/include")
+
 target_link_libraries(fargekamera PRIVATE opencv::opencv)
 if (UNIX)
     target_link_libraries(fargekamera PRIVATE pthread)
