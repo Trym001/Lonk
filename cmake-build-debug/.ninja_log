@@ -1,21 +1,14 @@
 # ninja log v5
-9	722	6917732623593179	src/CMakeFiles/cont.dir/controller.cpp.obj	62021d833531e958
+8	334	6919642325325975	src/CMakeFiles/cont.dir/controller.cpp.obj	62021d833531e958
 1	2783	6917079504985656	tcp/CMakeFiles/tcp_client.dir/tcp_client.cpp.obj	83f1183d107f5c2e
 12	3076	6917077565479436	tcp/CMakeFiles/tcp_client.dir/test.cpp.obj	e60b0c3ad43ad915
 7375	8483	6917220937905589	bin/tcp_client.exe	4b2dc636a876b24c
 16	7374	6917220927223284	tcp/CMakeFiles/tcp_client.dir/main.cpp.obj	e840d76ce28d2054
 11	705	6916968997184942	tcp/CMakeFiles/tcp_client.dir/__/src/tcp_client.cpp.obj	da779ab0d44940dd
-2	4294	6919642006045441	build.ninja	b84f2c04020c7f0c
-2667	3060	6917857960462502	bin/main.exe	2f288cb3ab3ebd8b
-661	742	6917770579428455	lib/cont.lib	b68722462dabe05c
-7	2666	6917857956713796	main_files/CMakeFiles/main.dir/main.cpp.obj	ec4f877995d2b72
+2	4294	6920428609517265	build.ninja	b84f2c04020c7f0c
+2678	3041	6919642539287669	bin/main.exe	2f288cb3ab3ebd8b
+335	378	6919642325760045	lib/cont.lib	b68722462dabe05c
+7	2677	6919642535821818	main_files/CMakeFiles/main.dir/main.cpp.obj	ec4f877995d2b72
 1	1536	6917854675219510	main_files/CMakeFiles/test.dir/test.cpp.obj	c500f94d7ac58fb3
 1537	1758	6917854677279521	bin/test.exe	2ff5ffced2281fbc
-1	660	6917770578629434	src/CMakeFiles/cont.dir/system_timer.cpp.obj	c4355052a3c94059
-8	334	6919642325325975	src/CMakeFiles/cont.dir/controller.cpp.obj	62021d833531e958
 11	335	6919642325330019	src/CMakeFiles/cont.dir/system_timer.cpp.obj	c4355052a3c94059
-335	378	6919642325760045	lib/cont.lib	b68722462dabe05c
-16	2756	6919642349460017	main_files/CMakeFiles/main.dir/main.cpp.obj	ec4f877995d2b72
-2756	3195	6919642353642824	bin/main.exe	2f288cb3ab3ebd8b
-7	2677	6919642535821818	main_files/CMakeFiles/main.dir/main.cpp.obj	ec4f877995d2b72
-2678	3041	6919642539287669	bin/main.exe	2f288cb3ab3ebd8b

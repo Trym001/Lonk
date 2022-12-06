@@ -36,8 +36,8 @@ bzip2/1.0.8: Appending PATH environment variable: C:\Users\zaime\.conan\data\bzi
 zlib/1.2.12: Already installed!
 boost/1.71.0: Already installed!
 boost/1.71.0: Disabled magic autolinking (smart and magic decisions)
-conanfile.txt: Generator txt created conanbuildinfo.txt
 conanfile.txt: Generator cmake created conanbuildinfo.cmake
+conanfile.txt: Generator txt created conanbuildinfo.txt
 conanfile.txt: Aggregating env generators
 conanfile.txt: Generated conaninfo.txt
 conanfile.txt: Generated graphinfo
