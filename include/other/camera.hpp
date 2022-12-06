@@ -14,6 +14,7 @@ using namespace cv;
 
 struct camera_library{
 public:
+    // source for finding color: https://www.opencv-srf.com/2010/09/object-detection-using-color-seperation.html
     bool find_blue(Mat imgOriginal, int sens_){
 
         Mat imgHSV;

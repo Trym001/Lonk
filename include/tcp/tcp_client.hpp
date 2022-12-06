@@ -10,9 +10,7 @@
 #include <boost/asio.hpp>
 #include <string>
 #include <fstream>
-#include <opencv2/opencv.hpp>
 
-using namespace cv;
 
 
 //src - https://github.com/AIS2203-H-2022/networking_demo
