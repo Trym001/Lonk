@@ -50,6 +50,7 @@ int main(int argc, char** argv) {
 
                 std::string lonkCommand = whereGo.start(receivedMessage);
 
+                // need some sort of parsing and putting in json-string.
                 send.send_message(lonkCommand);
             }
         });
