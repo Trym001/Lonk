@@ -5,6 +5,7 @@
 #include <nlohmann/json.hpp>
 #include <fstream>
 #include <thread>
+#include <mutex>
 #include <memory>
 #include <chrono>
 
@@ -12,21 +13,41 @@
 #include "controller/system_timer.hpp"
 #include "data_parsing/json.hpp"
 
-struct fun{
-    void do_work(std::unique_ptr<std::thread>& t){
+struct thread_manager{
+    thread_manager() {
+        completion = false;
+    }
+
+    void do_work(){
         t = std::make_unique<std::thread>([&]{
-            std::this_thread::sleep_for(std::chrono::seconds(1));
-            std::cout << "I had a good night sleep :)";
+            while(!completion) {
+                std::this_thread::sleep_for(std::chrono::seconds(1));
+                std::unique_lock<std::mutex> lock(m);
+                std::cout << "I had a good night sleep :) \n";
+            }
+            return;
         });
 
     }
-private:
 
+    virtual ~thread_manager() {
+        completion = true;
+        {
+            std::unique_lock<std::mutex> lock(m);
+            std::cout << "I found a wayyy";
+        }
+        t->join();
+    }
+
+private:
+    std::unique_ptr<std::thread> t;
+    std::mutex m;
+    bool completion;
 };
 
 int main(int argc, char **argv) {
-    fun f;
-    std::unique_ptr<std::thread> t;
-    f.do_work(t);
-    std::this_thread::sleep_for(std::chrono::seconds(2));
+    thread_manager t;
+    t.do_work();
+    std::this_thread::sleep_for(std::chrono::seconds(4));
+    return 0;
 }
