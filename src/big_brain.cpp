@@ -32,15 +32,3 @@ std::string where_go::turn(const int &distLeft, const int &distRight, string& lo
     }
     return lonkCommand;
 }
-
-string where_go::start(received_data lonkData) {
-
-    string lonkCommand = onwards(lonkData.drivingdata.heading, lonkData.imu.yaw, lonkData.distSensor.front);
-
-    // bzz bzzz msg from Lonk: "I haf stoopt" (condition variable from receiver-thread)
-
-    lonkCommand = turn(lonkData.distSensor.left, lonkData.distSensor.right, lonkCommand);
-
-    return lonkCommand;
-
-}

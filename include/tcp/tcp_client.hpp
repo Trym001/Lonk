@@ -18,7 +18,7 @@ using boost::asio::ip::tcp;
 
 struct tcp_client {
 public:
-    tcp_client(std::string *host, std::string &port) : host_(*host), port_(port), socket(io_service){}
+    tcp_client(std::string& host, std::string &port) : host_(host), port_(port), socket(io_service){}
 
     void listen(){
         tcp::resolver resolver(io_service);
@@ -47,7 +47,7 @@ public:
             throw boost::system::system_error(error);
         }
         std::string data(boost::asio::buffer_cast<const char *>(buf.data()), len);
-        return data;    // cannot return data. Put in promise and send to another thread.
+        return data;
     }
 
 private:

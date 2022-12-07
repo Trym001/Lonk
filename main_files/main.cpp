@@ -9,9 +9,13 @@
 #include <memory>
 #include <chrono>
 
-#include "tcp/tcp_client.hpp"
-#include "controller/system_timer.hpp"
-#include "data_parsing/json.hpp"
+
+
+void fun(std::mutex& m){
+    std::this_thread::sleep_for(std::chrono::seconds(1));
+    std::unique_lock<std::mutex> lock(m);
+    std::cout << "I had a good night sleep :) \n";
+}
 
 struct thread_manager{
     thread_manager() {
@@ -21,9 +25,7 @@ struct thread_manager{
     void do_work(){
         t = std::make_unique<std::thread>([&]{
             while(!completion) {
-                std::this_thread::sleep_for(std::chrono::seconds(1));
-                std::unique_lock<std::mutex> lock(m);
-                std::cout << "I had a good night sleep :) \n";
+                fun(m);
             }
             return;
         });
