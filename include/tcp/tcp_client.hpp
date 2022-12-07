@@ -30,7 +30,7 @@ public:
     template <typename send>
 
     void send_message(send msg){
-        int msgSize = static_cast<int>(msg.size());
+        msgSize = static_cast<int>(msg.size());
         socket.send(boost::asio::buffer(int_to_bytes(msgSize), 4));
         socket.send(boost::asio::buffer(msg));
     }
@@ -56,6 +56,7 @@ private:
     std::string host_;
     std::string port_;
     tcp::socket socket;
+    int msgSize;
 
 };
 #endif //LONK_TCP_CLIENT_HPP

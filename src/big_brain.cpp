@@ -4,27 +4,25 @@
 #include "data_parsing/received_data.hpp"
 #include <string>
 #include <chrono>
-#include <thread>
-#include <utility>
 #include <memory>
-#include <mutex>
 #include "controller/big_brain.hpp"
+
 using std::string, std::chrono::milliseconds;
 
-std::string where_go::onwards(const int &heading, const int &yaw, const int &distFront) {
+string where_go::onwards(const int &heading, const int &yaw, const int &front) {
     // cv wait until receive-thread sends this_thread sends updated values (promise/future .get() can be useful)
-    string lonkCommand{};
-    if(heading == yaw and distFront > 150) {
-        lonkCommand = "onwards";
+    lonkCommand_ = "not_onwards";
+    if (heading == yaw && front > 150) {
+        lonkCommand_ = "onwards";
     }
-    return lonkCommand;
+    return lonkCommand_;
 }
 
-std::string where_go::turn(const int &distLeft, const int &distRight, string& lonkCommand) {
-    if(std::empty(lonkCommand)) {
-        if (distLeft > 150) {
+string where_go::turn(const int &left, const int &right, string &lonkCommand) {
+    if (lonkCommand == "not_onwards") {
+        if (left > 150) {
             lonkCommand = "Left";
-        } else if (distRight > 150) {
+        } else if (right > 150) {
             lonkCommand = "Right";
         } else {
             lonkCommand = "Dead_end";

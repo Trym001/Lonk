@@ -15,8 +15,8 @@ using json = nlohmann::json;
 
 struct json_parsing{
 public:
-    template <typename smart_ptr>
-    static void convert(const json &msgData, std::shared_ptr<received_data>& ptr,  smart_ptr& m) {
+    static void convert(const json &msgData, std::shared_ptr<received_data>& ptr,
+                        std::mutex& m) {
         // get distance sensor values
         int left  = msgData["sensors"]["left"].get<int>();
         int front = msgData["sensors"]["front"].get<int>();
@@ -24,23 +24,22 @@ public:
 
         // possibly more values will be passed over...
 
-        const std::unique_lock<std::mutex> lock(m);
+        std::unique_lock<std::mutex> lock(m);
         // putting data in an object that can be passed around to functions.
         ptr->distSensor.front = front;
         ptr->distSensor.left  = left;
         ptr->distSensor.right = right;
-
     }
 
-    template <typename smart_ptr>
-    static void read_json(const std::string& msg2, std::shared_ptr<received_data> parsedRMessage, smart_ptr& m){
+    static void read_json(const std::string& msg2, std::shared_ptr<received_data> parsedRMessage,
+                          std::mutex& m){
         convert(json::parse(msg2), parsedRMessage, m);
     }
 
-    static json write_json(const json& msg1){
+/*    static json write_json(const json& msg1){
         std::string dump = msg1.dump();
         return dump;
-    }
+    }*/
 private:
 };
 
