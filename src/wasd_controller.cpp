@@ -10,7 +10,7 @@ void controller::calculate(char &input) {
         speed_ = speed_ + 20;
     }
     else if (input == 's') {
-        speed_ = speed_ - 20;
+        speed_ = 0;
         speed_ = std::max(0,speed_);
     }
     else if (input == 'a') {
