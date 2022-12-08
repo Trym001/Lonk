@@ -324,9 +324,6 @@ Lonk_SOURCE_DIR:STATIC=C:/Users/zaime/CLionProjects/Lonk
 //The protoc compiler
 Protobuf_PROTOC_EXECUTABLE:FILEPATH=C:/.conan/2d9f4b/1/bin/protoc.exe
 
-//Build all demos (overrides individual settings)
-WITH_ALL:BOOL=OFF
-
 //Value Computed by CMake
 nlohmann_json_BINARY_DIR:STATIC=C:/Users/zaime/CLionProjects/Lonk/cmake-build-debug/_deps/nlohmann_json-build
 
@@ -335,9 +332,6 @@ nlohmann_json_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
 nlohmann_json_SOURCE_DIR:STATIC=C:/Users/zaime/CLionProjects/Lonk/cmake-build-debug/_deps/nlohmann_json-src
-
-//The directory containing a CMake configuration file for opencv.
-opencv_DIR:PATH=opencv_DIR-NOTFOUND
 
 //CMake built-in FindProtobuf.cmake module compatible
 protobuf_MODULE_COMPATIBLE:BOOL=OFF

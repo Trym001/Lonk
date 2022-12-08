@@ -42,6 +42,19 @@ if (UNIX)
     target_link_libraries(fargekamera PRIVATE pthread)
 endif()
 
+add_executable(fokk recieve_pic_from_Lonk.cpp)
+
+target_link_libraries(fokk PUBLIC Boost::system)
+target_link_libraries(fokk PRIVATE nlohmann_json::nlohmann_json)
+
+target_include_directories(fokk PUBLIC "${CMAKE_SOURCE_DIR}/include")
+
+target_link_libraries(fokk PUBLIC cpp)
+
+target_link_libraries(fokk PRIVATE opencv::opencv)
+if (UNIX)
+    target_link_libraries(fokk PRIVATE pthread)
+endif()
 
 
 
