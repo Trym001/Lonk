@@ -53,6 +53,23 @@ public:
         return data;
     }
 
+    auto get_video(){
+        std::array<unsigned char, 4> sizeBuf{};
+        boost::asio::read(socket, boost::asio::buffer(sizeBuf), boost::asio::transfer_exactly(4), error);
+        if (error) {
+            throw boost::system::system_error(error);
+        }
+        boost::asio::streambuf buf;
+        size_t len = boost::asio::read(socket, buf, boost::asio::transfer_exactly(bytes_to_int(sizeBuf)), error);
+        if (error) {
+            throw boost::system::system_error(error);
+        }
+        std::vector<unsigned char> target(len);
+        buffer_copy(boost::asio::buffer(target), buf.data());
+        return target;
+    }
+
+
 private:
     boost::asio::io_service io_service;
     boost::system::error_code error;
