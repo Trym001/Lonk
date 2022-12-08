@@ -6,6 +6,7 @@
 #include "data_parsing/json.hpp"
 #include "controller/big_brain.hpp"
 #include "tcp/tcp_client.hpp"
+#include "other/camera.hpp"
 // #include "controller/system_timer.hpp"
 
 
@@ -102,7 +103,6 @@ public:
                     i = 0;
                     cv.notify_all();
                 }
-                std::cout << "out of loop\n";
                 return;
             }   catch(std::exception &e){
                 std::cerr << e.what() << std::endl;
@@ -110,28 +110,60 @@ public:
         });
     }
 
+    void tcp_read_cam_thread(){
+        readCam = std::make_unique<std::thread>([&]{
+            tcp_client getCamFeed(host, camPort);
+            camera_library camera;
+
+            try {
+                getCamFeed.listen();
+                while(!completion){
+                    //auto test = Get.get_video();
+
+                    // cv::Mat img = cv::imdecode(test, IMREAD_COLOR);
+
+                    Mat img = camera.get_img_from_bits(getCamFeed.get_video());
+                    //std::cout << img << std::endl;
+                    cv::imshow("Lonk", img);
+                    bool found = camera.find_blue(img, 2);
+
+                    int key = waitKey(1);
+                    if (key == 'q' || found) {
+                        completion = true;
+                    }
+
+                }
+            } catch (const std::exception &e) {
+                std::cerr << e.what() << std::endl;
+            }
+        });
+    };
+
+    bool terminate_program(){
+        return completion;
+    }
 
     virtual ~thread_manager() {
         completion = true;
         if( readLonk->joinable() )  { readLonk->join(); }
-        std::cout << "readlonk is dead\n";
 
         if( decide->joinable() )    { decide->join(); }
 
         if( sendLonk->joinable() )  { sendLonk->join(); }
-        std::cout << "sendlonk is dead\n";
+
+        if( readCam->joinable() )  { readCam->join(); }
     }
 
 private:
-    std::string host = "10.25.47.143";
-    std::string receiverPort = "9093";
-    std::string senderPort = "9094";
+    std::string host            = "10.25.47.143";
+    std::string receiverPort    = "9093";
+    std::string senderPort      = "9094";
+    std::string camPort         = "9091";
 
     // system_timer stopWatch;
 
     std::condition_variable cv;
     std::mutex m;
-    std::mutex m2;
     bool completion;
     int i = 0;
 
@@ -141,6 +173,7 @@ private:
     std::unique_ptr<std::thread> readLonk;
     std::unique_ptr<std::thread> decide;
     std::unique_ptr<std::thread> sendLonk;
+    std::unique_ptr<std::thread> readCam;
 
 };
 
@@ -159,8 +192,9 @@ int main(int argc, char** argv) {
             threadManager.send_lonk_thread();
 
 
-            char input;
-            std::cin >> input;
+            while(!threadManager.terminate_program()){
+                std::this_thread::sleep_for(std::chrono::milliseconds(500));
+            }
         }
         return 0;
     }   catch(const std::exception &e) {

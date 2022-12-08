@@ -40,9 +40,11 @@ int main(int argc, char **argv) {
 
             // cv::Mat img = cv::imdecode(test, IMREAD_COLOR);
 
-
+            Mat img = camera.get_img_from_bits(Get.get_video());
             //std::cout << img << std::endl;
-            cv::imshow("Lonk", camera.get_img_from_bits(Get.get_video()));
+            cv::imshow("Lonk", img);
+            bool found = camera.find_blue(img, 2);
+
             int key = waitKey(1);
             if (key == 'q') {
                 stop = true;
