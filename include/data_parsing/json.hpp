@@ -6,6 +6,7 @@
 #define LONK_JSON_HPP
 
 #include <string>
+#include <mutex>
 #include <nlohmann/json.hpp>
 #include "data_parsing/received_data.hpp"
 
@@ -18,17 +19,26 @@ public:
     static void convert(const json &msgData, std::shared_ptr<received_data>& ptr,
                         std::mutex& m) {
         // get distance sensor values
-        int left  = msgData["sensors"]["left"].get<int>();
-        int front = msgData["sensors"]["front"].get<int>();
-        int right = msgData["sensors"]["right"].get<int>();
+        int left    = msgData["sensors"]["left"].get<int>();
+        int front   = msgData["sensors"]["front"].get<int>();
+        int right   = msgData["sensors"]["right"].get<int>();
+
+        int speed   = msgData["driving_data"]["speed"].get<int>();
+        int heading = msgData["driving_data"]["heading"].get<int>();
+
+        int yaw     = msgData["imu"]["yaw"].get<int>();
 
         // possibly more values will be passed over...
 
-        std::unique_lock<std::mutex> lock(m);
         // putting data in an object that can be passed around to functions.
-        ptr->distSensor.front = front;
-        ptr->distSensor.left  = left;
-        ptr->distSensor.right = right;
+        ptr->distSensor.front   = front;
+        ptr->distSensor.left    = left;
+        ptr->distSensor.right   = right;
+
+        ptr->drivingdata.speed  = speed;
+        ptr->drivingdata.heading= heading;
+
+        ptr->imu.yaw            = yaw;
     }
 
     static void read_json(const std::string& msg2, std::shared_ptr<received_data> parsedRMessage,
@@ -36,10 +46,10 @@ public:
         convert(json::parse(msg2), parsedRMessage, m);
     }
 
-/*    static json write_json(const json& msg1){
+    static json write_json(const json& msg1){
         std::string dump = msg1.dump();
         return dump;
-    }*/
+    }
 private:
 };
 

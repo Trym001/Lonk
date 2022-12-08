@@ -8,7 +8,6 @@
 #include <string>
 #include <thread>
 #include <memory>
-#include "tcp/tcp_client.hpp"
 
 
 struct where_go {
@@ -22,7 +21,6 @@ struct where_go {
     std::string turn(const int& left, const int& right, std::string& lonkCommand);
 
 private:
-    std::string lonkCommand_;
 };
 
 #endif //LONK_BIG_BRAIN_HPP

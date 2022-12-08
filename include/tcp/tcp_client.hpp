@@ -30,22 +30,25 @@ public:
     template <typename send>
 
     void send_message(send msg){
-        msgSize = static_cast<int>(msg.size());
+        int msgSize = static_cast<int>(msg.size());
         socket.send(boost::asio::buffer(int_to_bytes(msgSize), 4));
         socket.send(boost::asio::buffer(msg));
     }
 
     auto get_message(){
+        //std::cout << "We got in man \n";
         std::array<unsigned char, 4> sizeBuf{};
         boost::asio::read(socket, boost::asio::buffer(sizeBuf), boost::asio::transfer_exactly(4), error);
         if (error) {
             throw boost::system::system_error(error);
         }
+        //std::cout << "no error yet boss \n";
         boost::asio::streambuf buf;
         size_t len = boost::asio::read(socket, buf, boost::asio::transfer_exactly(bytes_to_int(sizeBuf)), error);
         if (error) {
             throw boost::system::system_error(error);
         }
+
         std::string data(boost::asio::buffer_cast<const char *>(buf.data()), len);
         return data;
     }
@@ -56,7 +59,6 @@ private:
     std::string host_;
     std::string port_;
     tcp::socket socket;
-    int msgSize;
 
 };
 #endif //LONK_TCP_CLIENT_HPP
