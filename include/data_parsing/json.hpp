@@ -23,6 +23,8 @@ public:
         int front   = msgData["sensors"]["front"].get<int>();
         int right   = msgData["sensors"]["right"].get<int>();
 
+        std::cout << "left: " << left << " front: " << front << " right: " << right << "\n";
+
         int speed   = msgData["driving_data"]["speed"].get<int>();
         int heading = msgData["driving_data"]["heading"].get<int>();
 

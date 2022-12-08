@@ -14,7 +14,3 @@ target_include_directories(test PUBLIC "${CMAKE_SOURCE_DIR}/include")
 target_link_libraries(test PRIVATE nlohmann_json::nlohmann_json)
 target_link_libraries(test PUBLIC cont)
 target_link_libraries(test PUBLIC CONAN_PKG::boost)
-
-
-
-

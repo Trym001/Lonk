@@ -24,24 +24,24 @@ public:
             try { client.listen(); }
             catch(const std::exception &e) { std::cerr << e.what() << std::endl; }
 
+            decide_thread();
+
             std::string receivedMessage;
             try {
                 while (!completion) {
                     // receive message from Lonk.
-                    std::unique_lock<std::mutex> lock(m);
-                    std::cout << "read waiting...\n";
-                    cv.wait(lock, [&] { return i == 1; });
-                    i = 0;
-                    std::cout << "read working...\n";
-
+                    //std::this_thread::sleep_for(std::chrono::seconds(5));
                     receivedMessage = client.get_message();
+                    // std::cout << i << ": read waiting...\n";
+                    //cv.wait(lock, [&] { return i == 0; });
+                    // std::cout << i << ": read working...\n";
                     // convert to usable data (parsedRMessage is a pointer)
+                    std::unique_lock<std::mutex> lock(m);
                     json_parsing::read_json(receivedMessage, parsedRMessage, m);
                     lock.unlock();
-                    i = 1;
-                    cv.notify_one();
-                    std::this_thread::sleep_for(std::chrono::milliseconds(20));
-                    //std::cout << parsedRMessage->distSensor.front << std::endl;
+                    //i = 1;
+                    //cv.notify_all();
+                    // std::cout << parsedRMessage->distSensor.front << "=================";
                 }
             }   catch(const std::exception &e) {
                 std::cerr << e.what() << std::endl;
@@ -51,30 +51,26 @@ public:
 
     void decide_thread(){
         decide = std::make_unique<std::thread>([&]{
+            std::this_thread::sleep_for(std::chrono::milliseconds(300));
             where_go whereGo;
             int heading, yaw, front, left, right;
             try {
                 while (!completion) {
-                    {
-                        //std::this_thread::sleep_for(std::chrono::milliseconds(100));
-                        std::unique_lock<std::mutex> lock(m);
-                        std::cout << "dec waiting for read...\n";
-                        lock.unlock();
-                        cv.wait(lock, [&] { return i == 1; });
-                        std::cout << "dec working: read...\n";
-                        i = 0;
+                    std::this_thread::sleep_for(std::chrono::milliseconds(200));
+                    std::unique_lock<std::mutex> lock(m);
+                    //std::cout << i << ": dec waiting for read...\n";
+                    cv.wait(lock, [&] { return i == 0; });
+                    //std::cout << i << ": dec working: read...\n";
 
-                        heading = parsedRMessage->drivingdata.heading;
-                        yaw = parsedRMessage->imu.yaw;
-                        front = parsedRMessage->distSensor.front;
-                        left = parsedRMessage->distSensor.left;
-                        right = parsedRMessage->distSensor.right;
-                    }
+                    heading = parsedRMessage->drivingdata.heading;
+                    yaw = parsedRMessage->imu.yaw;
+                    front = parsedRMessage->distSensor.front;
+                    left = parsedRMessage->distSensor.left;
+                    right = parsedRMessage->distSensor.right;
+                    lock.unlock();
 
-                    std::unique_lock<std::mutex> lk(m2);
                     lonkCommand = whereGo.onwards(heading, yaw, front);
                     lonkCommand = whereGo.turn(left, right, lonkCommand);
-                    lk.unlock();
                     i = 1;
                     cv.notify_all();
                 }
@@ -91,19 +87,20 @@ public:
             server.listen();
             try {
                 while (!completion) {
-                    //json kuk = "Left";
-                    //std::string kuk2 = json_parsing::write_json(kuk);
-                    //server.send_message(kuk2);
-                    //std::cout << "left was sent \n";
-                    std::unique_lock<std::mutex> lk(m2);
-                    std::cout << "send waiting for dec...\n";
-                    cv.wait(lk, [&] { return i == 1; });
-                    std::cout << "send working...\n";
+                    std::unique_lock<std::mutex> lock(m);
+                    //std::cout << i << ": send waiting for dec...\n";
+                    cv.wait(lock, [&] { return i == 1; });
 
                     json j_lonkCommand = lonkCommand;
                     lonkCommand = json_parsing::write_json(j_lonkCommand);
                     server.send_message(lonkCommand);
-                    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+
+                    std::cout << lonkCommand << "\n";
+
+                    lock.unlock();
+                    std::this_thread::sleep_for(std::chrono::seconds (3));
+                    i = 0;
+                    cv.notify_all();
                 }
                 std::cout << "out of loop\n";
                 return;
@@ -116,12 +113,13 @@ public:
 
     virtual ~thread_manager() {
         completion = true;
-        readLonk->join();
+        if( readLonk->joinable() )  { readLonk->join(); }
         std::cout << "readlonk is dead\n";
-        decide->join();
-        sendLonk->join();
-        std::cout
-        << "sendlonk is dead\n";
+
+        if( decide->joinable() )    { decide->join(); }
+
+        if( sendLonk->joinable() )  { sendLonk->join(); }
+        std::cout << "sendlonk is dead\n";
     }
 
 private:
@@ -135,7 +133,7 @@ private:
     std::mutex m;
     std::mutex m2;
     bool completion;
-    int i = 1;
+    int i = 0;
 
     std::shared_ptr<received_data> parsedRMessage = std::make_shared<received_data>(received_data());
     std::string lonkCommand;
@@ -153,10 +151,9 @@ int main(int argc, char** argv) {
 
         {
             thread_manager threadManager;
-            threadManager.read_lonk_thread();
-            std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
-            threadManager.decide_thread();
+            threadManager.read_lonk_thread();
+
             std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
             threadManager.send_lonk_thread();
