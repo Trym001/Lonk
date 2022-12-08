@@ -43,7 +43,7 @@ WARN: freetype/2.12.1: requirement libpng/1.6.39 overridden by ffmpeg/4.4 to lib
 WARN: freetype/2.12.1: requirement zlib/1.2.13 overridden by ffmpeg/4.4 to zlib/1.2.12 
 WARN: protobuf/3.17.1: requirement zlib/1.2.13 overridden by opencv/4.5.5 to zlib/1.2.12 
 ERROR: Conflict in boost/1.71.0:
-    'boost/1.71.0' requires 'zlib/1.2.13' while 'ffmpeg/4.4' requires 'zlib/1.2.12'.
+    'boost/1.71.0' requires 'zlib/1.2.13' while 'opencv/4.5.5' requires 'zlib/1.2.12'.
     To fix this conflict you need to override the package 'zlib' in your root package.
 CMake Error at cmake/conan.cmake:633 (message):
   Conan install failed='1'
