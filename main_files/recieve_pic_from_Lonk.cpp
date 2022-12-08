@@ -1,3 +1,7 @@
+//
+// Created by zaime on 12/7/2022.
+//
+
 #include <boost/asio.hpp>
 #include <array>
 #include <iostream>
@@ -6,7 +10,7 @@
 #include <fstream>
 
 #include "tcp/tcp_client.hpp"
-#include "other/json.hpp"
+#include "other/camera.hpp"
 
 
 
@@ -23,18 +27,26 @@ int main(int argc, char **argv) {
         port = argv[2];
     }
     tcp_client Get(host, port);
-    json_parsing pars;
+    camera_library camera;
 
     try {
 
 
         //tcp_client Send(host, port_2);
         Get.listen();
-        while(true){
-            auto msg = Get.get_message();
-            std::cout << pars.read_json(msg) << std::endl;
+        bool stop{false};
+        while(!stop){
+            //auto test = Get.get_video();
+
+            // cv::Mat img = cv::imdecode(test, IMREAD_COLOR);
 
 
+            //std::cout << img << std::endl;
+            cv::imshow("Lonk", camera.get_img_from_bits(Get.get_video()));
+            int key = waitKey(1);
+            if (key == 'q') {
+                stop = true;
+            }
 
         }
     } catch (const std::exception &e) {

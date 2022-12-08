@@ -26,7 +26,7 @@ int main(int argc, char **argv) {
     }
     tcp_client Get(host, port);
     controller ctrl;
-    json_parsing pikk;
+    json_parsing j_parser;
 
     int speed = 0;
     int heading = 0;
@@ -45,7 +45,7 @@ int main(int argc, char **argv) {
             //json j = "{\"speed\": 5, \"heading\": 330}"_json;
             json j = {{"speed", ctrl.speed()}, {"heading", ctrl.heading()}};
             //std::cout << "speed:"<< j << " heading:" << j["speed"] << std::endl;
-            std::string msg = pikk.write_json(j);
+            std::string msg = j_parser.write_json(j);
             //std::string test = "test";
             Get.send_message(msg);
 
