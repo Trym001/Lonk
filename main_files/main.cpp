@@ -109,10 +109,14 @@ public:
                 while(!completion){
                     Mat img = camera.get_img_from_bits(getCamFeed.get_video());
                     cv::imshow("Lonk", img);
-                    bool found = camera.find_blue(img, 2);
+                    bool found = camera.find_blue(img, 5);
 
                     int key = waitKey(1);
                     if (key == 'q' || found) {
+                        if( found ){
+                            std::cout << "We found the blue "
+                                         "Da ba dee da ba di \n";
+                        }
                         completion = true;
                     }
 

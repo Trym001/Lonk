@@ -38,7 +38,7 @@ public:
 
         double dArea = oMoments.m00;
 
-        if (dArea > (sens_*1000000))
+        if (dArea > (sens_*100000))
         {
             found_blue_ = true;
         }
