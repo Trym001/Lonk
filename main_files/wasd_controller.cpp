@@ -6,7 +6,8 @@
 
 #include "other/wasd_controller.hpp"
 #include "tcp/tcp_client.hpp"
-#include "other/json.hpp"
+#include "data_parsing/json.hpp"
+
 
 
 
@@ -17,7 +18,7 @@
 int main(int argc, char **argv) {
     //std::string host = "localhost";
     std::string host = "10.25.47.143";
-    std::string port = "9091";
+    std::string port = "9094";
     //std::string port_2 = "9091";
     if (argc == 3) {
         // assuming <hostname> <port>

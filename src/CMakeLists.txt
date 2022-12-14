@@ -1,6 +1,6 @@
-add_library(cpp controller.cpp system_timer.cpp wasd_controller.cpp big_brain.cpp)
+add_library(cpp_libraries controller.cpp system_timer.cpp wasd_controller.cpp path_finder.cpp)
 
-target_include_directories(cpp PUBLIC "${CMAKE_SOURCE_DIR}/include")
+target_include_directories(cpp_libraries PUBLIC "${CMAKE_SOURCE_DIR}/include")
 
 
 

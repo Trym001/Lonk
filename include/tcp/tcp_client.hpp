@@ -36,19 +36,16 @@ public:
     }
 
     auto get_message(){
-        //std::cout << "We got in man \n";
         std::array<unsigned char, 4> sizeBuf{};
         boost::asio::read(socket, boost::asio::buffer(sizeBuf), boost::asio::transfer_exactly(4), error);
         if (error) {
             throw boost::system::system_error(error);
         }
-        //std::cout << "no error yet boss \n";
         boost::asio::streambuf buf;
         size_t len = boost::asio::read(socket, buf, boost::asio::transfer_exactly(bytes_to_int(sizeBuf)), error);
         if (error) {
             throw boost::system::system_error(error);
         }
-
         std::string data(boost::asio::buffer_cast<const char *>(buf.data()), len);
         return data;
     }

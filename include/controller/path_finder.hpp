@@ -2,8 +2,8 @@
 // Created by Bruker on 05.12.2022.
 //
 
-#ifndef LONK_BIG_BRAIN_HPP
-#define LONK_BIG_BRAIN_HPP
+#ifndef LONK_PATH_FINDER_HPP
+#define LONK_PATH_FINDER_HPP
 
 #include <string>
 #include <thread>
@@ -23,4 +23,4 @@ struct where_go {
 private:
 };
 
-#endif //LONK_BIG_BRAIN_HPP
+#endif //LONK_PATH_FINDER_HPP

@@ -4,7 +4,7 @@
 #include <thread>
 #include <iostream>
 #include "data_parsing/json.hpp"
-#include "controller/big_brain.hpp"
+#include "controller/path_finder.hpp"
 #include "tcp/tcp_client.hpp"
 #include "other/camera.hpp"
 
@@ -76,6 +76,7 @@ public:
         sendLonk = std::make_unique<std::thread>([&]{
             tcp_client server(host, senderPort);
             server.listen();
+            std::string prevCommand{};
             try {
                 while (!completion) {
                     std::unique_lock<std::mutex> lock(m);
@@ -84,8 +85,14 @@ public:
                     json j_lonkCommand = lonkCommand;
                     lonkCommand = json_parsing::write_json(j_lonkCommand);
                     server.send_message(lonkCommand);
-
-                    std::cout << lonkCommand << "\n";
+                    if( prevCommand != lonkCommand){
+                        std::cout << "Decision: " << lonkCommand <<
+                        " was made with: "
+                        << " left: " << parsedRMessage->distSensor.left
+                        << " front: " << parsedRMessage->distSensor.front
+                        << " right: " << parsedRMessage->distSensor.right << "\n";
+                    }
+                    prevCommand = lonkCommand;
 
                     lock.unlock();
                     std::this_thread::sleep_for(std::chrono::seconds (3));
@@ -109,7 +116,7 @@ public:
                 while(!completion){
                     Mat img = camera.get_img_from_bits(getCamFeed.get_video());
                     cv::imshow("Lonk", img);
-                    bool found = camera.find_blue(img, 5);
+                    bool found = camera.find_blue(img, 7);
 
                     int key = waitKey(1);
                     if (key == 'q' || found) {

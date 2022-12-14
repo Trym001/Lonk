@@ -5,7 +5,7 @@
 #include <string>
 #include <chrono>
 #include <memory>
-#include "controller/big_brain.hpp"
+#include "controller/path_finder.hpp"
 
 using std::string, std::chrono::milliseconds;
 
