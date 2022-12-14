@@ -10,7 +10,6 @@
 using std::string, std::chrono::milliseconds;
 
 string where_go::onwards(const int &heading, const int &yaw, const int &front) {
-    // cv wait until receive-thread sends this_thread sends updated values (promise/future .get() can be useful)
     string lonkCommand = "not_onwards";
     if (front > 200) {
         lonkCommand = "onwards";

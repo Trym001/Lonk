@@ -14,7 +14,7 @@ struct where_go {
     // drive onwards
     std::string onwards(const int& heading, const int& yaw, const int& front);
 
-    // bzz bzzz msg from Lonk: "I haf stoopt" (condition variable from )
+    // bzz bzzz msg from Lonk: "I haf stoopt" (condition variable)
     // if venstre clear
     // else if høyre clear
     // else 180
