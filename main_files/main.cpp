@@ -22,7 +22,7 @@ public:
             // establish connection with Lonk (RVR/raspberry).
             try { client.listen(); }
             catch(const std::exception &e) { std::cerr << e.what() << std::endl; }
-
+            // spawns the thread that makes decisions.
             decide_thread();
 
             std::string receivedMessage;
@@ -31,8 +31,8 @@ public:
                     // receive message from Lonk.
                     receivedMessage = client.get_message();
 
-                    // convert to usable data (parsedRMessage is a pointer)
-                    std::unique_lock<std::mutex> lock(m);
+                    // convert to usable data (parsedRMessage is a smart pointer)
+                    std::unique_lock<std::mutex> lock(m); // locks the mutex "m".
                     json_parsing::read_json(receivedMessage, parsedRMessage, m);
                     lock.unlock();
                 }
@@ -50,9 +50,12 @@ public:
             try {
                 while (!completion) {
                     std::this_thread::sleep_for(std::chrono::milliseconds(200));
+                    // creates the unique_lock "lock"
                     std::unique_lock<std::mutex> lock(m);
+                    // thread waits here until "i" condition has been met. It has to be notified to check the condition.
                     cv.wait(lock, [&] { return i == 0; });
 
+                    // interacts with parsedRMessage therefore needs to be locked
                     heading = parsedRMessage->drivingdata.heading;
                     yaw = parsedRMessage->imu.yaw;
                     front = parsedRMessage->distSensor.front;
@@ -60,10 +63,11 @@ public:
                     right = parsedRMessage->distSensor.right;
                     lock.unlock();
 
+                    // This could have been one function instead of two.
                     lonkCommand = whereGo.onwards(heading, yaw, front);
                     lonkCommand = whereGo.turn(left, right, lonkCommand);
                     i = 1;
-                    cv.notify_all();
+                    cv.notify_all(); // condition set for the next thread to run and notify is called.
                 }
             }   catch (const std::exception &e){
                 std::cerr << e.what() << std::endl;
@@ -80,12 +84,12 @@ public:
             try {
                 while (!completion) {
                     std::unique_lock<std::mutex> lock(m);
-                    cv.wait(lock, [&] { return i == 1; });
+                    cv.wait(lock, [&] { return i == 1; }); //Waits for notify from thread decide.
 
                     json j_lonkCommand = lonkCommand;
-                    lonkCommand = json_parsing::write_json(j_lonkCommand);
-                    server.send_message(lonkCommand);
-                    if( prevCommand != lonkCommand){
+                    j_lonkCommand = json_parsing::write_json(j_lonkCommand); // parses msg getting it ready to be sent.
+                    server.send_message(j_lonkCommand); // Sends msg to python.
+                    if( prevCommand != lonkCommand){ // our mock GUI in combination with camera feed from next thread.
                         std::cout << "Decision: " << lonkCommand <<
                         " was made with: "
                         << " left: " << parsedRMessage->distSensor.left
@@ -94,10 +98,12 @@ public:
                     }
                     prevCommand = lonkCommand;
 
-                    lock.unlock();
+                    lock.unlock(); // lets readLonk thread write to parsedRMessage again.
+                    //These two threads (send & receive) should not be entangled like this.
+
                     std::this_thread::sleep_for(std::chrono::seconds (3));
-                    i = 0;
-                    cv.notify_all();
+                    i = 0; // resets condition
+                    cv.notify_all();// notifies decide.
                 }
                 return;
             }   catch(std::exception &e){
@@ -112,13 +118,17 @@ public:
             camera_library camera;
 
             try {
+                // connects to camera socket.
                 getCamFeed.listen();
                 while(!completion){
+                    // convert img form bits to actual frame
                     Mat img = camera.get_img_from_bits(getCamFeed.get_video());
                     cv::imshow("Lonk", img);
+                    // looks for blue thing
                     bool found = camera.find_blue(img, 7);
 
                     int key = waitKey(1);
+                    // if user presses "q" or lonk finds blue thing program terminates.
                     if (key == 'q' || found) {
                         if( found ){
                             std::cout << "We found the blue "
@@ -178,6 +188,7 @@ int main(int argc, char** argv) {
     {
 
         {
+            // this scope spawn threads. When it exits threads join.
             thread_manager threadManager;
 
             threadManager.read_lonk_thread();
